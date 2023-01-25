@@ -1,6 +1,6 @@
-# Getting Started with Create React App
+# Prietenii Geneticii
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+React App for As. Prietenii Geneticii
 
 ## Available Scripts
 
