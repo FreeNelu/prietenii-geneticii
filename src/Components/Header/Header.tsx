@@ -2,7 +2,7 @@ import React from 'react';
 import { useStyles } from './Header.styles'
 import { AppBar, Box, Toolbar, IconButton, Typography, Menu, Container, Button, MenuItem } from '@mui/material';
 import MenuIcon from '@mui/icons-material/Menu';
-import LogoIcon from '../CustomIcons/LogoIcon'
+import LogoIcon from '../Icons/LogoIcon'
 
 const pages = ['About us', 'News'];
 

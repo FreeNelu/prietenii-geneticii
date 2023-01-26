@@ -8,7 +8,7 @@ function App() {
   return (
     <div className={classes.App}>
       <Header />
-      yoo
+
     </div>
   );
 }
