@@ -1,6 +1,6 @@
 import React from 'react';
 import { useStyles } from './Header.styles'
-import { AppBar, Box, Toolbar, IconButton, Typography, Menu, Container, Button, MenuItem, Drawer, List, ListItem, ListItemText, Popover, useMediaQuery, useTheme } from '@mui/material';
+import { AppBar, Box, Toolbar, IconButton, Typography, Container, Button, List, ListItem, Popover, useMediaQuery, useTheme } from '@mui/material';
 import MenuIcon from '@mui/icons-material/Menu';
 import LogoIcon from '../Icons/LogoIcon'
 
@@ -33,16 +33,18 @@ function Header(props: HeaderProps) {
             role="presentation"
             onClick={handleCloseNavMenu}
             onKeyDown={handleCloseNavMenu}>
-            <ListItem className={classes.MenuItem}>
-                <ListItemText primary="About us" />
+            <ListItem className={classes.MenuItem}
+                sx={{ borderTopLeftRadius: "37px", borderTopRightRadius: "37px" }}>
+                <Typography>About us</Typography>
             </ListItem>
             <ListItem className={classes.MenuItem}>
-                <ListItemText primary="Publications" />
+                <Typography>Publications</Typography>
             </ListItem>
-            <ListItem className={classes.MenuItemHighlight}>
-                <ListItemText primary="Donate now" />
+            <ListItem className={classes.MenuItemHighlight}
+                sx={{ borderBottomLeftRadius: "37px", borderBottomRightRadius: "37px" }}>
+                <Typography>Donate now</Typography>
             </ListItem>
-        </List>
+        </List >
     );
 
     return (
@@ -122,7 +124,7 @@ function Header(props: HeaderProps) {
                             }}
                             PaperProps={{
                                 sx: {
-                                    borderRadius: "10px",
+                                    borderRadius: "42px",
                                 }
                             }}
                         >

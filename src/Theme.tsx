@@ -2,7 +2,8 @@ import { createMakeAndWithStyles } from "tss-react";
 
 function useTheme() {
     return {
-        background: "#ebefeb",
+        textPrimary: "#261425",
+        background: "#EBEFEB",
         blue: "#01B5E3",
         pink: "#E03D8C",
         green: "#69C441",

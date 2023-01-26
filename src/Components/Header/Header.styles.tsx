@@ -2,7 +2,9 @@ import { makeStyles } from "Theme";
 
 export const useStyles = makeStyles()(
     (theme) => ({
-        AppBar: { boxShadow: "none" },
+        AppBar: {
+            boxShadow: "none",
+        },
         Logo: {
             display: "flex",
             marginTop: 32,
@@ -17,13 +19,14 @@ export const useStyles = makeStyles()(
             color: '#E03D8C',
         },
         PageButton: {
-            color: theme.blue,
+            color: theme.textPrimary,
             marginRight: 12,
         },
         DonateButton: {
             color: "white",
             backgroundColor: theme.green,
-            padding: "8px 12px",
+            padding: "10px 20px",
+            fontWeight: 700,
             ':hover': {
                 backgroundColor: theme.darkgreen,
             },
@@ -36,25 +39,41 @@ export const useStyles = makeStyles()(
             justifyContent: "flex-end"
         },
         MenuItem: {
+            cursor: "pointer",
+            borderBottom: "4px solid",
+            borderColor: theme.textPrimary,
+            height: 64,
             ':hover': {
                 background: theme.blue,
                 color: "white",
-                height: 64,
+                height: 82,
+                "p": {
+                    fontSize: 20,
+                    fontWeight: 700,
+                }
             }
         },
         MenuItemHighlight: {
-            color: theme.green,
+            cursor: "pointer",
+            color: "white",
+            background: theme.green,
+            height: 64,
             ':hover': {
-                background: theme.green,
-                color: "white",
-                height: 64,
+                background: theme.darkgreen,
+                height: 82,
+                "p": {
+                    fontSize: 20,
+                    fontWeight: 700,
+                }
             }
         },
         Menu: {
             minWidth: 250,
-            border: '3px solid',
-            borderRadius: '10px',
+            border: '5px solid',
+            borderColor: theme.textPrimary,
+            borderRadius: '42px',
             backgroundColor: theme.background,
-        }
+            padding: 0,
+        },
     })
 );
