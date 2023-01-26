@@ -1,1 +1,10 @@
-.Header {}
+@import '../../Theme/colors.scss';
+
+.Logo {
+    display: flex;
+    margin-top: 32px;
+
+    a {
+        margin-top: auto;
+    }
+}
