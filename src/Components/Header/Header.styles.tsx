@@ -6,17 +6,15 @@ export const useStyles = makeStyles()(
         Logo: {
             display: "flex",
             marginTop: 32,
-            "a": {
-                marginTop: "auto",
-            }
         },
         LogoText: {
             fontFamily: 'monospace',
             fontWeight: 700,
-            color: '#E03D8C',
             textDecoration: 'none',
             lineHeight: 1,
             pointerEvents: 'none',
+            marginTop: "auto",
+            color: '#E03D8C',
         },
         PageButton: {
             color: theme.blue,

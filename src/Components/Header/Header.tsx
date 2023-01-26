@@ -36,9 +36,9 @@ function Header(props: HeaderProps) {
                             component="a"
                             className={classes.LogoText}
                         >
-                            Prietenii
+                            PRIETENII
                             <br />
-                            Geneticii
+                            GENETICII
                         </Typography>
                     </div>
 
