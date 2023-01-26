@@ -20,12 +20,10 @@ export const useStyles = makeStyles()(
         },
         PageButton: {
             color: theme.blue,
-            fontSize: 16,
             marginRight: 12,
         },
         DonateButton: {
             color: "white",
-            fontSize: 16,
             backgroundColor: theme.green,
             padding: "8px 12px",
             ':hover': {
