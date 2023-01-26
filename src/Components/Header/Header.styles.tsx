@@ -33,10 +33,28 @@ export const useStyles = makeStyles()(
         },
         RightBox: {
             flexGrow: 1,
-            justifyContent: "flex-end",
+            justifyContent: "flex-end"
         },
-        DropdownTextHighlight: {
-            color: theme.green
+        MenuItem: {
+            ':hover': {
+                background: theme.blue,
+                color: "white",
+                height: 64,
+            }
+        },
+        MenuItemHighlight: {
+            color: theme.green,
+            ':hover': {
+                background: theme.green,
+                color: "white",
+                height: 64,
+            }
+        },
+        Menu: {
+            minWidth: 250,
+            border: '3px solid',
+            borderRadius: '10px',
+            backgroundColor: theme.background,
         }
     })
 );

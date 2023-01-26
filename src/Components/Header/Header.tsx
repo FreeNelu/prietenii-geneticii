@@ -1,10 +1,10 @@
 import React from 'react';
 import { useStyles } from './Header.styles'
-import { AppBar, Box, Toolbar, IconButton, Typography, Menu, Container, Button, MenuItem } from '@mui/material';
+import { AppBar, Box, Toolbar, IconButton, Typography, Menu, Container, Button, MenuItem, Drawer, List, ListItem, ListItemText, Popover, useMediaQuery, useTheme } from '@mui/material';
 import MenuIcon from '@mui/icons-material/Menu';
 import LogoIcon from '../Icons/LogoIcon'
 
-const pages = ['About us', 'News'];
+const pages = ['About us', 'Publications'];
 
 type HeaderProps = {
     className?: string;
@@ -13,6 +13,9 @@ type HeaderProps = {
 function Header(props: HeaderProps) {
     const { className } = props;
     const [anchorElNav, setAnchorElNav] = React.useState<null | HTMLElement>(null);
+
+    const theme = useTheme();
+    const isMobile = useMediaQuery(theme.breakpoints.down('md'));
 
     const { classes, cx } = useStyles();
 
@@ -23,6 +26,24 @@ function Header(props: HeaderProps) {
     const handleCloseNavMenu = () => {
         setAnchorElNav(null);
     };
+
+    const MenuList = () => (
+        <List
+            className={classes.Menu}
+            role="presentation"
+            onClick={handleCloseNavMenu}
+            onKeyDown={handleCloseNavMenu}>
+            <ListItem className={classes.MenuItem}>
+                <ListItemText primary="About us" />
+            </ListItem>
+            <ListItem className={classes.MenuItem}>
+                <ListItemText primary="Publications" />
+            </ListItem>
+            <ListItem className={classes.MenuItemHighlight}>
+                <ListItemText primary="Donate now" />
+            </ListItem>
+        </List>
+    );
 
     return (
         <AppBar position="static" color='transparent' className={cx(classes.AppBar, className)}>
@@ -70,7 +91,7 @@ function Header(props: HeaderProps) {
                             }}
                             className={classes.DonateButton}
                         >
-                            {"Donate"}
+                            {"Donate now"}
                         </Button>
                     </Box>
                     <Box className={classes.RightBox} sx={{
@@ -87,33 +108,26 @@ function Header(props: HeaderProps) {
                         >
                             <MenuIcon className={classes.MenuIcon} />
                         </IconButton>
-                        <Menu
-                            id="menu-appbar"
+                        <Popover
+                            open={Boolean(anchorElNav) && isMobile}
                             anchorEl={anchorElNav}
+                            onClose={handleCloseNavMenu}
                             anchorOrigin={{
                                 vertical: 'bottom',
-                                horizontal: 'left',
+                                horizontal: 'center',
                             }}
-                            keepMounted
                             transformOrigin={{
                                 vertical: 'top',
-                                horizontal: 'left',
+                                horizontal: 'center',
                             }}
-                            open={Boolean(anchorElNav)}
-                            onClose={handleCloseNavMenu}
-                            sx={{
-                                display: { xs: 'block', md: 'none' },
+                            PaperProps={{
+                                sx: {
+                                    borderRadius: "10px",
+                                }
                             }}
                         >
-                            {pages.map((page) => (
-                                <MenuItem key={page} onClick={handleCloseNavMenu}>
-                                    <Typography textAlign="center">{page}</Typography>
-                                </MenuItem>
-                            ))}
-                            <MenuItem key={"Donate"} onClick={handleCloseNavMenu}>
-                                <Typography className={classes.DropdownTextHighlight} textAlign="center">{"Donate"}</Typography>
-                            </MenuItem>
-                        </Menu>
+                            <MenuList />
+                        </Popover>
                     </Box>
                 </Toolbar>
             </Container>
