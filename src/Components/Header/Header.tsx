@@ -1,14 +1,20 @@
 import React from 'react';
-import './Header.scss';
-import '../../Theme/colors.scss';
+import { useStyles } from './Header.styles'
 import { AppBar, Box, Toolbar, IconButton, Typography, Menu, Container, Button, MenuItem } from '@mui/material';
 import MenuIcon from '@mui/icons-material/Menu';
 import LogoIcon from '../CustomIcons/LogoIcon'
 
 const pages = ['About us', 'News'];
 
-function Header() {
+type HeaderProps = {
+    className?: string;
+};
+
+function Header(props: HeaderProps) {
+    const { className } = props;
     const [anchorElNav, setAnchorElNav] = React.useState<null | HTMLElement>(null);
+
+    const { classes, cx } = useStyles();
 
     const handleOpenNavMenu = (event: React.MouseEvent<HTMLElement>) => {
         setAnchorElNav(event.currentTarget);
@@ -19,26 +25,16 @@ function Header() {
     };
 
     return (
-        <AppBar position="static" color='transparent' sx={{ boxShadow: "none" }}>
+        <AppBar position="static" color='transparent' className={cx(classes.AppBar, className)}>
             <Container maxWidth="xl">
-                <Toolbar disableGutters sx={{
-                    display: "flex",
-                    justifyContent: "space-between"
-                }}>
-                    <div className="Logo">
+                <Toolbar disableGutters>
+                    <div className={classes.Logo}>
                         <LogoIcon height={96} />
                         <Typography
                             variant="h5"
                             noWrap
                             component="a"
-                            sx={{
-                                fontFamily: 'monospace',
-                                fontWeight: 700,
-                                color: '#E03D8C',
-                                textDecoration: 'none',
-                                lineHeight: 1,
-                                pointerEvents: 'none'
-                            }}
+                            className={classes.LogoText}
                         >
                             Prietenii
                             <br />
@@ -46,16 +42,20 @@ function Header() {
                         </Typography>
                     </div>
 
-                    <Box sx={{
-                        flexGrow: 1, display: {
-                            xs: 'none', md: 'flex', justifyContent: "flex-end"
+                    <Box className={classes.RightBox} sx={{
+                        display: {
+                            xs: 'none', md: 'flex'
                         }
                     }}>
                         {pages.map((page) => (
                             <Button
                                 key={page}
                                 onClick={handleCloseNavMenu}
-                                sx={{ my: 2, color: "#01B5E3", fontSize: 16, marginRight: 2, borderRadius: 6 }}
+                                sx={{
+                                    my: 2,
+                                    borderRadius: 6,
+                                }}
+                                className={classes.PageButton}
                             >
                                 {page}
                             </Button>
@@ -65,16 +65,19 @@ function Header() {
                             key={"Donate"}
                             onClick={handleCloseNavMenu}
                             sx={{
-                                my: 2, color: "white", fontSize: 16, backgroundColor: "#69C441", padding: "8px 12px", borderRadius: 6,
-                                ':hover': {
-                                    bgcolor: '#60b43b',
-                                },
+                                my: 2,
+                                borderRadius: 6,
                             }}
+                            className={classes.DonateButton}
                         >
                             {"Donate"}
                         </Button>
                     </Box>
-                    <Box sx={{ flexGrow: 1, display: { xs: 'flex', md: 'none', justifyContent: "flex-end" } }}>
+                    <Box className={classes.RightBox} sx={{
+                        display: {
+                            xs: 'flex', md: 'none'
+                        }
+                    }}>
                         <IconButton
                             size="large"
                             aria-controls="menu-appbar"
@@ -82,7 +85,7 @@ function Header() {
                             onClick={handleOpenNavMenu}
                             color="inherit"
                         >
-                            <MenuIcon sx={{ fontSize: "2rem" }} />
+                            <MenuIcon className={classes.MenuIcon} />
                         </IconButton>
                         <Menu
                             id="menu-appbar"
@@ -108,7 +111,7 @@ function Header() {
                                 </MenuItem>
                             ))}
                             <MenuItem key={"Donate"} onClick={handleCloseNavMenu}>
-                                <Typography sx={{ color: "#69C441" }} textAlign="center">{"Donate"}</Typography>
+                                <Typography className={classes.DropdownTextHighlight} textAlign="center">{"Donate"}</Typography>
                             </MenuItem>
                         </Menu>
                     </Box>

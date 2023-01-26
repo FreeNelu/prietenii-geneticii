@@ -1,10 +1,12 @@
 import React from 'react';
 import Header from '../Components/Header/Header';
-import './App.scss';
+import { useStyles } from './App.styles'
 
 function App() {
+  const { classes } = useStyles();
+
   return (
-    <div className="App">
+    <div className={classes.App}>
       <Header />
       yoo
     </div>
