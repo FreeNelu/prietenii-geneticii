@@ -11,7 +11,7 @@ function MainPage(props: MainPageProps) {
     const theme = useTheme();
     const isMobile = useMediaQuery(theme.breakpoints.down('md'));
 
-    const { classes, cx } = useStyles();
+    const { classes } = useStyles();
 
 
     return (
