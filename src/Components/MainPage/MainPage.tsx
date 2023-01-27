@@ -3,6 +3,7 @@ import { useStyles } from './MainPage.styles'
 import { Box, useMediaQuery, useTheme } from '@mui/material';
 import girlImage from 'Assets/girlImage.png'
 import Wave from 'Components/Icons/Wave';
+import ReviewsCarousel from 'Components/ReviewsCarousel/ReviewsCarousel';
 
 type MainPageProps = {
 };
@@ -35,6 +36,7 @@ function MainPage(props: MainPageProps) {
                     component="img"
                     sx={{
                         paddingRight: isMobile ? 0 : "15%",
+                        minWidth: isMobile ? 284 : 300,
                     }}
                     className={classes.ImageBox}
                     alt="Girl climbing stairs made out of DNA"
@@ -42,7 +44,9 @@ function MainPage(props: MainPageProps) {
                 />
             </Box >
             <Wave className={classes.Wave} />
-            <div style={{ width: "100%", height: "500px", backgroundColor: "#E03D8C", }} />
+            <div style={{ width: "100%", backgroundColor: "#E03D8C", }}>
+                <ReviewsCarousel className={classes.Reviews} />
+            </div>
         </>
     );
 }

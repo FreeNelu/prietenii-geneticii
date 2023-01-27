@@ -23,11 +23,13 @@ export const useStyles = makeStyles()(
         },
         ImageBox: {
             maxWidth: 400,
-            minWidth: 284,
             width: "100%",
             alignSelf: "center",
             margin: "0px auto",
             flex: 1,
+        },
+        Reviews: {
+            padding: "128px 15% ",
         }
     })
 );
