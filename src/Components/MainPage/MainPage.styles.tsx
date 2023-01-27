@@ -17,6 +17,8 @@ export const useStyles = makeStyles()(
             float: "left",
             minWidth: 284,
             minHeight: 400,
+            padding: "5%",
+            color: theme.textPrimary,
             flex: 1,
         },
         ImageBox: {

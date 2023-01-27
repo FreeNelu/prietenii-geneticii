@@ -57,23 +57,6 @@ export const useStyles = makeStyles()(
             cursor: "pointer",
             color: "white",
             background: theme.green,
-            height: 64,
-            "p": {
-                fontSize: 18,
-                fontWeight: 700,
-            },
-            ':hover': {
-                background: theme.darkgreen,
-                height: 82,
-                "p": {
-                    fontSize: 20,
-                }
-            }
-        },
-        MenuItemHighlightMobile: {
-            cursor: "pointer",
-            color: "white",
-            background: theme.green,
             height: 82,
             "p": {
                 fontSize: 20,
@@ -82,7 +65,6 @@ export const useStyles = makeStyles()(
             ':hover': {
                 background: theme.darkgreen,
             }
-
         },
         Menu: {
             minWidth: 250,
