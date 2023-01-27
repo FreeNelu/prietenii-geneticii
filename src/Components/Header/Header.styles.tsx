@@ -70,6 +70,20 @@ export const useStyles = makeStyles()(
                 }
             }
         },
+        MenuItemHighlightMobile: {
+            cursor: "pointer",
+            color: "white",
+            background: theme.green,
+            height: 82,
+            "p": {
+                fontSize: 20,
+                fontWeight: 700,
+            },
+            ':hover': {
+                background: theme.darkgreen,
+            }
+
+        },
         Menu: {
             minWidth: 250,
             border: '5px solid',

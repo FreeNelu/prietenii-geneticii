@@ -40,7 +40,7 @@ function Header(props: HeaderProps) {
             <ListItem className={classes.MenuItem}>
                 <Typography>Publications</Typography>
             </ListItem>
-            <ListItem className={classes.MenuItemHighlight}
+            <ListItem className={isMobile ? classes.MenuItemHighlightMobile : classes.MenuItemHighlight}
                 sx={{ borderBottomLeftRadius: "37px", borderBottomRightRadius: "37px" }}>
                 <Typography>Donate now</Typography>
             </ListItem>
