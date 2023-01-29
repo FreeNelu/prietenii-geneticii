@@ -31,15 +31,13 @@ function Header (props: HeaderProps) {
             role="presentation"
             onClick={handleCloseNavMenu}
             onKeyDown={handleCloseNavMenu}>
-            <ListItem className={cx(classes.MenuItem, classes.MenuItemPink)}
-                sx={{ borderTopLeftRadius: '36px', borderTopRightRadius: '36px' }}>
+            <ListItem className={cx(classes.MenuItem, classes.MenuItemPink)}>
                 <Typography>About us</Typography>
             </ListItem>
             <ListItem className={cx(classes.MenuItem, classes.MenuItemBlue)}>
                 <Typography>Publications</Typography>
             </ListItem>
-            <ListItem className={cx(classes.MenuItem, classes.MenuItemGreen)}
-                sx={{ borderBottomLeftRadius: '32px', borderBottomRightRadius: '32px' }}>
+            <ListItem className={cx(classes.MenuItem, classes.MenuItemGreen)}>
                 <Typography>Donate now</Typography>
             </ListItem>
         </List >

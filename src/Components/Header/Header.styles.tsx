@@ -53,6 +53,8 @@ export const useStyles = makeStyles()(
       }
     },
     MenuItemPink: {
+      borderTopLeftRadius: '36px',
+      borderTopRightRadius: '36px',
       ':hover': {
         background: theme.pink
       }
@@ -65,6 +67,8 @@ export const useStyles = makeStyles()(
     MenuItemGreen: {
       color: 'white',
       background: theme.green,
+      borderBottomLeftRadius: '32px',
+      borderBottomRightRadius: '32px',
       ':hover': {
         background: theme.darkgreen
       },
