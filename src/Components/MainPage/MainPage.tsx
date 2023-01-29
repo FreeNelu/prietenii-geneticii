@@ -40,9 +40,7 @@ function MainPage () {
                 />
             </Box >
             <Wave className={classes.Wave} />
-            <div className={classes.PinkContainer}>
-                <CustomCarousel className={classes.Carousel} />
-            </div>
+            <CustomCarousel className={classes.Carousel} containerClassName={classes.CarouselContainer} bigText='Lorem ipsum' smallText='Lorem ipsum dolor sit amet.'/>
         </>
   )
 }

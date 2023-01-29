@@ -29,15 +29,18 @@ export const useStyles = makeStyles()(
       flex: 1
     },
     Carousel: {
-      padding: '192px 64px',
-      width: '100%',
-      maxWidth: 600
+      maxWidth: 600,
+      paddingLeft: 64,
+      paddingRight: 64,
+      width: '100%'
     },
-    PinkContainer: {
+    CarouselContainer: {
       width: '100%',
       backgroundColor: '#E03D8C',
       display: 'flex',
-      justifyContent: 'center'
+      justifyContent: 'center',
+      paddingTop: 164,
+      paddingBottom: 128
     }
   })
 )

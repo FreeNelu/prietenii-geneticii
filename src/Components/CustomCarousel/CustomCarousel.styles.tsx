@@ -7,6 +7,9 @@ export const useStyles = makeStyles()(
     },
     ActiveIndicator: {
       color: theme.textPrimary
+    },
+    TextBox: {
+      color: theme.background
     }
   })
 )
