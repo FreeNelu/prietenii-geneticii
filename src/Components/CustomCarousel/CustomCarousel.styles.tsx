@@ -7,9 +7,6 @@ export const useStyles = makeStyles()(
     },
     ActiveIndicator: {
       color: theme.textPrimary
-    },
-    Arrow: {
-      opacity: 0.4
     }
   })
 )

@@ -15,18 +15,16 @@ function ReviewsCarousel (props: ReviewsCarouselProps) {
     <Carousel
       className={className}
       stopAutoPlayOnHover
-      swipe
-      navButtonsAlwaysVisible
-      animation='slide'
+      duration={750}
+      navButtonsAlwaysVisible={false}
       indicatorIconButtonProps={{ className: classes.Indicator }}
       activeIndicatorIconButtonProps={{ className: classes.ActiveIndicator }}
-      navButtonsProps={{ className: classes.Arrow }}
     >
-      <CustomCard title='Test title' description='test description' />
-      <CustomCard title='Test title' description='test description' />
-      <CustomCard title='Test title' description='test description' />
-      <CustomCard title='Test title' description='test description' />
-      <CustomCard title='Test title' description='test description' />
+      <CustomCard imageUrl='https://i.pravatar.cc/300' name='Person1' description='Test description1 Test description1 Test description1Test description1 Test description1 Test description1 Test description1Test description1 Test description1 Test description1 Test description1 Test description1 Test description1 Test description1 Test description1 Test description1' />
+      <CustomCard imageUrl='https://i.pravatar.cc/300' name='Person2' description='Test description2 Test description2' />
+      <CustomCard imageUrl='https://i.pravatar.cc/300' name='Person3' description='Test description3 Test description3 Test description3' />
+      <CustomCard imageUrl='https://i.pravatar.cc/300' name='Person4' description='Test description4 Test description4 Test description4 Test description4 Test description4 Test description4 Test description4 Test description4' />
+      <CustomCard imageUrl='https://i.pravatar.cc/300' name='Person5' description='Test description5 Test description5 Test description5 Test description5 Test description5 Test description5 Test description5 Test description5 Test description5 Test description5 Test description5 Test description5 Test description5 Test description5 Test description5' />
     </Carousel >
   )
 }

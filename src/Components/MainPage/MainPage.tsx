@@ -40,8 +40,8 @@ function MainPage () {
                 />
             </Box >
             <Wave className={classes.Wave} />
-            <div style={{ width: '100%', backgroundColor: '#E03D8C' }}>
-                <CustomCarousel className={classes.Reviews} />
+            <div className={classes.PinkContainer}>
+                <CustomCarousel className={classes.Carousel} />
             </div>
         </>
   )

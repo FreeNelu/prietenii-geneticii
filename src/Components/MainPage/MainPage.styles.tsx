@@ -28,8 +28,16 @@ export const useStyles = makeStyles()(
       margin: '0px auto',
       flex: 1
     },
-    Reviews: {
-      padding: '128px 15% '
+    Carousel: {
+      padding: '192px 64px',
+      width: '100%',
+      maxWidth: 600
+    },
+    PinkContainer: {
+      width: '100%',
+      backgroundColor: '#E03D8C',
+      display: 'flex',
+      justifyContent: 'center'
     }
   })
 )
