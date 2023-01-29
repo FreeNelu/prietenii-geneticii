@@ -4,8 +4,6 @@ import { AppBar, Box, Toolbar, IconButton, Typography, Container, Button, List, 
 import MenuIcon from '@mui/icons-material/Menu'
 import LogoIcon from '../Icons/LogoIcon'
 
-const pages = ['About us', 'Publications']
-
 interface HeaderProps {
   className?: string
 }
@@ -33,15 +31,15 @@ function Header (props: HeaderProps) {
             role="presentation"
             onClick={handleCloseNavMenu}
             onKeyDown={handleCloseNavMenu}>
-            <ListItem className={classes.MenuItem}
-                sx={{ borderTopLeftRadius: '37px', borderTopRightRadius: '37px' }}>
+            <ListItem className={cx(classes.MenuItem, classes.MenuItemPink)}
+                sx={{ borderTopLeftRadius: '36px', borderTopRightRadius: '36px' }}>
                 <Typography>About us</Typography>
             </ListItem>
-            <ListItem className={classes.MenuItem}>
+            <ListItem className={cx(classes.MenuItem, classes.MenuItemBlue)}>
                 <Typography>Publications</Typography>
             </ListItem>
-            <ListItem className={classes.MenuItemHighlight}
-                sx={{ borderBottomLeftRadius: '37px', borderBottomRightRadius: '37px' }}>
+            <ListItem className={cx(classes.MenuItem, classes.MenuItemGreen)}
+                sx={{ borderBottomLeftRadius: '32px', borderBottomRightRadius: '32px' }}>
                 <Typography>Donate now</Typography>
             </ListItem>
         </List >
@@ -70,30 +68,38 @@ function Header (props: HeaderProps) {
                         xs: 'none', md: 'flex'
                       }
                     }}>
-                        {pages.map((page) => (
-                            <Button
-                                key={page}
-                                onClick={handleCloseNavMenu}
-                                sx={{
-                                  my: 2,
-                                  borderRadius: 6
-                                }}
-                                className={classes.PageButton}
-                            >
-                                {page}
-                            </Button>
-                        ))
-                        }
                         <Button
-                            key={'Donate'}
-                            onClick={handleCloseNavMenu}
-                            sx={{
-                              my: 2,
-                              borderRadius: 6
-                            }}
-                            className={classes.DonateButton}
+                          key={'About'}
+                          onClick={handleCloseNavMenu}
+                          sx={{
+                            my: 2,
+                            borderRadius: 6
+                          }}
+                          className={classes.PageButton}
                         >
-                            {'Donate now'}
+                          About
+                        </Button>
+                        <Button
+                          key={'Publications'}
+                          onClick={handleCloseNavMenu}
+                          sx={{
+                            my: 2,
+                            borderRadius: 6
+                          }}
+                          className={classes.PageButton}
+                        >
+                          Publications
+                        </Button>
+                        <Button
+                          key={'Donate'}
+                          onClick={handleCloseNavMenu}
+                          sx={{
+                            my: 2,
+                            borderRadius: 6
+                          }}
+                          className={classes.DonateButton}
+                        >
+                          Donate now
                         </Button>
                     </Box>
                     <Box className={classes.RightBox} sx={{

@@ -44,7 +44,6 @@ export const useStyles = makeStyles()(
       borderColor: theme.textPrimary,
       height: 64,
       ':hover': {
-        background: theme.blue,
         color: 'white',
         height: 82,
         p: {
@@ -53,17 +52,25 @@ export const useStyles = makeStyles()(
         }
       }
     },
-    MenuItemHighlight: {
-      cursor: 'pointer',
+    MenuItemPink: {
+      ':hover': {
+        background: theme.pink
+      }
+    },
+    MenuItemBlue: {
+      ':hover': {
+        background: theme.blue
+      }
+    },
+    MenuItemGreen: {
       color: 'white',
       background: theme.green,
-      height: 82,
+      ':hover': {
+        background: theme.darkgreen
+      },
       p: {
         fontSize: 20,
         fontWeight: 700
-      },
-      ':hover': {
-        background: theme.darkgreen
       }
     },
     Menu: {
