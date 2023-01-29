@@ -4,6 +4,7 @@ import { Box, useMediaQuery, useTheme } from '@mui/material'
 import girlImage from 'Assets/girlImage.png'
 import Wave from 'Components/Icons/Wave'
 import CustomCarousel from 'Components/CustomCarousel/CustomCarousel'
+import ReversedWave from 'Components/Icons/ReversedWave'
 
 function MainPage () {
   const theme = useTheme()
@@ -41,6 +42,7 @@ function MainPage () {
             </Box >
             <Wave className={classes.Wave} />
             <CustomCarousel className={classes.Carousel} containerClassName={classes.CarouselContainer} bigText='Lorem ipsum' smallText='Lorem ipsum dolor sit amet.'/>
+            <ReversedWave className={classes.ReversedWave} />
         </>
   )
 }

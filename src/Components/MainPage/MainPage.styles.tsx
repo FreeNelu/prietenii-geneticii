@@ -10,8 +10,11 @@ export const useStyles = makeStyles()(
       position: 'absolute',
       fill: theme.pink,
       width: '100%',
-      transform: 'rotate(180deg) scaleY(-1) translate(0, -99%)'
-
+      transform: 'rotate(180deg) scaleY(-1) translate(0, -90%)'
+    },
+    ReversedWave: {
+      fill: theme.pink,
+      width: '100%'
     },
     PageDescription: {
       float: 'left',
@@ -36,7 +39,7 @@ export const useStyles = makeStyles()(
     },
     CarouselContainer: {
       width: '100%',
-      backgroundColor: '#E03D8C',
+      backgroundColor: theme.pink,
       display: 'flex',
       justifyContent: 'center',
       paddingTop: 164,

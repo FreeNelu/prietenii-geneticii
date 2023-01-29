@@ -8,7 +8,7 @@ export const useStyles = makeStyles()(
       backgroundColor: theme.background
     },
     Quotes: {
-      width: 32,
+      width: 48,
       marginTop: 24,
       marginLeft: 24,
       fill: theme.textPrimary
@@ -19,7 +19,7 @@ export const useStyles = makeStyles()(
       right: -32,
       width: 124,
       height: 124,
-      border: '8px solid',
+      border: '8px ridge',
       borderColor: theme.pink
     }
   })

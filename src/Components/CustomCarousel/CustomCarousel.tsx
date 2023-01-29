@@ -33,7 +33,7 @@ function ReviewsCarousel (props: ReviewsCarouselProps) {
           md: 'left'
         }
       }}>
-        <Typography variant={isMobile ? 'h3' : 'h2'} gutterBottom>
+        <Typography variant={isMobile ? 'h3' : 'h2'} gutterBottom fontWeight={700}>
           {bigText}
         </Typography>
         <Typography variant={isMobile ? 'h5' : 'h4'}>
@@ -47,6 +47,7 @@ function ReviewsCarousel (props: ReviewsCarouselProps) {
         navButtonsAlwaysVisible={false}
         indicatorIconButtonProps={{ className: classes.Indicator }}
         activeIndicatorIconButtonProps={{ className: classes.ActiveIndicator }}
+        navButtonsWrapperProps={{ className: classes.NavWrapper }}
         sx={{
           paddingTop: {
             xs: '64px',

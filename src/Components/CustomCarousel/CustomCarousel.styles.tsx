@@ -10,6 +10,9 @@ export const useStyles = makeStyles()(
     },
     TextBox: {
       color: theme.background
+    },
+    NavWrapper: {
+      paddingTop: 64
     }
   })
 )
