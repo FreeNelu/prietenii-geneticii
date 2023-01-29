@@ -1,7 +1,6 @@
 import React from 'react';
 import { useStyles } from './ReviewsCarousel.styles'
 import { Box, useMediaQuery, useTheme } from '@mui/material';
-import CustomCard from 'Components/Card/CustomCard';
 
 type ReviewsCarouselProps = {
     className?: string
@@ -15,7 +14,6 @@ function ReviewsCarousel(props: ReviewsCarouselProps) {
 
     return (
         <Box className={className}>
-            <CustomCard />
         </Box>
     );
 }
