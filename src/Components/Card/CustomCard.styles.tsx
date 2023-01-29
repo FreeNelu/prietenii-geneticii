@@ -21,6 +21,9 @@ export const useStyles = makeStyles()(
       height: 124,
       border: '8px ridge',
       borderColor: theme.pink
+    },
+    Content: {
+      padding: '12px 32px'
     }
   })
 )

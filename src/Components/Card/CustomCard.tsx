@@ -19,7 +19,7 @@ function CustomCard (props: CustomCardProps) {
                 <Quotes className={classes.Quotes} />
                 <Avatar className={classes.Avatar} alt={props.name} src={props.imageUrl}/>
             </CardMedia>
-            <CardContent>
+            <CardContent className={classes.Content}>
                 <Typography gutterBottom variant="h5" component="div">
                     {props.name}
                 </Typography>
