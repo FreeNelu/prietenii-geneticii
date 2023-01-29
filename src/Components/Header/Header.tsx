@@ -1,53 +1,53 @@
-import React from 'react';
+import React from 'react'
 import { useStyles } from './Header.styles'
-import { AppBar, Box, Toolbar, IconButton, Typography, Container, Button, List, ListItem, Popover, useMediaQuery, useTheme } from '@mui/material';
-import MenuIcon from '@mui/icons-material/Menu';
+import { AppBar, Box, Toolbar, IconButton, Typography, Container, Button, List, ListItem, Popover, useMediaQuery, useTheme } from '@mui/material'
+import MenuIcon from '@mui/icons-material/Menu'
 import LogoIcon from '../Icons/LogoIcon'
 
-const pages = ['About us', 'Publications'];
+const pages = ['About us', 'Publications']
 
-type HeaderProps = {
-    className?: string;
-};
+interface HeaderProps {
+  className?: string
+}
 
-function Header(props: HeaderProps) {
-    const { className } = props;
-    const [anchorElNav, setAnchorElNav] = React.useState<null | HTMLElement>(null);
+function Header (props: HeaderProps) {
+  const { className } = props
+  const [anchorElNav, setAnchorElNav] = React.useState<null | HTMLElement>(null)
 
-    const theme = useTheme();
-    const isMobile = useMediaQuery(theme.breakpoints.down('md'));
+  const theme = useTheme()
+  const isMobile = useMediaQuery(theme.breakpoints.down('md'))
 
-    const { classes, cx } = useStyles();
+  const { classes, cx } = useStyles()
 
-    const handleOpenNavMenu = (event: React.MouseEvent<HTMLElement>) => {
-        setAnchorElNav(event.currentTarget);
-    };
+  const handleOpenNavMenu = (event: React.MouseEvent<HTMLElement>) => {
+    setAnchorElNav(event.currentTarget)
+  }
 
-    const handleCloseNavMenu = () => {
-        setAnchorElNav(null);
-    };
+  const handleCloseNavMenu = () => {
+    setAnchorElNav(null)
+  }
 
-    const MenuList = () => (
+  const MenuList = () => (
         <List
             className={classes.Menu}
             role="presentation"
             onClick={handleCloseNavMenu}
             onKeyDown={handleCloseNavMenu}>
             <ListItem className={classes.MenuItem}
-                sx={{ borderTopLeftRadius: "37px", borderTopRightRadius: "37px" }}>
+                sx={{ borderTopLeftRadius: '37px', borderTopRightRadius: '37px' }}>
                 <Typography>About us</Typography>
             </ListItem>
             <ListItem className={classes.MenuItem}>
                 <Typography>Publications</Typography>
             </ListItem>
             <ListItem className={classes.MenuItemHighlight}
-                sx={{ borderBottomLeftRadius: "37px", borderBottomRightRadius: "37px" }}>
+                sx={{ borderBottomLeftRadius: '37px', borderBottomRightRadius: '37px' }}>
                 <Typography>Donate now</Typography>
             </ListItem>
         </List >
-    );
+  )
 
-    return (
+  return (
         <AppBar position="static" color='transparent' className={cx(classes.AppBar, className)}>
             <Container maxWidth="xl">
                 <Toolbar disableGutters>
@@ -66,17 +66,17 @@ function Header(props: HeaderProps) {
                     </div>
 
                     <Box className={classes.RightBox} sx={{
-                        display: {
-                            xs: 'none', md: 'flex'
-                        }
+                      display: {
+                        xs: 'none', md: 'flex'
+                      }
                     }}>
                         {pages.map((page) => (
                             <Button
                                 key={page}
                                 onClick={handleCloseNavMenu}
                                 sx={{
-                                    my: 2,
-                                    borderRadius: 6,
+                                  my: 2,
+                                  borderRadius: 6
                                 }}
                                 className={classes.PageButton}
                             >
@@ -85,21 +85,21 @@ function Header(props: HeaderProps) {
                         ))
                         }
                         <Button
-                            key={"Donate"}
+                            key={'Donate'}
                             onClick={handleCloseNavMenu}
                             sx={{
-                                my: 2,
-                                borderRadius: 6,
+                              my: 2,
+                              borderRadius: 6
                             }}
                             className={classes.DonateButton}
                         >
-                            {"Donate now"}
+                            {'Donate now'}
                         </Button>
                     </Box>
                     <Box className={classes.RightBox} sx={{
-                        display: {
-                            xs: 'flex', md: 'none'
-                        }
+                      display: {
+                        xs: 'flex', md: 'none'
+                      }
                     }}>
                         <IconButton
                             size="large"
@@ -115,17 +115,17 @@ function Header(props: HeaderProps) {
                             anchorEl={anchorElNav}
                             onClose={handleCloseNavMenu}
                             anchorOrigin={{
-                                vertical: 'bottom',
-                                horizontal: 'center',
+                              vertical: 'bottom',
+                              horizontal: 'center'
                             }}
                             transformOrigin={{
-                                vertical: 'top',
-                                horizontal: 'center',
+                              vertical: 'top',
+                              horizontal: 'center'
                             }}
                             PaperProps={{
-                                sx: {
-                                    borderRadius: "42px",
-                                }
+                              sx: {
+                                borderRadius: '42px'
+                              }
                             }}
                         >
                             <MenuList />
@@ -134,8 +134,7 @@ function Header(props: HeaderProps) {
                 </Toolbar>
             </Container>
         </AppBar >
-    );
+  )
 }
 
-export default Header;
-
+export default Header

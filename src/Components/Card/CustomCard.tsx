@@ -1,20 +1,18 @@
-import React from 'react';
+import React from 'react'
 import { useStyles } from './CustomCard.styles'
-import { Card, CardContent, CardMedia, Typography, useMediaQuery, useTheme } from '@mui/material';
-import Quotes from 'Components/Icons/Quotes';
+import { Card, CardContent, CardMedia, Typography } from '@mui/material'
+import Quotes from 'Components/Icons/Quotes'
 
-type CustomCardProps = {
-    className?: string;
-    title: string;
-    description: string
-};
+interface CustomCardProps {
+  className?: string
+  title: string
+  description: string
+}
 
-function CustomCard(props: CustomCardProps) {
-    const theme = useTheme();
-    const isMobile = useMediaQuery(theme.breakpoints.down('md'));
-    const { classes, cx } = useStyles();
+function CustomCard (props: CustomCardProps) {
+  const { classes, cx } = useStyles()
 
-    return (
+  return (
         <Card className={cx(classes.Card, props.className)}>
             <CardMedia>
                 <Quotes className={classes.Quotes} />
@@ -28,8 +26,7 @@ function CustomCard(props: CustomCardProps) {
                 </Typography>
             </CardContent>
         </Card>
-    );
+  )
 }
 
-export default CustomCard;
-
+export default CustomCard
