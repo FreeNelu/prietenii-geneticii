@@ -21,10 +21,10 @@ function CustomCard(props: CustomCardProps) {
             </CardMedia>
             <CardContent>
                 <Typography gutterBottom variant="h5" component="div">
-                    props.title
+                    {props.title}
                 </Typography>
                 <Typography variant="body2" color="text.secondary">
-                    props.description
+                    {props.description}
                 </Typography>
             </CardContent>
         </Card>

@@ -3,7 +3,7 @@ import { useStyles } from './MainPage.styles'
 import { Box, useMediaQuery, useTheme } from '@mui/material';
 import girlImage from 'Assets/girlImage.png'
 import Wave from 'Components/Icons/Wave';
-import ReviewsCarousel from 'Components/ReviewsCarousel/ReviewsCarousel';
+import CustomCarousel from 'Components/CustomCarousel/CustomCarousel';
 
 type MainPageProps = {
 };
@@ -45,7 +45,7 @@ function MainPage(props: MainPageProps) {
             </Box >
             <Wave className={classes.Wave} />
             <div style={{ width: "100%", backgroundColor: "#E03D8C", }}>
-                <ReviewsCarousel className={classes.Reviews} />
+                <CustomCarousel className={classes.Reviews} />
             </div>
         </>
     );
