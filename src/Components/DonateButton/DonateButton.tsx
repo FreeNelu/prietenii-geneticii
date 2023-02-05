@@ -19,7 +19,7 @@ function DonateButton (props: DonateButtonProps) {
         className={cx(classes.DonateButton, props.className, (props.selected ?? false) ? 'selected' : '')}
     >
         <FavoriteIcon className={classes.HeartIcon}/>
-        <Typography variant='h6'>Donate</Typography>
+        <Typography variant='h6'>DONEAZĂ</Typography>
     </Button>
   )
 }

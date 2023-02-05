@@ -8,12 +8,10 @@ import { Box } from '@mui/system'
 interface CustomCarouselProps {
   className?: string
   containerClassName?: string
-  bigText: string
-  smallText: string
 }
 
 function CustomCarousel (props: CustomCarouselProps) {
-  const { className, containerClassName, bigText, smallText } = props
+  const { className, containerClassName } = props
   const { classes } = useStyles()
   const theme = useTheme()
   const isMobile = useMediaQuery(theme.breakpoints.down('md'))
@@ -34,10 +32,10 @@ function CustomCarousel (props: CustomCarouselProps) {
         }
       }}>
         <Typography variant={isMobile ? 'h3' : 'h2'} gutterBottom fontWeight={700}>
-          {bigText}
+          Împreună,<br/>schimbăm vieți
         </Typography>
-        <Typography variant={isMobile ? 'h5' : 'h4'}>
-          {smallText}
+        <Typography variant={isMobile ? 'h5' : 'h4'} className={classes.Caption}>
+          Află cum sprijinul tău face o diferență reală pentru persoanele afectate de boli genetice
         </Typography>
       </Box>
       <Carousel

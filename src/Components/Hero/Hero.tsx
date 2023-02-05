@@ -5,6 +5,7 @@ import girlImage from 'Assets/girlImage.png'
 import Wave from 'Components/Icons/Wave'
 import CustomCarousel from 'Components/CustomCarousel/CustomCarousel'
 import ReversedWave from 'Components/Icons/ReversedWave'
+import Typography from '@mui/material/Typography'
 
 function Hero () {
   const theme = useTheme()
@@ -20,11 +21,11 @@ function Hero () {
               }
             }}>
                 <div className={classes.PageDescription} style={{
-                  marginLeft: isMobile ? 0 : '15%'
+                  marginLeft: isMobile ? '5%' : '15%'
                 }}>
-                    <h1>Lorem Ipsum</h1>
-                    <h4>Neque porro quisquam est qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit...</h4>
-                    <h5>There is no one who loves pain itself, who seeks after it and wants to have it, simply because it is pain...</h5>
+                    <Typography gutterBottom fontWeight={700} variant='h3'>Împreună,<br/>vindecăm genetica</Typography>
+                    <Typography fontWeight={700} variant='subtitle1'>Alatura-te misiunii noastre și ajuta-ne să cercetăm, să prevenim și să vindecăm boli genetice prin donația ta</Typography>
+                    <Typography variant='caption'>“No one has ever become poor from giving.” – Anne Frank</Typography>
                 </div>
                 <Box
                     component="img"
@@ -38,7 +39,7 @@ function Hero () {
                 />
             </Box >
             <Wave className={classes.Wave} />
-            <CustomCarousel className={classes.Carousel} containerClassName={classes.CarouselContainer} bigText='Lorem ipsum' smallText='Lorem ipsum dolor sit amet.'/>
+            <CustomCarousel className={classes.Carousel} containerClassName={classes.CarouselContainer}/>
             <ReversedWave className={classes.ReversedWave} />
         </>
   )

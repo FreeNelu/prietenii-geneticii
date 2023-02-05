@@ -13,6 +13,9 @@ export const useStyles = makeStyles()(
     },
     NavWrapper: {
       paddingTop: 64
+    },
+    Caption: {
+      color: theme.background
     }
   })
 )

@@ -20,7 +20,7 @@ export const useStyles = makeStyles()(
       float: 'left',
       minWidth: 284,
       minHeight: 250,
-      padding: '5%',
+      paddingRight: '5%',
       color: theme.textPrimary,
       flex: 1
     },

@@ -25,7 +25,7 @@ function Header (props: HeaderProps) {
 
   const { classes, cx } = useStyles()
 
-  const drawerData = [{ title: 'ABOUT', link: 'about' }, { title: 'BLOG', link: 'blog' }, { title: 'HOME', link: '/' }]
+  const drawerData = [{ title: 'ASOCIAȚIA', link: 'about' }, { title: 'BLOG', link: 'blog' }, { title: 'PAGINA PRINCIPALĂ', link: '/' }]
 
   const handleOpenNavMenu = (event: React.MouseEvent<HTMLElement>) => {
     setNavMenuOpen(true)
@@ -65,23 +65,17 @@ function Header (props: HeaderProps) {
                       <Link to={'/about'} className={classes.Link}>
                         <Button
                           onClick={handleCloseNavMenu}
-                          className={classes.PageButton}
-                          sx={{
-                            borderBottom: location.pathname === '/about' ? '8px solid #69C441' : 'none'
-                          }}
+                          className={cx(classes.PageButton, location.pathname === '/about' ? 'DisabledGreen' : '')}
                         >
-                          <Typography variant='h6'>About</Typography>
+                          <Typography variant='h6'>ASOCIAȚIA</Typography>
                         </Button>
                       </Link>
                       <Link to={'/blog'} className={classes.Link}>
                         <Button
                           onClick={handleCloseNavMenu}
-                          className={classes.PageButton}
-                          sx={{
-                            borderBottom: location.pathname === '/blog' ? '8px solid #01B5E3' : 'none'
-                          }}
+                          className={cx(classes.PageButton, location.pathname === '/blog' ? 'DisabledBlue' : '')}
                         >
-                          <Typography variant='h6'>Blog</Typography>
+                          <Typography variant='h6'>BLOG</Typography>
                         </Button>
                       </Link>
                       <Link to={'/donate'} className={classes.Link}>

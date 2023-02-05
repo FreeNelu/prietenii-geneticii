@@ -32,7 +32,15 @@ export const useStyles = makeStyles()(
       marginRight: 16,
       padding: '10px 20px',
       borderRadius: '12px 24px',
-      height: '100%'
+      height: '100%',
+      '&.DisabledGreen': {
+        borderBottom: '8px solid ' + theme.green,
+        pointerEvents: 'none'
+      },
+      '&.DisabledBlue': {
+        borderBottom: '8px solid ' + theme.blue,
+        pointerEvents: 'none'
+      }
     },
     MenuIcon: {
       fontSize: '2rem'
