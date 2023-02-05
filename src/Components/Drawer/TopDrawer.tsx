@@ -29,14 +29,14 @@ function TopDrawer (props: TopDrawerProps) {
       }}/>
       <ReversedWave className={classes.ReversedWave} />
     </div>
-    <IconButton onClick={onClose} className={classes.CloseButton}>
+    <IconButton onClick={onClose} className={classes.CloseButton} title='MenuClose'>
       <CloseIcon className={classes.CloseIcon}/>
     </IconButton>
     <div onClick={onClose} className={classes.Links}>
       <div className={classes.DefaultLinks}>
         {drawerData.map(({ title, link }, index) => (
           <Link key={index} to={link} className={classes.Link}>
-            <Typography variant='h4'>{title}</Typography>
+            <Typography align='center' variant='h4'>{title}</Typography>
           </Link>
         ))}
       </div>

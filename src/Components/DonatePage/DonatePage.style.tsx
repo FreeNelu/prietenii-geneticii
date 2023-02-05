@@ -15,7 +15,7 @@ export const useStyles = makeStyles()(
       flex: 1
     },
     DonateBox: {
-      minWidth: 400,
+      minWidth: 350,
       width: '100%',
       alignSelf: 'center',
       margin: '0px auto',
