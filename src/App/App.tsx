@@ -1,4 +1,4 @@
-import MainPage from 'Components/MainPage/MainPage'
+import Hero from 'Components/Hero/Hero'
 import React from 'react'
 import Header from '../Components/Header/Header'
 import { useStyles } from './App.styles'
@@ -12,7 +12,7 @@ function App () {
     <div className={classes.App}>
       <Header/>
       <Routes>
-        <Route path="/" element={<MainPage />} />
+        <Route path="/" element={<Hero />} />
         <Route path="about" element={<BadRoute />} />
         <Route path="blog" element={<BadRoute />} />
         <Route path="donate" element={<BadRoute />} />

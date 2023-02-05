@@ -24,7 +24,10 @@ export const useStyles = makeStyles<{ open: boolean }>()(
       cursor: 'pointer',
       padding: 0,
       transition: 'transform 1s',
-      ':hover': { transform: 'rotate(-180deg)' }
+      ':hover': {
+        transform: 'rotate(-180deg)',
+        background: theme.darkpink
+      }
     },
     CloseIcon: {
       stroke: theme.textPrimary,
@@ -64,7 +67,10 @@ export const useStyles = makeStyles<{ open: boolean }>()(
       borderRadius: '24px 12px',
       color: theme.textPrimary,
       padding: '16px 16px',
-      ':hover': { background: theme.darkpink, color: theme.background }
+      ':hover': {
+        background: theme.darkpink,
+        color: 'white'
+      }
     },
     DonateButton: {
       background: 'white',

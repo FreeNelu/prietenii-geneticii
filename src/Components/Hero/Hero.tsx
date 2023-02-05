@@ -1,12 +1,12 @@
 import React from 'react'
-import { useStyles } from './MainPage.styles'
+import { useStyles } from './Hero.styles'
 import { Box, useMediaQuery, useTheme } from '@mui/material'
 import girlImage from 'Assets/girlImage.png'
 import Wave from 'Components/Icons/Wave'
 import CustomCarousel from 'Components/CustomCarousel/CustomCarousel'
 import ReversedWave from 'Components/Icons/ReversedWave'
 
-function MainPage () {
+function Hero () {
   const theme = useTheme()
   const isMobile = useMediaQuery(theme.breakpoints.down('md'))
 
@@ -44,4 +44,4 @@ function MainPage () {
   )
 }
 
-export default MainPage
+export default Hero
