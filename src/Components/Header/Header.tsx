@@ -5,15 +5,20 @@ import MenuIcon from '@mui/icons-material/Menu'
 import LogoIcon from '../Icons/LogoIcon'
 import TopDrawer from 'Components/Drawer/TopDrawer'
 import DonateButton from 'Components/DonateButton/DonateButton'
-import { Link } from 'react-router-dom'
+import { Link, useLocation } from 'react-router-dom'
 
 interface HeaderProps {
   className?: string
 }
 
+const LOGO_SIZE = { REGULAR: 94, LARGE: 128 }
+const LOGO_FONT_SIZE = { REGULAR: '1.5rem', LARGE: '2rem' }
+
 function Header (props: HeaderProps) {
   const { className } = props
   const [navMenuOpen, setNavMenuOpen] = React.useState(false)
+  const location = useLocation()
+  const isRouteDonation = location.pathname === '/donate'
 
   const theme = useTheme()
   const isMobile = useMediaQuery(theme.breakpoints.down('md'))
@@ -31,19 +36,19 @@ function Header (props: HeaderProps) {
   }
 
   const LogoWithText = (
-    <div className={classes.Logo}>
-      <LogoIcon height={96} />
-      <Typography
-          variant="h5"
-          noWrap
-          component="a"
+    <Link className={classes.Logo} to={'/'}>
+      <LogoIcon height={isRouteDonation ? LOGO_SIZE.LARGE : LOGO_SIZE.REGULAR} className={classes.LogoIcon}/>
+      <div
           className={classes.LogoText}
+          style={{
+            fontSize: isRouteDonation ? LOGO_FONT_SIZE.LARGE : LOGO_FONT_SIZE.REGULAR
+          }}
       >
-          PRIETENII
+          <span>PRIETENII</span>
           <br />
           <span className={classes.LogoText2}>GENETICII</span>
-      </Typography>
-    </div>
+      </div>
+    </Link>
   )
 
   return (
@@ -58,24 +63,30 @@ function Header (props: HeaderProps) {
                       }
                     }}>
                       <Link to={'/about'} className={classes.Link}>
-                          <Button
-                            onClick={handleCloseNavMenu}
-                            className={classes.PageButton}
-                          >
-                            <Typography variant='h6'>About</Typography>
-                          </Button>
-                        </Link>
-                        <Link to={'/blog'} className={classes.Link}>
-                          <Button
-                            onClick={handleCloseNavMenu}
-                            className={classes.PageButton}
-                          >
-                            <Typography variant='h6'>Blog</Typography>
-                          </Button>
-                        </Link>
-                        <Link to={'/donate'} className={classes.Link}>
-                          <DonateButton onClick={handleCloseNavMenu}/>
-                        </Link>
+                        <Button
+                          onClick={handleCloseNavMenu}
+                          className={classes.PageButton}
+                          sx={{
+                            borderBottom: location.pathname === '/about' ? '8px solid #69C441' : 'none'
+                          }}
+                        >
+                          <Typography variant='h6'>About</Typography>
+                        </Button>
+                      </Link>
+                      <Link to={'/blog'} className={classes.Link}>
+                        <Button
+                          onClick={handleCloseNavMenu}
+                          className={classes.PageButton}
+                          sx={{
+                            borderBottom: location.pathname === '/blog' ? '8px solid #01B5E3' : 'none'
+                          }}
+                        >
+                          <Typography variant='h6'>Blog</Typography>
+                        </Button>
+                      </Link>
+                      <Link to={'/donate'} className={classes.Link}>
+                        <DonateButton onClick={handleCloseNavMenu} selected={isRouteDonation}/>
+                      </Link>
                     </Box>
 
                     <Box className={isMobile ? classes.RightBox : ''} sx={{

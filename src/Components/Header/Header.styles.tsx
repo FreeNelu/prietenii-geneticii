@@ -7,9 +7,14 @@ export const useStyles = makeStyles()(
     },
     Logo: {
       display: 'flex',
-      marginTop: 32
+      marginTop: 32,
+      textDecoration: 'none'
+    },
+    LogoIcon: {
+      transition: 'height 0.5s'
     },
     LogoText: {
+      transition: 'font-size 0.5s',
       fontFamily: 'monospace',
       fontWeight: 700,
       textDecoration: 'none',
@@ -22,6 +27,7 @@ export const useStyles = makeStyles()(
       color: theme.darkpink
     },
     PageButton: {
+      transition: 'border-color 0s',
       color: theme.textPrimary,
       marginRight: 16,
       padding: '10px 20px',
@@ -36,7 +42,8 @@ export const useStyles = makeStyles()(
       justifyContent: 'flex-end'
     },
     Link: {
-      textDecoration: 'none'
+      textDecoration: 'none',
+      cursor: 'default'
     }
   })
 )

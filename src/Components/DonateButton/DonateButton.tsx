@@ -7,6 +7,7 @@ interface DonateButtonProps {
   className?: string
   onClick?: () => void
   invertColors?: boolean
+  selected?: boolean
 }
 
 function DonateButton (props: DonateButtonProps) {
@@ -15,7 +16,7 @@ function DonateButton (props: DonateButtonProps) {
   return (
     <Button
         onClick={props.onClick}
-        className={cx(classes.DonateButton, props.className)}
+        className={cx(classes.DonateButton, props.className, (props.selected ?? false) ? 'selected' : '')}
     >
         <FavoriteIcon className={classes.HeartIcon}/>
         <Typography variant='h6'>Donate</Typography>

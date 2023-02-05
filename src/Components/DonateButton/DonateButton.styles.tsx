@@ -20,6 +20,13 @@ export const useStyles = makeStyles<{ invertColors: boolean | undefined }, 'Hear
       [`&:hover .${classes.HeartIcon}`]: {
         color: theme.pink,
         width: 24
+      },
+      '&.selected': {
+        backgroundColor: 'transparent',
+        border: '8px solid',
+        borderColor: theme.pink,
+        color: theme.pink,
+        pointerEvents: 'none'
       }
     },
     HeartIcon: {
