@@ -3,7 +3,7 @@ import { makeStyles } from 'Theme'
 export const useStyles = makeStyles()(
   (theme) => ({
     Card: {
-      borderRadius: 32,
+      borderRadius: '64px 32px',
       minHeight: 250,
       backgroundColor: theme.background
     },

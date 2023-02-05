@@ -19,7 +19,7 @@ export const useStyles = makeStyles()(
     PageDescription: {
       float: 'left',
       minWidth: 284,
-      minHeight: 400,
+      minHeight: 250,
       padding: '5%',
       color: theme.textPrimary,
       flex: 1

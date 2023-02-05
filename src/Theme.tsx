@@ -8,7 +8,8 @@ function useTheme () {
     blue: '#01B5E3',
     pink: '#E03D8C',
     green: '#69C441',
-    darkgreen: '#60b43b'
+    darkgreen: '#50A02D',
+    darkpink: '#C23C7D'
   }
 }
 

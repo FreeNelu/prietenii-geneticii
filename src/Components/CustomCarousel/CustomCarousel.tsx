@@ -5,14 +5,14 @@ import CustomCard from 'Components/Card/CustomCard'
 import { Typography, useMediaQuery, useTheme } from '@mui/material'
 import { Box } from '@mui/system'
 
-interface ReviewsCarouselProps {
+interface CustomCarouselProps {
   className?: string
   containerClassName?: string
   bigText: string
   smallText: string
 }
 
-function ReviewsCarousel (props: ReviewsCarouselProps) {
+function CustomCarousel (props: CustomCarouselProps) {
   const { className, containerClassName, bigText, smallText } = props
   const { classes } = useStyles()
   const theme = useTheme()
@@ -70,4 +70,4 @@ function ReviewsCarousel (props: ReviewsCarouselProps) {
   )
 }
 
-export default ReviewsCarousel
+export default CustomCarousel

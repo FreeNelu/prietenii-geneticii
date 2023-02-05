@@ -1,8 +1,10 @@
 import React from 'react'
 import { useStyles } from './Header.styles'
-import { AppBar, Box, Toolbar, IconButton, Typography, Container, Button, List, ListItem, Popover, useMediaQuery, useTheme } from '@mui/material'
+import { AppBar, Box, Toolbar, IconButton, Typography, Container, Button, useMediaQuery, useTheme } from '@mui/material'
 import MenuIcon from '@mui/icons-material/Menu'
 import LogoIcon from '../Icons/LogoIcon'
+import TopDrawer from 'Components/Drawer/TopDrawer'
+import DonateButton from 'Components/DonateButton/DonateButton'
 
 interface HeaderProps {
   className?: string
@@ -10,56 +12,44 @@ interface HeaderProps {
 
 function Header (props: HeaderProps) {
   const { className } = props
-  const [anchorElNav, setAnchorElNav] = React.useState<null | HTMLElement>(null)
+  const [navMenuOpen, setNavMenuOpen] = React.useState(false)
 
   const theme = useTheme()
   const isMobile = useMediaQuery(theme.breakpoints.down('md'))
 
   const { classes, cx } = useStyles()
 
+  const drawerData = [{ title: 'About', link: 'about' }, { title: 'Blog', link: 'blog' }, { title: 'Home', link: '/' }]
+
   const handleOpenNavMenu = (event: React.MouseEvent<HTMLElement>) => {
-    setAnchorElNav(event.currentTarget)
+    setNavMenuOpen(true)
   }
 
   const handleCloseNavMenu = () => {
-    setAnchorElNav(null)
+    setNavMenuOpen(false)
   }
 
-  const MenuList = () => (
-        <List
-            className={classes.Menu}
-            role="presentation"
-            onClick={handleCloseNavMenu}
-            onKeyDown={handleCloseNavMenu}>
-            <ListItem className={cx(classes.MenuItem, classes.MenuItemPink)}>
-                <Typography>About us</Typography>
-            </ListItem>
-            <ListItem className={cx(classes.MenuItem, classes.MenuItemBlue)}>
-                <Typography>Publications</Typography>
-            </ListItem>
-            <ListItem className={cx(classes.MenuItem, classes.MenuItemGreen)}>
-                <Typography>Donate now</Typography>
-            </ListItem>
-        </List >
+  const LogoWithText = (
+    <div className={classes.Logo}>
+      <LogoIcon height={96} />
+      <Typography
+          variant="h5"
+          noWrap
+          component="a"
+          className={classes.LogoText}
+      >
+          PRIETENII
+          <br />
+          <span className={classes.LogoText2}>GENETICII</span>
+      </Typography>
+    </div>
   )
 
   return (
         <AppBar position="static" color='transparent' className={cx(classes.AppBar, className)}>
             <Container maxWidth="xl">
                 <Toolbar disableGutters>
-                    <div className={classes.Logo}>
-                        <LogoIcon height={96} />
-                        <Typography
-                            variant="h5"
-                            noWrap
-                            component="a"
-                            className={classes.LogoText}
-                        >
-                            PRIETENII
-                            <br />
-                            GENETICII
-                        </Typography>
-                    </div>
+                    {LogoWithText}
 
                     <Box className={classes.RightBox} sx={{
                       display: {
@@ -69,10 +59,6 @@ function Header (props: HeaderProps) {
                         <Button
                           key={'About'}
                           onClick={handleCloseNavMenu}
-                          sx={{
-                            my: 2,
-                            borderRadius: 6
-                          }}
                           className={classes.PageButton}
                         >
                           About
@@ -80,60 +66,29 @@ function Header (props: HeaderProps) {
                         <Button
                           key={'Publications'}
                           onClick={handleCloseNavMenu}
-                          sx={{
-                            my: 2,
-                            borderRadius: 6
-                          }}
                           className={classes.PageButton}
                         >
                           Publications
                         </Button>
-                        <Button
-                          key={'Donate'}
-                          onClick={handleCloseNavMenu}
-                          sx={{
-                            my: 2,
-                            borderRadius: 6
-                          }}
-                          className={classes.DonateButton}
-                        >
-                          Donate now
-                        </Button>
+                        <DonateButton onClick={handleCloseNavMenu}/>
                     </Box>
-                    <Box className={classes.RightBox} sx={{
+
+                    <Box className={isMobile ? classes.RightBox : ''} sx={{
                       display: {
                         xs: 'flex', md: 'none'
                       }
                     }}>
-                        <IconButton
-                            size="large"
-                            aria-controls="menu-appbar"
-                            aria-haspopup="true"
-                            onClick={handleOpenNavMenu}
-                            color="inherit"
-                        >
-                            <MenuIcon className={classes.MenuIcon} />
-                        </IconButton>
-                        <Popover
-                            open={Boolean(anchorElNav) && isMobile}
-                            anchorEl={anchorElNav}
-                            onClose={handleCloseNavMenu}
-                            anchorOrigin={{
-                              vertical: 'bottom',
-                              horizontal: 'center'
-                            }}
-                            transformOrigin={{
-                              vertical: 'top',
-                              horizontal: 'center'
-                            }}
-                            PaperProps={{
-                              sx: {
-                                borderRadius: '42px'
-                              }
-                            }}
-                        >
-                            <MenuList />
-                        </Popover>
+                      <IconButton
+                          size="large"
+                          aria-controls="menu-appbar"
+                          aria-haspopup="true"
+                          onClick={handleOpenNavMenu}
+                          color="inherit"
+                          title="Menu"
+                      >
+                        <MenuIcon className={classes.MenuIcon} />
+                      </IconButton>
+                      <TopDrawer open={navMenuOpen} onClose={handleCloseNavMenu} drawerData={drawerData} isMobile={isMobile}/>
                     </Box>
                 </Toolbar>
             </Container>
