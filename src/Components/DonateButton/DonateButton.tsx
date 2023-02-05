@@ -14,7 +14,6 @@ function DonateButton (props: DonateButtonProps) {
 
   return (
     <Button
-        key={'Donate'}
         onClick={props.onClick}
         className={cx(classes.DonateButton, props.className)}
     >

@@ -36,7 +36,7 @@ function TopDrawer (props: TopDrawerProps) {
       <div className={classes.DefaultLinks}>
         {drawerData.map(({ title, link }, index) => (
           <Link key={index} to={link} className={classes.Link}>
-            <Typography variant='h3'>{title}</Typography>
+            <Typography variant='h4'>{title}</Typography>
           </Link>
         ))}
       </div>

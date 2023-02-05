@@ -5,6 +5,7 @@ import MenuIcon from '@mui/icons-material/Menu'
 import LogoIcon from '../Icons/LogoIcon'
 import TopDrawer from 'Components/Drawer/TopDrawer'
 import DonateButton from 'Components/DonateButton/DonateButton'
+import { Link } from 'react-router-dom'
 
 interface HeaderProps {
   className?: string
@@ -19,7 +20,7 @@ function Header (props: HeaderProps) {
 
   const { classes, cx } = useStyles()
 
-  const drawerData = [{ title: 'About', link: 'about' }, { title: 'Blog', link: 'blog' }, { title: 'Home', link: '/' }]
+  const drawerData = [{ title: 'ABOUT', link: 'about' }, { title: 'BLOG', link: 'blog' }, { title: 'HOME', link: '/' }]
 
   const handleOpenNavMenu = (event: React.MouseEvent<HTMLElement>) => {
     setNavMenuOpen(true)
@@ -56,21 +57,25 @@ function Header (props: HeaderProps) {
                         xs: 'none', md: 'flex'
                       }
                     }}>
-                        <Button
-                          key={'About'}
-                          onClick={handleCloseNavMenu}
-                          className={classes.PageButton}
-                        >
-                          About
-                        </Button>
-                        <Button
-                          key={'Publications'}
-                          onClick={handleCloseNavMenu}
-                          className={classes.PageButton}
-                        >
-                          Publications
-                        </Button>
-                        <DonateButton onClick={handleCloseNavMenu}/>
+                      <Link to={'/about'} className={classes.Link}>
+                          <Button
+                            onClick={handleCloseNavMenu}
+                            className={classes.PageButton}
+                          >
+                            <Typography variant='h6'>About</Typography>
+                          </Button>
+                        </Link>
+                        <Link to={'/blog'} className={classes.Link}>
+                          <Button
+                            onClick={handleCloseNavMenu}
+                            className={classes.PageButton}
+                          >
+                            <Typography variant='h6'>Blog</Typography>
+                          </Button>
+                        </Link>
+                        <Link to={'/donate'} className={classes.Link}>
+                          <DonateButton onClick={handleCloseNavMenu}/>
+                        </Link>
                     </Box>
 
                     <Box className={isMobile ? classes.RightBox : ''} sx={{

@@ -23,9 +23,10 @@ export const useStyles = makeStyles()(
     },
     PageButton: {
       color: theme.textPrimary,
-      marginRight: 12,
+      marginRight: 16,
       padding: '10px 20px',
-      borderRadius: '12px 24px'
+      borderRadius: '12px 24px',
+      height: '100%'
     },
     MenuIcon: {
       fontSize: '2rem'
@@ -33,6 +34,9 @@ export const useStyles = makeStyles()(
     RightBox: {
       flexGrow: 1,
       justifyContent: 'flex-end'
+    },
+    Link: {
+      textDecoration: 'none'
     }
   })
 )
