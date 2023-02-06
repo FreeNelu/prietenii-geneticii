@@ -5,7 +5,6 @@ export const useStyles = makeStyles()(
     Box: {
       height: 600,
       width: '100%',
-      backgroundColor: 'white',
       display: 'flex',
       flexDirection: 'column',
       alignItems: 'center'
@@ -13,9 +12,17 @@ export const useStyles = makeStyles()(
     TypeContainer: {
       display: 'flex',
       width: '100%',
-      height: '20%',
-      backgroundColor: 'yellow',
+      color: theme.textPrimary,
       justifyContent: 'center'
+    },
+    SelectedType: {
+      backgroundColor: theme.pink,
+      color: 'white',
+      pointerEvents: 'none'
+    },
+    RegularButton: {
+      color: theme.textPrimary,
+      backgroundColor: 'white'
     }
   })
 )
