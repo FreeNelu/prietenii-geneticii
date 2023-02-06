@@ -2,28 +2,20 @@ import { makeStyles } from 'Theme'
 
 export const useStyles = makeStyles()(
   (theme) => ({
-    Card: {
-      borderRadius: '64px 32px',
-      minHeight: 250,
-      backgroundColor: 'white'
+    Box: {
+      height: 600,
+      width: '100%',
+      backgroundColor: 'white',
+      display: 'flex',
+      flexDirection: 'column',
+      alignItems: 'center'
     },
-    Quotes: {
-      width: 48,
-      marginTop: 24,
-      marginLeft: 24,
-      fill: theme.textPrimary
-    },
-    Avatar: {
-      position: 'absolute',
-      top: -32,
-      right: -32,
-      width: 124,
-      height: 124,
-      border: '8px ridge',
-      borderColor: theme.pink
-    },
-    Content: {
-      padding: '12px 32px'
+    TypeContainer: {
+      display: 'flex',
+      width: '100%',
+      height: '20%',
+      backgroundColor: 'yellow',
+      justifyContent: 'center'
     }
   })
 )

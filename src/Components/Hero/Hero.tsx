@@ -23,8 +23,8 @@ function Hero () {
                 <div className={classes.PageDescription} style={{
                   marginLeft: isMobile ? '5%' : '15%'
                 }}>
-                    <Typography gutterBottom fontWeight={700} variant='h3'>Împreună,<br/>vindecăm genetica</Typography>
-                    <Typography fontWeight={700} variant='subtitle1'>Alatura-te misiunii noastre și ajuta-ne să cercetăm, să prevenim și să vindecăm boli genetice prin donația ta</Typography>
+                    <Typography gutterBottom fontWeight={700} variant='h3'>Împreună,<br/>vindecăm genetica.</Typography>
+                    <Typography variant='subtitle1'>Alatura-te misiunii noastre și ajuta-ne să cercetăm, să prevenim și să vindecăm boli genetice prin donația ta.</Typography>
                     <Typography variant='caption'>“No one has ever become poor from giving.” – Anne Frank</Typography>
                 </div>
                 <Box

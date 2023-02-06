@@ -4,23 +4,25 @@ export const useStyles = makeStyles()(
   (theme) => ({
     Container: {
       display: 'flex',
-      marginTop: 64
+      marginTop: 64,
+      flexDirection: 'row-reverse'
     },
     PageDescription: {
-      float: 'left',
       minWidth: 284,
       minHeight: 250,
       padding: '5%',
+      paddingRight: '10%',
       color: theme.textPrimary,
-      flex: 1
+      flex: 1,
+      textAlign: 'center'
     },
     DonateBox: {
-      minWidth: 350,
+      minWidth: 300,
       width: '100%',
       alignSelf: 'center',
-      margin: '0px auto',
+      marginRight: '0px auto',
       flex: 1,
-      padding: '0% 5%'
+      paddingLeft: '10%'
     }
   })
 )

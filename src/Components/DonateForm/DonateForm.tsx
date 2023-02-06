@@ -1,7 +1,7 @@
 import React from 'react'
 import { useStyles } from './DonateForm.styles'
-import { Avatar, Card, CardContent, CardMedia, Typography } from '@mui/material'
-import Quotes from 'Components/Icons/Quotes'
+import { Box, Typography } from '@mui/material'
+import Button from '@mui/material/Button/Button'
 
 interface DonateFormProps {
   className?: string
@@ -12,10 +12,12 @@ function DonateForm (props: DonateFormProps) {
   const { classes, cx } = useStyles()
 
   return (
-        <Card className={cx(classes.Card, props.className)}>
-            <CardContent className={classes.Content}>
-            </CardContent>
-        </Card>
+        <Box className={cx(classes.Box, props.className)}>
+          <Box className={classes.TypeContainer}>
+              <Button>Donație unică</Button>
+              <Button>Donează lunar</Button>
+          </Box>
+        </Box>
   )
 }
 

@@ -24,7 +24,11 @@ function CustomCarousel (props: CustomCarouselProps) {
     }}>
       <Box className={classes.TextBox} sx={{
         paddingLeft: {
-          md: '64px'
+          md: '128px',
+          xs: '32px'
+        },
+        paddingRight: {
+          xs: '32px'
         },
         textAlign: {
           xs: 'center',
@@ -32,10 +36,10 @@ function CustomCarousel (props: CustomCarouselProps) {
         }
       }}>
         <Typography variant={isMobile ? 'h3' : 'h2'} gutterBottom fontWeight={700}>
-          Împreună,<br/>schimbăm vieți
+          Împreună,<br/>schimbăm vieți.
         </Typography>
         <Typography variant={isMobile ? 'h5' : 'h4'} className={classes.Caption}>
-          Află cum sprijinul tău face o diferență reală pentru persoanele afectate de boli genetice
+          Află cum sprijinul tău face o diferență reală pentru persoanele afectate de boli genetice.
         </Typography>
       </Box>
       <Carousel
@@ -50,6 +54,9 @@ function CustomCarousel (props: CustomCarouselProps) {
           paddingTop: {
             xs: '64px',
             md: '192px'
+          },
+          paddingRight: {
+            md: '128px'
           }
         }}
       >

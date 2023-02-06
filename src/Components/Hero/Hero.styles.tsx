@@ -33,6 +33,7 @@ export const useStyles = makeStyles()(
     },
     Carousel: {
       maxWidth: 600,
+      minWidth: 275,
       paddingLeft: 64,
       paddingRight: 64,
       width: '100%'
