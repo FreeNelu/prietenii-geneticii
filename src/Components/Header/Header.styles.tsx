@@ -40,6 +40,9 @@ export const useStyles = makeStyles()(
       '&.DisabledBlue': {
         borderBottom: '8px solid ' + theme.blue,
         pointerEvents: 'none'
+      },
+      '&:hover': {
+        backgroundColor: theme.backgroundSecondary
       }
     },
     MenuIcon: {

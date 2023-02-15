@@ -1,7 +1,7 @@
 import { makeStyles } from 'Theme'
 
-export const useStyles = makeStyles()(
-  (theme) => ({
+export const useStyles = makeStyles<{ isMobile: boolean | undefined }>()(
+  (theme, { isMobile }) => ({
     Container: {
       display: 'flex',
       marginTop: 64,
@@ -22,7 +22,7 @@ export const useStyles = makeStyles()(
       alignSelf: 'center',
       marginRight: '0px auto',
       flex: 1,
-      paddingLeft: '10%'
+      padding: (isMobile ?? false) ? '5% 10%' : '5% 0% 5% 10%'
     }
   })
 )

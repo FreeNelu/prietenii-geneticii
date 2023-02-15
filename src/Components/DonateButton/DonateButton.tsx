@@ -16,6 +16,9 @@ function DonateButton (props: DonateButtonProps) {
   return (
     <Button
         onClick={props.onClick}
+        disableRipple
+        disableFocusRipple
+        disableTouchRipple
         className={cx(classes.DonateButton, props.className, (props.selected ?? false) ? 'selected' : '')}
     >
         <FavoriteIcon className={classes.HeartIcon}/>

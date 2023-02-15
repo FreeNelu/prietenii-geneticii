@@ -5,11 +5,13 @@ function useTheme () {
   return {
     textPrimary: '#261425',
     background: '#EBEFEB',
+    backgroundSecondary: '#D9DED9',
     blue: '#01B5E3',
     pink: '#E03D8C',
     green: '#69C441',
     darkgreen: '#50A02D',
-    darkpink: '#C23C7D'
+    darkpink: '#C23C7D',
+    boxShadow: 'rgba(149, 157, 165, 0.2) 0px 8px 24px'
   }
 }
 
