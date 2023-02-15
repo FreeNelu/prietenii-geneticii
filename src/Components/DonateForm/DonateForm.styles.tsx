@@ -87,20 +87,22 @@ export const useStyles = makeStyles()(
       minHeight: 300,
       width: '100%',
       display: 'flex',
-      justifyContent: 'space-between',
+      alignItems: 'center',
+      justifyContent: 'center',
+      gap: 12,
       padding: 24
     },
     BaseSuggestion: {
       display: 'flex',
       width: 124,
+      minWidth: 124,
       height: 48,
       backgroundColor: theme.backgroundSecondary,
       color: theme.textPrimary,
       border: '1px solid lightgrey',
       borderRadius: 4,
       alignItems: 'center',
-      justifyContent: 'space-evenly',
-      padding: '0px 8px',
+      justifyContent: 'center',
       '&:hover': {
         cursor: 'pointer',
         backgroundColor: theme.background

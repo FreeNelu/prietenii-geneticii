@@ -25,7 +25,7 @@ function DonateForm (props: DonateFormProps) {
         className={cx(classes.BaseSuggestion, donation === props.value ? classes.SelectedSuggestion : '')}
         onClick={() => { setDonation(props.value) }}
       >
-        <Typography variant='h6'>{props.value}</Typography>
+        <Typography variant='subtitle1' sx={{ marginRight: '4px' }}>{props.value}</Typography>
         <Typography variant='caption'>{currency}</Typography>
       </Box>
     )
