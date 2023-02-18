@@ -5,24 +5,20 @@ export const useStyles = makeStyles<{ isMobile: boolean | undefined }>()(
     Container: {
       display: 'flex',
       marginTop: 64,
-      flexDirection: 'row-reverse'
+      flexDirection: 'row-reverse',
+      justifyContent: 'center'
     },
     PageDescription: {
-      minWidth: 284,
-      minHeight: 250,
-      padding: '5%',
-      paddingRight: '10%',
       color: theme.textPrimary,
-      flex: 1,
-      textAlign: 'center'
+      textAlign: 'center',
+      padding: (isMobile ?? false) ? '5% 10%' : '5% 5% 5% 48px'
     },
     DonateBox: {
       minWidth: 300,
-      width: '100%',
+      maxWidth: 470,
       alignSelf: 'center',
       marginRight: '0px auto',
-      flex: 1,
-      padding: (isMobile ?? false) ? '5% 10%' : '5% 0% 5% 10%'
+      padding: (isMobile ?? false) ? '5% 10%' : '3% 0px 0px 5%'
     }
   })
 )

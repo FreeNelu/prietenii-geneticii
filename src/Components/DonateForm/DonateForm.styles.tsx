@@ -62,6 +62,36 @@ export const useStyles = makeStyles()(
         }
       }
     }),
+    ValueInput: styleFunctionSx({
+      theme,
+      sx: {
+        '&:hover .MuiOutlinedInput-notchedOutline': {
+          borderColor: theme.pink
+        },
+        '& label.Mui-focused': {
+          color: theme.pink
+        },
+        '& .MuiOutlinedInput-root': {
+          '&:hover fieldset': {
+            borderColor: theme.pink
+          },
+          '&.Mui-focused fieldset': {
+            borderColor: theme.pink
+          }
+        },
+        '& input[type=number]': {
+          '-moz-appearance': 'textfield'
+        },
+        '& input[type=number]::-webkit-outer-spin-button': {
+          '-webkit-appearance': 'none',
+          margin: 0
+        },
+        '& input[type=number]::-webkit-inner-spin-button': {
+          '-webkit-appearance': 'none',
+          margin: 0
+        }
+      }
+    }),
     CurrencyLabel: styleFunctionSx({
       theme,
       sx: {
@@ -71,6 +101,7 @@ export const useStyles = makeStyles()(
       }
     }),
     FormHeader: {
+      boxSizing: 'border-box',
       display: 'flex',
       justifyContent: 'space-evenly',
       alignItems: 'center',
@@ -79,30 +110,32 @@ export const useStyles = makeStyles()(
       borderTopLeftRadius: 8,
       borderTopRightRadius: 8,
       borderBottom: '1px solid lightgrey',
-      padding: '8px 0px',
       textAlign: 'center'
     },
     FormBody: {
+      position: 'relative',
       boxSizing: 'border-box',
-      minHeight: 300,
       width: '100%',
       display: 'flex',
-      alignItems: 'center',
+      flexWrap: 'wrap',
       justifyContent: 'center',
+      flexDirection: 'row',
+      alignItems: 'flex-start',
       gap: 12,
-      padding: 24
+      padding: 36,
+      paddingBottom: 24
     },
     BaseSuggestion: {
       display: 'flex',
-      width: 124,
       minWidth: 124,
-      height: 48,
+      height: 56,
       backgroundColor: theme.backgroundSecondary,
       color: theme.textPrimary,
       border: '1px solid lightgrey',
       borderRadius: 4,
       alignItems: 'center',
       justifyContent: 'center',
+      flex: 1,
       '&:hover': {
         cursor: 'pointer',
         backgroundColor: theme.background
@@ -112,6 +145,21 @@ export const useStyles = makeStyles()(
       backgroundColor: theme.pink,
       color: 'white',
       pointerEvents: 'none'
+    },
+    DonateButton: {
+      backgroundColor: theme.pink,
+      padding: '12px 0px',
+      width: '100%',
+      color: 'white',
+      '&:hover': {
+        backgroundColor: theme.lightpink
+      }
+    },
+    FormFooter: {
+      boxSizing: 'border-box',
+      padding: 36,
+      paddingTop: 0,
+      width: '100%'
     }
   })
 )

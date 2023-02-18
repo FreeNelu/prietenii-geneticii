@@ -11,6 +11,7 @@ function useTheme () {
     green: '#69C441',
     darkgreen: '#50A02D',
     darkpink: '#C23C7D',
+    lightpink: '#FC4EA3',
     boxShadow: 'rgba(149, 157, 165, 0.2) 0px 8px 24px'
   }
 }

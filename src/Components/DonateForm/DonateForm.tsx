@@ -1,6 +1,6 @@
 import React from 'react'
 import { useStyles } from './DonateForm.styles'
-import { Box, FormControl, InputLabel, MenuItem, Select, type SelectChangeEvent, Typography } from '@mui/material'
+import { Box, FormControl, InputLabel, MenuItem, Select, type SelectChangeEvent, Typography, TextField } from '@mui/material'
 import Button from '@mui/material/Button/Button'
 
 interface DonateFormProps {
@@ -31,6 +31,10 @@ function DonateForm (props: DonateFormProps) {
     )
   }
 
+  const onDonate = () => {
+    // TODO: Paypal flow
+  }
+
   return (
         <Box className={cx(classes.Box, props.className)}>
           <Box className={classes.Container}>
@@ -57,8 +61,8 @@ function DonateForm (props: DonateFormProps) {
           </Box>
 
           <Box className={cx(classes.Container, classes.MainContainer)}>
-            <Box className={classes.FormHeader}>
-              <Typography variant='subtitle1' sx={{ padding: '0px 8px' }}>{headerLabel}</Typography>
+            <Box className={classes.FormHeader} sx={{ padding: { xs: '16px 8px 16px 16px', md: '8px 0px 8px 8px' } }}>
+              <Typography variant='subtitle1'>{headerLabel}</Typography>
               <FormControl sx={{ m: 1, minWidth: 120 }} size="small">
                 <InputLabel
                   className={classes.CurrencyLabel}
@@ -80,10 +84,29 @@ function DonateForm (props: DonateFormProps) {
               </FormControl>
             </Box>
             <Box className={classes.FormBody}>
-                <SuggestedDonation value={50}/>
-                <SuggestedDonation value={100}/>
-                <SuggestedDonation value={150}/>
-                <SuggestedDonation value={200}/>
+              <SuggestedDonation value={50}/>
+              <SuggestedDonation value={100}/>
+              <SuggestedDonation value={150}/>
+              <SuggestedDonation value={200}/>
+              <TextField
+                sx={{ flex: 2, minWidth: 200 }}
+                className={classes.ValueInput}
+                label="Altă sumă"
+                variant="outlined"
+                type="number"
+              />
+              <Typography sx={{ position: 'absolute', bottom: 40, right: 50, color: 'grey' }}>{currency}</Typography>
+            </Box>
+            <Box className = {classes.FormFooter}>
+              <Button
+                onClick={onDonate}
+                disableRipple
+                disableFocusRipple
+                disableTouchRipple
+                className={classes.DonateButton}
+              >
+                <Typography variant='h6'>DONEAZĂ</Typography>
+              </Button>
             </Box>
           </Box>
         </Box>
