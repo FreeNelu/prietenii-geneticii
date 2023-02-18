@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useRef } from 'react'
 import { useStyles } from './DonateForm.styles'
 import { Box, FormControl, InputLabel, MenuItem, Select, type SelectChangeEvent, Typography, TextField } from '@mui/material'
 import Button from '@mui/material/Button/Button'
@@ -8,11 +8,14 @@ interface DonateFormProps {
   imageUrl?: string
 }
 
+const DEFAULT_DONATION = 100
+
 function DonateForm (props: DonateFormProps) {
   const { classes, cx } = useStyles()
   const [currency, setCurrency] = React.useState('RON')
   const [isMonthlyDonation, setIsMonthlyDonation] = React.useState<boolean>(true)
-  const [donation, setDonation] = React.useState<number>(100)
+  const [donation, setDonation] = React.useState<number>(DEFAULT_DONATION)
+  const [inputValue, setInputValue] = React.useState<string>('')
   const headerLabel = isMonthlyDonation ? 'Alege cât dorești să oferi lunar' : 'Alege cât dorești să oferi'
 
   const handleChangeCurrency = (event: SelectChangeEvent) => {
@@ -23,12 +26,24 @@ function DonateForm (props: DonateFormProps) {
     return (
       <Box
         className={cx(classes.BaseSuggestion, donation === props.value ? classes.SelectedSuggestion : '')}
-        onClick={() => { setDonation(props.value) }}
+        onClick={() => { setDonation(props.value); setInputValue('') }}
       >
         <Typography variant='subtitle1' sx={{ marginRight: '4px' }}>{props.value}</Typography>
         <Typography variant='caption'>{currency}</Typography>
       </Box>
     )
+  }
+
+  const handleDonationChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
+    const regex = /^[0-9\b]+$/
+    const newDonation = Number.parseFloat(e.target.value)
+    if (regex.test(e.target.value)) {
+      setDonation(newDonation)
+      setInputValue(e.target.value)
+    } else {
+      setDonation(DEFAULT_DONATION)
+      setInputValue('')
+    }
   }
 
   const onDonate = () => {
@@ -93,7 +108,9 @@ function DonateForm (props: DonateFormProps) {
                 className={classes.ValueInput}
                 label="Altă sumă"
                 variant="outlined"
-                type="number"
+                type="text"
+                onChange={(e) => { handleDonationChange(e) }}
+                value={inputValue}
               />
               <Typography sx={{ position: 'absolute', bottom: 40, right: 50, color: 'grey' }}>{currency}</Typography>
             </Box>
@@ -105,7 +122,7 @@ function DonateForm (props: DonateFormProps) {
                 disableTouchRipple
                 className={classes.DonateButton}
               >
-                <Typography variant='h6'>DONEAZĂ</Typography>
+                <Typography variant='h6'>{'DONEAZĂ ' + donation.toString() + ' ' + currency}</Typography>
               </Button>
             </Box>
           </Box>
