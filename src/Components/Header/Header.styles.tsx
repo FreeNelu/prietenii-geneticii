@@ -15,7 +15,6 @@ export const useStyles = makeStyles()(
     },
     LogoText: {
       transition: 'font-size 0.5s',
-      fontFamily: 'monospace',
       fontWeight: 700,
       textDecoration: 'none',
       lineHeight: 1,
