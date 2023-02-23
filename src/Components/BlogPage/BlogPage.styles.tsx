@@ -22,8 +22,7 @@ export const useStyles = makeStyles()(
       padding: '124px',
       display: 'flex',
       justifyContent: 'center',
-      alignItems: 'center',
-      stroke: theme.blue
+      alignItems: 'center'
     }
 
   })
