@@ -138,6 +138,7 @@ function DonateForm (props: DonateFormProps) {
                     currency
                   }}
                 >
+                  {/* TODO: SUPPORT SUBSCRIPTION */}
                   <PayPalButtonsWrapper currency={currency} amount={donation.toString()}/>
                 </PayPalScriptProvider>
               </Box>
