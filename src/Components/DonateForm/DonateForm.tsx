@@ -1,7 +1,9 @@
-import React, { useRef } from 'react'
+import React from 'react'
 import { useStyles } from './DonateForm.styles'
 import { Box, FormControl, InputLabel, MenuItem, Select, type SelectChangeEvent, Typography, TextField } from '@mui/material'
 import Button from '@mui/material/Button/Button'
+import { PayPalScriptProvider } from '@paypal/react-paypal-js'
+import PayPalButtonsWrapper from './PaypalButtonsWrapper'
 
 interface DonateFormProps {
   className?: string
@@ -12,10 +14,11 @@ const DEFAULT_DONATION = 100
 
 function DonateForm (props: DonateFormProps) {
   const { classes, cx } = useStyles()
-  const [currency, setCurrency] = React.useState('RON')
+  const [currency, setCurrency] = React.useState('EUR')
   const [isMonthlyDonation, setIsMonthlyDonation] = React.useState<boolean>(true)
   const [donation, setDonation] = React.useState<number>(DEFAULT_DONATION)
   const [inputValue, setInputValue] = React.useState<string>('')
+  const [showPayPalButtons, setShowPayPalButtons] = React.useState<boolean>(false)
   const headerLabel = isMonthlyDonation ? 'Alege cât dorești să oferi lunar' : 'Alege cât dorești să oferi'
 
   const handleChangeCurrency = (event: SelectChangeEvent) => {
@@ -26,7 +29,7 @@ function DonateForm (props: DonateFormProps) {
     return (
       <Box
         className={cx(classes.BaseSuggestion, donation === props.value ? classes.SelectedSuggestion : '')}
-        onClick={() => { setDonation(props.value); setInputValue('') }}
+        onClick={() => { setDonation(props.value); setInputValue(''); setShowPayPalButtons(false) }}
       >
         <Typography variant='subtitle1' sx={{ marginRight: '4px' }}>{props.value}</Typography>
         <Typography variant='caption'>{currency}</Typography>
@@ -44,10 +47,12 @@ function DonateForm (props: DonateFormProps) {
       setDonation(DEFAULT_DONATION)
       setInputValue('')
     }
+    setShowPayPalButtons(false)
   }
 
   const onDonate = () => {
-    // TODO: Paypal flow
+    // Start paypal flow
+    setShowPayPalButtons(true)
   }
 
   return (
@@ -92,7 +97,6 @@ function DonateForm (props: DonateFormProps) {
                   onChange={handleChangeCurrency}
                   className={classes.CurrencyDropdown}
                 >
-                  <MenuItem value={'RON'}>RON</MenuItem>
                   <MenuItem value={'EUR'}>EUR</MenuItem>
                   <MenuItem value={'USD'}>USD</MenuItem>
                 </Select>
@@ -115,6 +119,7 @@ function DonateForm (props: DonateFormProps) {
               <Typography sx={{ position: 'absolute', bottom: 40, right: 50, color: 'grey' }}>{currency}</Typography>
             </Box>
             <Box className = {classes.FormFooter}>
+              {!showPayPalButtons &&
               <Button
                 onClick={onDonate}
                 disableRipple
@@ -122,8 +127,20 @@ function DonateForm (props: DonateFormProps) {
                 disableTouchRipple
                 className={classes.DonateButton}
               >
-                <Typography variant='h6'>{'DONEAZĂ ' + donation.toString() + ' ' + currency}</Typography>
+               <Typography variant='h6'>{'DONEAZĂ ' + donation.toString() + ' ' + currency}</Typography>
               </Button>
+              }
+              <Box display={showPayPalButtons ? 'block' : 'none'}>
+                <PayPalScriptProvider
+                  options={{
+                    'client-id': 'AdWCnO4PQa5N7dgLSPUB3U2itbC9HlNMytAoTV87Lx2CRXTwEMZQ85ywy3H41MFH1XlQfAwqBd_jKLev',
+                    components: 'buttons',
+                    currency
+                  }}
+                >
+                  <PayPalButtonsWrapper currency={currency} amount={donation.toString()}/>
+                </PayPalScriptProvider>
+              </Box>
             </Box>
           </Box>
         </Box>

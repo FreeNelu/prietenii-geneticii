@@ -157,8 +157,7 @@ export const useStyles = makeStyles()(
     },
     FormFooter: {
       boxSizing: 'border-box',
-      padding: 36,
-      paddingTop: 0,
+      padding: '0px 36px 18px 36px',
       width: '100%'
     }
   })
