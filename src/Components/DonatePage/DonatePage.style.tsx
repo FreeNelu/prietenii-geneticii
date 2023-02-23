@@ -19,6 +19,9 @@ export const useStyles = makeStyles<{ isMobile: boolean | undefined }>()(
       alignSelf: 'center',
       marginRight: '0px auto',
       padding: (isMobile ?? false) ? '5% 10%' : '3% 0px 0px 5%'
+    },
+    PinkShadow: {
+      textShadow: '-5px -2px' + theme.pink
     }
   })
 )

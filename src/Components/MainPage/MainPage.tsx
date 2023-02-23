@@ -19,10 +19,11 @@ function MainPage () {
         }
       }}
     >
-      <div
+      <Box
         className={classes.PageDescription}
-        style={{
-          marginLeft: isMobile ? '5%' : '15%'
+        sx={{
+          marginLeft: isMobile ? '5%' : '15%',
+          textAlign: { xs: 'center', md: 'left', sm: 'left' }
         }}
       >
         <Typography gutterBottom fontWeight={700} variant="h3">
@@ -37,7 +38,7 @@ function MainPage () {
         <Typography variant="caption">
           “No one has ever become poor from giving.” – Anne Frank
         </Typography>
-      </div>
+      </Box>
       <Box
         component="img"
         sx={{

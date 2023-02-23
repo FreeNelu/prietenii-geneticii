@@ -5,7 +5,7 @@ import SentimentDissatisfiedIcon from '@mui/icons-material/SentimentDissatisfied
 
 function BadRoute () {
   return (
-      <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'center', height: '50%', flexDirection: 'column' }}>
+      <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'center', height: '50%', flexDirection: 'column', textAlign: 'center', padding: 32 }}>
         <SentimentDissatisfiedIcon style={{ width: '20%', height: '20%' }}/>
         <Typography variant='h2'>Nimic de văzut aici!</Typography>
         <p>
