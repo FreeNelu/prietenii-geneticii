@@ -6,6 +6,7 @@ import { Link } from 'react-router-dom'
 import CloseIcon from 'Components/Icons/CloseIcon'
 import DonateButton from 'Components/DonateButton/DonateButton'
 import ReversedWave from 'Components/Icons/ReversedWave'
+import LogoIcon from 'Components/Icons/LogoIcon'
 
 interface TopDrawerProps {
   open: boolean
@@ -20,6 +21,12 @@ function TopDrawer (props: TopDrawerProps) {
   const root = document.querySelector('#root')
   ;(root != null) && (open && isMobile ? disableBodyScroll(root) : enableBodyScroll(root))
 
+  const Logo = () => (
+    <Link className={classes.Logo} to={'/'}>
+      <LogoIcon height={96}/>
+    </Link>
+  )
+
   return (
   <div className={classes.Drawer}>
     <div className={classes.WaveContainer}>
@@ -29,14 +36,15 @@ function TopDrawer (props: TopDrawerProps) {
       }}/>
       <ReversedWave className={classes.ReversedWave} />
     </div>
-    <IconButton onClick={onClose} className={classes.CloseButton} title='MenuClose'>
+    <Logo/>
+    <IconButton onClick={onClose} className={classes.CloseButton} title='Menu Close'>
       <CloseIcon className={classes.CloseIcon}/>
     </IconButton>
     <div onClick={onClose} className={classes.Links}>
       <div className={classes.DefaultLinks}>
         {drawerData.map(({ title, link }, index) => (
           <Link key={index} to={link} className={classes.Link}>
-            <Typography align='center' variant='h4'>{title}</Typography>
+            <Typography align='center' fontWeight={700} variant='h6'>{title}</Typography>
           </Link>
         ))}
       </div>

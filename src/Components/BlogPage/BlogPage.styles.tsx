@@ -4,7 +4,10 @@ export const useStyles = makeStyles()(
   (theme) => ({
     Container: {
       paddingTop: 72,
-      textAlign: 'center'
+      textAlign: 'center',
+      display: 'flex',
+      justifyContent: 'center',
+      flexDirection: 'column'
     },
     BlueShadow: {
       textShadow: '-5px -2px' + theme.blue
@@ -19,11 +22,10 @@ export const useStyles = makeStyles()(
       zIndex: 1000
     },
     Inner: {
-      padding: '124px',
+      padding: '64px',
       display: 'flex',
       justifyContent: 'center',
       alignItems: 'center'
     }
-
   })
 )

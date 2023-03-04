@@ -1,24 +1,25 @@
-import React from 'react'
+import React, { useEffect, useState } from 'react'
 import { useStyles } from './BlogPage.styles'
-import { Box, useMediaQuery, useTheme } from '@mui/material'
+import { Box } from '@mui/material'
 import Typography from '@mui/material/Typography'
 import Loader from './Loader'
+import BlogList from './BlogList/BlogList'
 
 function BlogPage () {
-  const theme = useTheme()
   const { classes } = useStyles()
-  const isMobile = useMediaQuery(theme.breakpoints.down('md'))
-
-  const BlogLink = () => {
-    return (<Box className={classes.BlogLink}></Box>)
-  }
+  const [isLoading, setIsLoading] = useState<boolean>(true)
+  useEffect(() => {
+    setTimeout(() => { setIsLoading(false) }, 1000)
+  }, [])
 
   return (
     <Box className={classes.Container}>
-        <Typography fontWeight={700} variant='h2'>
+        <Typography fontWeight={700} variant='h3'>
             <span className={classes.BlueShadow}>N</span>outăți<span className={classes.BlueShadow}>.</span>
         </Typography>
-        <Loader/>
+        { isLoading
+          ? <Loader/>
+          : <BlogList/>}
     </Box>
   )
 }

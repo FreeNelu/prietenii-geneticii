@@ -3,7 +3,7 @@ import { makeStyles } from 'Theme'
 export const useStyles = makeStyles<{ open: boolean }>()(
   (theme, { open }) => ({
     Box: {
-      backgroundColor: theme.pink
+      backgroundColor: theme.background
     },
     Drawer: {
       position: 'fixed',
@@ -29,6 +29,12 @@ export const useStyles = makeStyles<{ open: boolean }>()(
         background: theme.darkpink
       }
     },
+    Logo: {
+      position: 'absolute',
+      top: 32,
+      left: 32,
+      textDecoration: 'none'
+    },
     CloseIcon: {
       stroke: theme.textPrimary,
       width: 36,
@@ -39,7 +45,6 @@ export const useStyles = makeStyles<{ open: boolean }>()(
       display: 'flex',
       flexDirection: 'column',
       alignItems: 'center',
-      margin: 'auto',
       height: '75%',
       width: '100%',
       justifyContent: 'space-evenly',
@@ -51,7 +56,7 @@ export const useStyles = makeStyles<{ open: boolean }>()(
       width: '100%',
       justifyContent: 'center',
       alignItems: 'center',
-      paddingBottom: '25%'
+      paddingBottom: '40%'
     },
     DonateLink: {
       display: 'flex',
@@ -78,7 +83,7 @@ export const useStyles = makeStyles<{ open: boolean }>()(
       width: '80%'
     },
     ReversedWave: {
-      fill: theme.pink,
+      fill: theme.background,
       transform: 'scale(5)'
     },
     WaveContainer: {
