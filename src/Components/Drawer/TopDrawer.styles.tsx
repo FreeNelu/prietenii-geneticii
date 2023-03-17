@@ -53,16 +53,18 @@ export const useStyles = makeStyles<{ open: boolean }>()(
     DefaultLinks: {
       display: 'flex',
       flexDirection: 'column',
-      width: '100%',
+      width: '80%',
       justifyContent: 'center',
       alignItems: 'center',
-      paddingBottom: '40%'
+      paddingBottom: '40%',
+      gap: 12,
+      marginTop: 12
     },
     DonateLink: {
       display: 'flex',
       justifyContent: 'center',
       textDecoration: 'none',
-      width: '80%'
+      width: '50%'
     },
     Link: {
       textDecoration: 'none',
@@ -71,6 +73,8 @@ export const useStyles = makeStyles<{ open: boolean }>()(
       justifyContent: 'center',
       borderRadius: '24px 12px',
       color: theme.textPrimary,
+      border: '4px solid',
+      borderColor: theme.darkpink,
       padding: '16px 16px',
       ':hover': {
         background: theme.darkpink,
@@ -80,7 +84,7 @@ export const useStyles = makeStyles<{ open: boolean }>()(
     DonateButton: {
       background: 'white',
       color: theme.textPrimary,
-      width: '80%'
+      width: '100%'
     },
     ReversedWave: {
       fill: theme.background,

@@ -8,9 +8,9 @@ export const useStyles = makeStyles()(
       alignContent: 'center',
       border: '4px solid' + theme.textPrimary,
       borderRadius: 24,
-      boxShadow: '-8px 0px 0px' + theme.blue,
       background: 'transparent',
-      height: '188px'
+      height: 200,
+      marginBottom: 12
     },
     ImageBox: {
       height: '100%',
@@ -18,7 +18,16 @@ export const useStyles = makeStyles()(
       borderBottomRightRadius: 20,
       borderLeft: '4px solid' + theme.textPrimary
     },
+    ImageBoxMobile: {
+      display: 'flex',
+      flexDirection: 'column',
+      width: '100%',
+      objectFit: 'cover',
+      borderRadius: 20,
+      filter: 'blur(2px)'
+    },
     Content: {
+      position: 'relative',
       display: 'flex',
       flexDirection: 'row-reverse',
       justifyContent: 'space-between',
@@ -28,6 +37,8 @@ export const useStyles = makeStyles()(
       padding: 0
     },
     TextBox: {
+      position: 'relative',
+      boxSizing: 'border-box',
       display: 'flex',
       flexDirection: 'column',
       height: '100%',
@@ -35,8 +46,33 @@ export const useStyles = makeStyles()(
       textAlign: 'left',
       padding: 24
     },
+    TextBoxMobile: {
+      position: 'absolute',
+      boxSizing: 'border-box',
+      display: 'flex',
+      flexDirection: 'column',
+      height: '100%',
+      alignContent: 'center',
+      textAlign: 'left',
+      top: 18,
+      left: 18,
+      color: 'white'
+    },
     ReadMoreButton: {
-      alignSelf: 'end',
+      position: 'absolute',
+      right: 12,
+      bottom: 12,
+      backgroundColor: theme.textPrimary,
+      color: 'white',
+      borderRadius: '24px 18px',
+      '&:hover': {
+        backgroundColor: 'black'
+      }
+    },
+    ReadMoreButtonMobile: {
+      position: 'absolute',
+      right: 12,
+      bottom: 32,
       backgroundColor: theme.textPrimary,
       color: 'white',
       borderRadius: '24px 18px',

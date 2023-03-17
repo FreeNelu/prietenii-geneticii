@@ -10,7 +10,8 @@ export const useStyles = makeStyles()(
     },
     ReversedWave: {
       fill: theme.pink,
-      width: '100%'
+      width: '100%',
+      transform: 'translate(0, -1px)'
     },
     Carousel: {
       maxWidth: 600,

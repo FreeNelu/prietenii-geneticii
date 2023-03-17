@@ -103,10 +103,10 @@ function DonateForm (props: DonateFormProps) {
               </FormControl>
             </Box>
             <Box className={classes.FormBody}>
+              <SuggestedDonation value={25}/>
               <SuggestedDonation value={50}/>
               <SuggestedDonation value={100}/>
-              <SuggestedDonation value={150}/>
-              <SuggestedDonation value={200}/>
+              <SuggestedDonation value={500}/>
               <TextField
                 sx={{ flex: 2, minWidth: 200 }}
                 className={classes.ValueInput}

@@ -63,12 +63,12 @@ function CustomCarousel (props: CustomCarouselProps) {
         <CustomCard
           imageUrl="https://i.pravatar.cc/300"
           name="Person1"
-          description="Test description1 Test description1 Test description1Test description1 Test description1 Test description1 Test description1Test description1 Test description1 Test description1 Test description1 Test description1 Test description1 Test description1 Test description1 Test description1"
+          description="Test description1 Test description1 Test description1Test description1 Test description1 Test description1"
         />
         <CustomCard
           imageUrl="https://i.pravatar.cc/300"
           name="Person2"
-          description="Test description2 Test description2"
+          description="Test description2 Test description2 Test description2 Test description2 Test description2 Test description2"
         />
       </Carousel>
     </Box>
