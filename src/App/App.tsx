@@ -6,6 +6,7 @@ import { Routes, Route } from 'react-router-dom'
 import BadRoute from './BadRoute'
 import DonatePage from 'Components/DonatePage/DonatePage'
 import BlogPage from 'Components/BlogPage/BlogPage'
+import BlogDetails from 'Components/BlogPage/BlogDetails/BlogDetails'
 
 function App () {
   const { classes } = useStyles()
@@ -17,6 +18,7 @@ function App () {
         <Route path="/" element={<Hero />} />
         <Route path="about" element={<BadRoute />} />
         <Route path="blog" element={<BlogPage />} />
+        <Route path="blog/:id" element={<BlogDetails />} />
         <Route path="donate" element={<DonatePage />} />
         <Route path="*" element={<BadRoute />} />
       </Routes>

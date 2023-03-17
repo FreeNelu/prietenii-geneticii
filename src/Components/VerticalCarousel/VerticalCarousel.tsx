@@ -20,9 +20,9 @@ function VerticalCarousel (props: VerticalCarouselProps) {
     { id: 2, text: 'Item 2' },
     { id: 3, text: 'Item 3' },
     { id: 4, text: 'Item 4' },
-    { id: 4, text: 'Item 4' },
-    { id: 4, text: 'Item 4' },
-    { id: 4, text: 'Item 4' }
+    { id: 5, text: 'Item 4' },
+    { id: 6, text: 'Item 4' },
+    { id: 7, text: 'Item 4' }
   ]
 
   const settings = {
@@ -39,11 +39,11 @@ function VerticalCarousel (props: VerticalCarouselProps) {
 
   return (
     <Box
-      sx={{ margin: { xs: '10% 10% 0% 10%', md: '5% 15% 0% 15%', lg: '5% 25% 0% 25%' } }}
+      sx={{ margin: { xs: '10% 10% 0% 10%', md: '5% 15% 0% 15%', lg: '2.5% 25% 0% 25%' } }}
     >
         <Slider ref={slider} {...settings}>
-              {items.map((_item, index) => (
-                  <BlogLink key={index} />
+              {items.map((item, index) => (
+                  <BlogLink key={index} id={item.id} />
               ))}
         </Slider>
         <ScrollArrow className={classes.Svg} onClick={onScroll}/>

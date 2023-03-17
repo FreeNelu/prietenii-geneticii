@@ -1,13 +1,19 @@
 import React, { useEffect, useRef, useState } from 'react'
 import { useStyles } from './BlogLink.styles'
 import { Box, Button, Card, CardContent, Typography, useMediaQuery, useTheme } from '@mui/material'
+import { useNavigate } from 'react-router-dom'
 
-function BlogLink () {
+interface BlogLinkProps {
+  id: number
+}
+
+function BlogLink (props: BlogLinkProps) {
   const { classes } = useStyles()
   const textBox = useRef<HTMLDivElement>()
   const [textBoxWidth, setTextBoxWidth] = useState(999)
   const theme = useTheme()
   const isMobile = useMediaQuery(theme.breakpoints.down('sm'))
+  const navigate = useNavigate()
 
   useEffect(() => {
     const handleResize = () => {
@@ -18,6 +24,10 @@ function BlogLink () {
 
     window.addEventListener('resize', handleResize)
   })
+
+  const handleReadMoreClick = () => {
+    navigate(`/blog/${props.id}`)
+  }
 
   const adjustBlogDescription = (containerWidth: number, blogDescription: string) => {
     if (containerWidth < 415) {
@@ -43,7 +53,7 @@ function BlogLink () {
         <Typography variant="body1" gutterBottom>
           {adjustBlogDescription(textBoxWidth, 'This blog is about lorem ipsum. This blog is about lorem ipsum. This blog is about lorem ipsum. This blog is about lorem ipsum.')}
         </Typography>
-        <Button className={classes.ReadMoreButton}>
+        <Button className={classes.ReadMoreButton} onClick={handleReadMoreClick}>
           <Typography variant="button" >
             Citește mai mult
           </Typography>
