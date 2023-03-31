@@ -9,6 +9,9 @@ export const useStyles = makeStyles()(
       justifyContent: 'center',
       flexDirection: 'column'
     },
+    Text: {
+      marginBottom: 12
+    },
     BlueShadow: {
       textShadow: '-5px -2px' + theme.blue
     },

@@ -2,12 +2,14 @@ import React, { useEffect, useRef, useState } from 'react'
 import { useStyles } from './BlogLink.styles'
 import { Box, Button, Card, CardContent, Typography, useMediaQuery, useTheme } from '@mui/material'
 import { useNavigate } from 'react-router-dom'
+import { type BlogItem } from '../BlogItem'
 
 interface BlogLinkProps {
-  id: number
+  item: BlogItem
 }
 
 function BlogLink (props: BlogLinkProps) {
+  const { item } = props
   const { classes } = useStyles()
   const textBox = useRef<HTMLDivElement>()
   const [textBoxWidth, setTextBoxWidth] = useState(999)
@@ -26,7 +28,7 @@ function BlogLink (props: BlogLinkProps) {
   })
 
   const handleReadMoreClick = () => {
-    navigate(`/blog/${props.id}`)
+    navigate(`/blog/${item.id}`)
   }
 
   const adjustBlogDescription = (containerWidth: number, blogDescription: string) => {
@@ -48,10 +50,10 @@ function BlogLink (props: BlogLinkProps) {
       />
       <Box className={classes.TextBox} ref={textBox}>
         <Typography variant='h4' gutterBottom>
-          Blog Title
+          {item.title}
         </Typography>
         <Typography variant="body1" gutterBottom>
-          {adjustBlogDescription(textBoxWidth, 'This blog is about lorem ipsum. This blog is about lorem ipsum. This blog is about lorem ipsum. This blog is about lorem ipsum.')}
+          {adjustBlogDescription(textBoxWidth, item.description)}
         </Typography>
         <Button className={classes.ReadMoreButton} onClick={handleReadMoreClick}>
           <Typography variant="button" >
@@ -68,14 +70,14 @@ function BlogLink (props: BlogLinkProps) {
         component="img"
         className={classes.ImageBoxMobile}
         alt="Imaginea articolului"
-        src={'https://www.gardeningknowhow.com/wp-content/uploads/2020/11/landscape-books.jpg'}
+        src={item.image}
       />
       <Box className={classes.TextBoxMobile}>
         <Typography variant='h4' gutterBottom>
-          Blog Title
+          {item.title}
         </Typography>
         <Typography variant="body1" gutterBottom>
-          {adjustBlogDescription(textBoxWidth, 'This blog is about lorem ipsum. This blog is about lorem ipsum. This blog is about lorem ipsum. This blog is about lorem ipsum.')}
+          {adjustBlogDescription(textBoxWidth, item.description)}
         </Typography>
       </Box>
       <Button className={classes.ReadMoreButtonMobile}>

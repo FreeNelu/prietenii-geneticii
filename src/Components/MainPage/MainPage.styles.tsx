@@ -4,7 +4,8 @@ export const useStyles = makeStyles()(
   (theme) => ({
     MainPageContainer: {
       display: 'flex',
-      marginTop: 64
+      marginTop: 64,
+      transition: 'height 0.5s'
     },
     PageDescription: {
       float: 'left',
