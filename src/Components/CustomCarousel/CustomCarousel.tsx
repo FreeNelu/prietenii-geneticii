@@ -55,7 +55,7 @@ function CustomCarousel (props: CustomCarouselProps) {
             xs: '64px',
             md: '192px'
           },
-          paddingRight: {
+          marginRight: {
             md: '128px'
           }
         }}
