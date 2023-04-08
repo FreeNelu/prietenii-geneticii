@@ -7,13 +7,13 @@ export const useStyles = makeStyles()(
       display: 'flex',
       flexDirection: 'column',
       justifyContent: 'center',
-      alignItems: 'center',
-      marginTop: 92
+      alignItems: 'center'
     },
     ImageBox: {
       width: '100%',
       position: 'absolute',
-      left: 0
+      left: 0,
+      filter: 'grayscale(80%)'
     },
     PillText: {
       display: 'flex',
@@ -24,6 +24,7 @@ export const useStyles = makeStyles()(
     PillBox: {
       display: 'flex',
       flexDirection: 'row',
+      marginTop: '30%',
       marginBottom: 92,
       zIndex: 99
     },

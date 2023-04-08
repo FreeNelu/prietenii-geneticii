@@ -10,7 +10,7 @@ function BlogPage () {
   return (
     <Box className={classes.Container}>
         <Typography fontWeight={700} variant='h3' className={classes.Text}>
-            <span className={classes.BlueShadow}>N</span>outăți<span className={classes.BlueShadow}>.</span>
+            <span className={classes.BlueShadow}>N</span>outăți
         </Typography>
         <BlogList/>
     </Box>

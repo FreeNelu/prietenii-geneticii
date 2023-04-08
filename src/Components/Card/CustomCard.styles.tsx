@@ -5,7 +5,8 @@ export const useStyles = makeStyles()(
     Card: {
       borderRadius: '64px 32px',
       minHeight: 250,
-      backgroundColor: theme.background
+      backgroundColor: theme.background,
+      boxShadow: theme.boxShadow
     },
     Quotes: {
       width: 48,

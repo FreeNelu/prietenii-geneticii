@@ -9,7 +9,6 @@ export const useStyles = makeStyles()(
       overflow: 'hidden'
     },
     Liquid: {
-      backgroundColor: theme.textPrimary,
       width: '100%',
       transition: 'height 1s ease-in-out',
       position: 'absolute',

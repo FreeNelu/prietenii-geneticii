@@ -1,3 +1,4 @@
+import zIndex from '@mui/material/styles/zIndex'
 import { makeStyles } from 'Theme'
 
 export const useStyles = makeStyles()(
@@ -11,7 +12,12 @@ export const useStyles = makeStyles()(
     ReversedWave: {
       fill: theme.pink,
       width: '100%',
-      transform: 'translate(0, -1px)'
+      transform: 'translate(0, -1px)',
+      backgroundColor: 'transparent',
+      position: 'absolute',
+      left: 0,
+      top: 0,
+      zIndex: 99
     },
     Carousel: {
       maxWidth: 600,

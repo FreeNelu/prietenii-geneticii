@@ -33,10 +33,10 @@ const PillsContainer = () => {
       />
       <Box className={classes.Container}
       >
-        {PillBox(percentages[0], classes.Liquid1)}
-        {PillBox(percentages[1], classes.Liquid2, true)}
-        {PillBox(percentages[2], classes.Liquid3)}
-        {PillBox(percentages[3], classes.Liquid4, true)}
+        {PillBox(percentages[0], classes.Liquid1, true)}
+        {PillBox(percentages[1], classes.Liquid2)}
+        {PillBox(percentages[2], classes.Liquid3, true)}
+        {PillBox(percentages[3], classes.Liquid4)}
       </Box>
     </Box>
   )

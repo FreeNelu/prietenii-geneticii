@@ -1,9 +1,10 @@
 import React from 'react'
 import { useStyles } from './BlogDetails.styles'
-import { Box, Card, CardContent, CardMedia, Typography } from '@mui/material'
+import { Box, Card, CardContent, Typography } from '@mui/material'
 import { useParams } from 'react-router-dom'
 import { BlogItems } from '../BlogItem'
 import BadRoute from 'App/BadRoute'
+import FeedbackForm from 'Components/FeedbackForm/FeedbackForm'
 
 function BlogDetails () {
   const { classes } = useStyles()
@@ -16,8 +17,8 @@ function BlogDetails () {
   } else {
     return (
     <Box className={classes.Container}>
-      <Typography variant="h4" className={classes.Title}>
-        {item.title}
+      <Typography fontWeight={700} variant='h3' className={classes.Title}>
+            <span className={classes.TitleShadow}>{item.title[0]}</span>{item.title.slice(1)}
       </Typography>
 
       <Box
@@ -26,12 +27,12 @@ function BlogDetails () {
         alt="Girl climbing stairs made out of DNA"
         src={item.image}
         sx={{
-          width: { xs: '100%', md: '80%', lg: '60%' }
+          width: { xs: '90%', md: '80%', lg: '60%' }
         }}
       />
 
       <Card className={classes.Root} sx={{
-        width: { xs: '100%', md: '80%', lg: '60%' }
+        width: { xs: '90%', md: '80%', lg: '60%' }
       }} >
         <CardContent className={classes.Content}>
           <Typography className={classes.Date} variant="subtitle1">
@@ -42,6 +43,8 @@ function BlogDetails () {
           </Typography>
         </CardContent>
       </Card>
+
+      <FeedbackForm/>
     </Box>
     )
   }
