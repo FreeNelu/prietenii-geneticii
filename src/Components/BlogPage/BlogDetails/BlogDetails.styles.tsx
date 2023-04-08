@@ -2,20 +2,26 @@ import { makeStyles } from 'Theme'
 
 export const useStyles = makeStyles()(
   (theme) => ({
+    Container: {
+      display: 'flex',
+      justifyContent: 'center',
+      flexDirection: 'column',
+      alignItems: 'center'
+    },
     Root: {
       margin: 'auto',
-      marginTop: 12,
-      color: theme.textPrimary
+      color: theme.textPrimary,
+      borderRadius: '25px'
     },
     Title: {
       marginTop: 82,
       textAlign: 'center'
     },
     Media: {
-      width: '100%',
-      height: 'auto',
-      // Keep aspect ratio
-      paddingTop: '56.25%'
+      margin: 'auto',
+      borderRadius: '25px',
+      marginTop: 32,
+      marginBottom: 32
     },
     Date: {
       position: 'absolute',
