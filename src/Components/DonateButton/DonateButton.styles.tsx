@@ -1,7 +1,7 @@
 import { makeStyles } from 'Theme'
 
-export const useStyles = makeStyles<{ invertColors: boolean | undefined }, 'HeartIcon'>()(
-  (theme, { invertColors }, classes) => ({
+export const useStyles = makeStyles<{ invertColors: boolean | undefined }>()(
+  (theme, { invertColors }) => ({
     DonateButton: {
       color: 'white',
       backgroundColor: theme.pink,
@@ -15,11 +15,11 @@ export const useStyles = makeStyles<{ invertColors: boolean | undefined }, 'Hear
         backgroundColor: (invertColors ?? false) ? theme.background : 'transparent',
         border: (invertColors ?? false) ? 'none' : '8px solid',
         borderColor: theme.pink,
-        color: theme.textPrimary
-      },
-      [`&:hover .${classes.HeartIcon}`]: {
-        color: theme.pink,
-        width: 24
+        color: theme.textPrimary,
+        '& > svg': {
+          color: theme.pink,
+          width: 24
+        }
       },
       '&.selected': {
         backgroundColor: 'transparent',

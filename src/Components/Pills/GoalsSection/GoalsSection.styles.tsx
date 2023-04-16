@@ -40,11 +40,26 @@ export const useStyles = makeStyles()(
       padding: 12,
       marginTop: -12
     },
-    NoPadingLeft: {
+    NoPaddingLeft: {
       paddingLeft: 0
     },
     NoPaddingRight: {
       paddingRight: 0
+    },
+    DonationButton: {
+      backgroundColor: theme.green,
+      marginTop: 32,
+      borderRadius: '24px 12px',
+      ':hover': {
+        borderColor: theme.green,
+        '& > svg': {
+          color: theme.green
+        }
+      },
+      '&.selected': {
+        borderColor: theme.green,
+        color: theme.green
+      }
     }
   })
 )
