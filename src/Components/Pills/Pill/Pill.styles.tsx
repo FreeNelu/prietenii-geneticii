@@ -3,10 +3,15 @@ import { makeStyles } from 'Theme'
 export const useStyles = makeStyles()(
   (theme) => ({
     Pill: {
-      borderRadius: 75,
+      borderRadius: 64,
+      border: '8px solid ' + theme.background,
       backgroundColor: theme.textPrimary,
+      width: '15%',
+      minWidth: 75,
+      maxWidth: 90,
       position: 'relative',
-      overflow: 'hidden'
+      overflow: 'hidden',
+      marginRight: -1
     },
     Liquid: {
       width: '100%',

@@ -24,7 +24,10 @@ export const useStyles = makeStyles()(
     },
     FeedbackButton: {
       backgroundColor: theme.pink,
-      color: 'white'
+      color: 'white',
+      '&:hover': {
+        backgroundColor: theme.lightpink
+      }
     },
     FeedbackInput: styleFunctionSx({
       theme,

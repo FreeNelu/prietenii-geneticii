@@ -4,7 +4,7 @@ import Wave from 'Components/Icons/Wave'
 import CustomCarousel from 'Components/CustomCarousel/CustomCarousel'
 import ReversedWave from 'Components/Icons/ReversedWave'
 import MainPage from 'Components/MainPage/MainPage'
-import PillsContainer from 'Components/Pills/PillsContainer/PillsContainer'
+import GoalsSection from 'Components/Pills/GoalsSection/GoalsSection'
 import { Box } from '@mui/material'
 
 function Hero () {
@@ -18,7 +18,7 @@ function Hero () {
               <Box sx={{ position: 'relative' }}>
                 <ReversedWave className={classes.ReversedWave} />
               </Box>
-            <PillsContainer/>
+            <GoalsSection/>
         </>
   )
 }

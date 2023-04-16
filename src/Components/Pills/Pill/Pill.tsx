@@ -36,7 +36,7 @@ const LiquidPill = (props: PillProps) => {
   }, [])
 
   return (
-      <Box className={cx(classes.Pill, props.className)} ref={pillRef} sx={{ height: { xs: 200, md: 400 }, width: { xs: 75, md: 150 } }}>
+      <Box className={cx(classes.Pill, props.className)} ref={pillRef} >
         <Box className={cx(classes.Liquid, props.liquidClassName)} style={{ height: `${currentPercentage}%` }} />
       </Box>
   )
