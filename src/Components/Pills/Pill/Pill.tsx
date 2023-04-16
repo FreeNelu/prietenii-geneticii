@@ -24,7 +24,7 @@ const LiquidPill = (props: PillProps) => {
           }
         })
       },
-      { threshold: 0.5 } // trigger at 50% visibility
+      { threshold: 0.2 }
     )
 
     const pill = pillRef?.current
