@@ -81,7 +81,7 @@ function BlogLink (props: BlogLinkProps) {
         </Typography>
       </Box>
       <Button className={classes.ReadMoreButtonMobile}>
-        <Typography variant="button" >
+        <Typography variant="button" onClick={handleReadMoreClick}>
           Citește mai mult
         </Typography>
       </Button>
