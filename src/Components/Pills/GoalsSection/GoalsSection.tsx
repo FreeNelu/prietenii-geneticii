@@ -96,8 +96,8 @@ const GoalsSection = () => {
         text={
           <TextComponent
             title="Donații"
-            subtitle="Suma donată: 38.000/50.000 RON (76%)"
-            text="Ajută-ne să strângem 50.000 RON pentru a sprijini mai multe persoane aflate în nevoie."
+            subtitle="Suma donată: 38.000/50.000 RON"
+            text="Ajută-ne să strângem 50.000 RON pentru a sprijini mai multe persoane aflate în nevoie"
             className={classes.NoPaddingRight}
             linkButton={
               <Link to="/donate" style={{ textDecoration: 'none' }}>
@@ -124,8 +124,8 @@ const GoalsSection = () => {
         text={
           <TextComponent
             title="Voluntariat"
-            subtitle="Ore de voluntariat înregistrate: 96/500 ore (19.2%)"
-            text="Contribuie la atingerea obiectivului nostru de 500 de ore de voluntariat."
+            subtitle="Ore de voluntariat înregistrate: 96/500 ore"
+            text="Contribuie la atingerea obiectivului nostru de 500 de ore de voluntariat"
             className={classes.NoPaddingLeft}
           />
         }
@@ -146,8 +146,8 @@ const GoalsSection = () => {
         text={
           <TextComponent
             title="Oameni ajutați"
-            subtitle="Persoane ajutate până acum: 45/100 (45%)"
-            text="Lucrăm să ajutăm mai multe persoane vulnerabile din comunitatea noastră și suntem la 80% din obiectivul nostru de a ajuta 100 de persoane."
+            subtitle="Persoane ajutate până acum: 45/100"
+            text="Dorim să ajutăm mai multe persoane vulnerabile din comunitatea noastră"
             className={classes.NoPaddingRight}
           />
         }
@@ -169,8 +169,8 @@ const GoalsSection = () => {
         text={
           <TextComponent
             title="Proiecte finalizate"
-            subtitle="Proiecte organizate cu scopul de a vindeca bolile genetice: 2/5 (40%)"
-            text="Organizăm și participăm la finalizarea a mai multor proiecte importante pentru a sprijini mai multe persoane din comunitatea noastră."
+            subtitle="Proiecte organizate cu scopul de a vindeca bolile genetice: 2/5"
+            text="Organizăm și participăm la finalizarea a mai multor proiecte importante pentru a sprijini persoanele din comunitatea noastră"
             className={classes.NoPaddingLeft}
           />
         }
