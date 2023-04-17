@@ -10,7 +10,7 @@ interface BlogLinkProps {
 
 function BlogLink (props: BlogLinkProps) {
   const { item } = props
-  const { classes } = useStyles()
+  const { classes, cx } = useStyles()
   const textBox = useRef<HTMLDivElement>()
   const [textBoxWidth, setTextBoxWidth] = useState(999)
   const theme = useTheme()
@@ -65,13 +65,7 @@ function BlogLink (props: BlogLinkProps) {
   )
 
   const mobileCard = (
-    <CardContent className={classes.Content}>
-      <Box
-        component="img"
-        className={classes.ImageBoxMobile}
-        alt="Imaginea articolului"
-        src={item.image}
-      />
+    <CardContent className={cx(classes.Content, classes.MobileContent)}>
       <Box className={classes.TextBoxMobile}>
         <Typography variant='h4' gutterBottom>
           {item.title}

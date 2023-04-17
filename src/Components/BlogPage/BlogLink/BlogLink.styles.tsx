@@ -79,6 +79,9 @@ export const useStyles = makeStyles()(
       '&:hover': {
         backgroundColor: 'black'
       }
+    },
+    MobileContent: {
+      backgroundColor: theme.blue
     }
   })
 )
