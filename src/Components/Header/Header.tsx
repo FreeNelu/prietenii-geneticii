@@ -62,6 +62,14 @@ function Header (props: HeaderProps) {
                         xs: 'none', md: 'flex'
                       }
                     }}>
+                      <Link to={'/'} className={classes.Link}>
+                        <Button
+                          onClick={handleCloseNavMenu}
+                          className={cx(classes.PageButton)}
+                        >
+                          <Typography variant='h6'>PAGINA PRINCIPALĂ</Typography>
+                        </Button>
+                      </Link>
                       <Link to={'/about'} className={classes.Link}>
                         <Button
                           onClick={handleCloseNavMenu}
