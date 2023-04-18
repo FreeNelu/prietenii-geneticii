@@ -19,7 +19,7 @@ interface DonateFormProps {
   imageUrl?: string
 }
 
-const DEFAULT_DONATION = 100
+const DEFAULT_DONATION = 25
 
 function DonateForm (props: DonateFormProps) {
   const { classes, cx } = useStyles()
@@ -278,8 +278,9 @@ function DonateForm (props: DonateFormProps) {
               borderTopLeftRadius: 16,
               borderBottomLeftRadius: 8
             }}
-            onClick={() => {
+            onClick={(e) => {
               setIsCompany(false)
+              e.preventDefault()
             }}
           >
             <Typography variant="button">Persoană fizică</Typography>
@@ -292,9 +293,10 @@ function DonateForm (props: DonateFormProps) {
               borderTopRightRadius: 16,
               borderBottomRightRadius: 8
             }}
-            onClick={() => {
+            onClick={(e) => {
               setShowPayPalButtons(false)
               setIsCompany(true)
+              e.preventDefault()
             }}
           >
             <Typography variant="button">Persoană juridică</Typography>
