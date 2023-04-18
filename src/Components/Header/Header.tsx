@@ -37,11 +37,11 @@ function Header (props: HeaderProps) {
 
   const LogoWithText = (
     <Link className={classes.Logo} to={'/'}>
-      <LogoIcon height={isRouteDonation ? LOGO_SIZE.LARGE : LOGO_SIZE.REGULAR} className={classes.LogoIcon}/>
+      <LogoIcon height={isRouteDonation && !isMobile ? LOGO_SIZE.LARGE : LOGO_SIZE.REGULAR} className={classes.LogoIcon}/>
       <div
           className={classes.LogoText}
           style={{
-            fontSize: isRouteDonation ? LOGO_FONT_SIZE.LARGE : LOGO_FONT_SIZE.REGULAR
+            fontSize: isRouteDonation && !isMobile ? LOGO_FONT_SIZE.LARGE : LOGO_FONT_SIZE.REGULAR
           }}
       >
           <span>PRIETENII</span>

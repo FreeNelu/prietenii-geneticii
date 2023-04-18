@@ -7,10 +7,11 @@ export const styleFunctionSx = unstable_styleFunctionSx as (params: object) => C
 export const useStyles = makeStyles()(
   (theme) => ({
     Box: {
-      width: '100%',
       display: 'flex',
       flexDirection: 'column',
-      alignItems: 'center'
+      alignItems: 'center',
+      minWidth: 300,
+      maxWidth: 750
     },
     Container: {
       display: 'flex',
@@ -77,18 +78,19 @@ export const useStyles = makeStyles()(
           },
           '&.Mui-focused fieldset': {
             borderColor: theme.pink
+          },
+          '& input[type=number]': {
+            MozAppearance: 'textfield',
+            WebkitAppearance: 'textfield',
+            '&::-webkit-outer-spin-button': {
+              WebkitAppearance: 'none',
+              margin: 0
+            },
+            '&::-webkit-inner-spin-button': {
+              WebkitAppearance: 'none',
+              margin: 0
+            }
           }
-        },
-        '& input[type=number]': {
-          '-moz-appearance': 'textfield'
-        },
-        '& input[type=number]::-webkit-outer-spin-button': {
-          '-webkit-appearance': 'none',
-          margin: 0
-        },
-        '& input[type=number]::-webkit-inner-spin-button': {
-          '-webkit-appearance': 'none',
-          margin: 0
         }
       }
     }),
@@ -103,10 +105,11 @@ export const useStyles = makeStyles()(
     FormHeader: {
       boxSizing: 'border-box',
       display: 'flex',
-      justifyContent: 'space-evenly',
+      justifyContent: 'center',
       alignItems: 'center',
       backgroundColor: theme.backgroundSecondary,
       width: '100%',
+      minHeight: 50,
       borderTopLeftRadius: 8,
       borderTopRightRadius: 8,
       borderBottom: '1px solid lightgrey',
@@ -127,7 +130,7 @@ export const useStyles = makeStyles()(
     },
     BaseSuggestion: {
       display: 'flex',
-      minWidth: 124,
+      minWidth: 218,
       height: 56,
       backgroundColor: theme.backgroundSecondary,
       color: theme.textPrimary,
