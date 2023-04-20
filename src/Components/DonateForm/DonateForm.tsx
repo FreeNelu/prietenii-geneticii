@@ -242,7 +242,7 @@ function DonateForm (props: DonateFormProps) {
       </Box>
       <Box className={classes.FormFooterCompany}>
           <Typography variant="subtitle1" sx={{ flex: 9 }}>
-            Descarca cererea privind destinatia sumei reprezentand pana la 3,5% din impozitul anual datorat în format PDF
+            Descarcă în format PDF cererea privind destinația sumei reprezentând până la 3,5% din impozitul anual datorat.
           </Typography>
         <Button
           type="submit"
