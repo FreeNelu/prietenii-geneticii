@@ -162,6 +162,24 @@ export const useStyles = makeStyles()(
       boxSizing: 'border-box',
       padding: '0px 36px 18px 36px',
       width: '100%'
+    },
+    FormFooterCompany: {
+      boxSizing: 'border-box',
+      padding: '0px 36px 18px 36px',
+      display: 'flex',
+      flexWrap: 'wrap',
+      alignItems: 'center'
+    },
+    DownloadButton: {
+      marginLeft: 12,
+      borderRadius: '100%',
+      width: '64px',
+      height: '64px',
+      backgroundColor: theme.pink,
+      color: 'white',
+      '&:hover': {
+        backgroundColor: theme.lightpink
+      }
     }
   })
 )

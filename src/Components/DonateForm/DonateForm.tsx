@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { type FormEvent } from 'react'
 import { useStyles } from './DonateForm.styles'
 import {
   Box,
@@ -13,6 +13,8 @@ import {
 import Button from '@mui/material/Button/Button'
 import { PayPalScriptProvider } from '@paypal/react-paypal-js'
 import PayPalButtonsWrapper from './PaypalButtonsWrapper'
+import GetAppIcon from '@mui/icons-material/GetApp'
+import { PDFDocument } from 'pdf-lib'
 
 interface DonateFormProps {
   className?: string
@@ -23,6 +25,7 @@ const DEFAULT_DONATION = 25
 
 function DonateForm (props: DonateFormProps) {
   const { classes, cx } = useStyles()
+  const [submitter, setSubmitter] = React.useState('')
   const [currency, setCurrency] = React.useState('EUR')
   const [isCompany, setIsCompany] = React.useState<boolean>(false)
   const [donation, setDonation] = React.useState<number>(DEFAULT_DONATION)
@@ -69,7 +72,9 @@ function DonateForm (props: DonateFormProps) {
           onChange={handleCompanyDataChange}
           className={classes.ValueInput}
           required
-          sx={{ flex: { xs: '1 0 calc(100% - 16px)', md: '1 0 calc(33% - 16px)' } }}
+          sx={{
+            flex: { xs: '1 0 calc(100% - 16px)', md: '1 0 calc(33% - 16px)' }
+          }}
         />
         <TextField
           label="Iniţiala tatălui"
@@ -78,7 +83,9 @@ function DonateForm (props: DonateFormProps) {
           value={companyData.initialaTatalui}
           onChange={handleCompanyDataChange}
           className={classes.ValueInput}
-          sx={{ flex: { xs: '1 0 calc(100% - 16px)', md: '1 0 calc(33% - 16px)' } }}
+          sx={{
+            flex: { xs: '1 0 calc(100% - 16px)', md: '1 0 calc(33% - 16px)' }
+          }}
         />
         <TextField
           label="Prenume"
@@ -87,7 +94,9 @@ function DonateForm (props: DonateFormProps) {
           onChange={handleCompanyDataChange}
           className={classes.ValueInput}
           required
-          sx={{ flex: { xs: '1 0 calc(100% - 16px)', md: '1 0 calc(33% - 16px)' } }}
+          sx={{
+            flex: { xs: '1 0 calc(100% - 16px)', md: '1 0 calc(33% - 16px)' }
+          }}
         />
         <TextField
           label="Stradă"
@@ -96,7 +105,9 @@ function DonateForm (props: DonateFormProps) {
           onChange={handleCompanyDataChange}
           className={classes.ValueInput}
           required
-          sx={{ flex: { xs: '1 0 calc(50% - 16px)', md: '1 0 calc(50% - 16px)' } }}
+          sx={{
+            flex: { xs: '1 0 calc(50% - 16px)', md: '1 0 calc(50% - 16px)' }
+          }}
         />
         <TextField
           label="Număr"
@@ -106,7 +117,9 @@ function DonateForm (props: DonateFormProps) {
           className={classes.ValueInput}
           type="number"
           required
-          sx={{ flex: { xs: '1 0 calc(50% - 16px)', md: '1 0 calc(50% - 16px)' } }}
+          sx={{
+            flex: { xs: '1 0 calc(50% - 16px)', md: '1 0 calc(50% - 16px)' }
+          }}
         />
         <TextField
           label="Bloc"
@@ -114,7 +127,9 @@ function DonateForm (props: DonateFormProps) {
           value={companyData.bloc}
           onChange={handleCompanyDataChange}
           className={classes.ValueInput}
-          sx={{ flex: { xs: '1 0 calc(50% - 16px)', md: '1 0 calc(25% - 16px)' } }}
+          sx={{
+            flex: { xs: '1 0 calc(50% - 16px)', md: '1 0 calc(25% - 16px)' }
+          }}
         />
         <TextField
           label="Scară"
@@ -122,7 +137,9 @@ function DonateForm (props: DonateFormProps) {
           value={companyData.scara}
           onChange={handleCompanyDataChange}
           className={classes.ValueInput}
-          sx={{ flex: { xs: '1 0 calc(50% - 16px)', md: '1 0 calc(25% - 16px)' } }}
+          sx={{
+            flex: { xs: '1 0 calc(50% - 16px)', md: '1 0 calc(25% - 16px)' }
+          }}
         />
         <TextField
           label="Etaj"
@@ -131,7 +148,9 @@ function DonateForm (props: DonateFormProps) {
           onChange={handleCompanyDataChange}
           className={classes.ValueInput}
           type="number"
-          sx={{ flex: { xs: '1 0 calc(50% - 16px)', md: '1 0 calc(25% - 16px)' } }}
+          sx={{
+            flex: { xs: '1 0 calc(50% - 16px)', md: '1 0 calc(25% - 16px)' }
+          }}
         />
         <TextField
           label="Apartament"
@@ -139,7 +158,9 @@ function DonateForm (props: DonateFormProps) {
           value={companyData.apartament}
           onChange={handleCompanyDataChange}
           className={classes.ValueInput}
-          sx={{ flex: { xs: '1 0 calc(50% - 16px)', md: '1 0 calc(25% - 16px)' } }}
+          sx={{
+            flex: { xs: '1 0 calc(50% - 16px)', md: '1 0 calc(25% - 16px)' }
+          }}
         />
         <TextField
           label="Judeţ/Sector"
@@ -148,7 +169,9 @@ function DonateForm (props: DonateFormProps) {
           onChange={handleCompanyDataChange}
           className={classes.ValueInput}
           required
-          sx={{ flex: { xs: '1 0 calc(100% - 16px)', md: '1 0 calc(33% - 16px)' } }}
+          sx={{
+            flex: { xs: '1 0 calc(100% - 16px)', md: '1 0 calc(33% - 16px)' }
+          }}
         />
         <TextField
           label="Localitate"
@@ -157,7 +180,9 @@ function DonateForm (props: DonateFormProps) {
           onChange={handleCompanyDataChange}
           className={classes.ValueInput}
           required
-          sx={{ flex: { xs: '1 0 calc(50% - 16px)', md: '1 0 calc(33% - 16px)' } }}
+          sx={{
+            flex: { xs: '1 0 calc(50% - 16px)', md: '1 0 calc(33% - 16px)' }
+          }}
         />
         <TextField
           label="Cod poştal"
@@ -167,17 +192,21 @@ function DonateForm (props: DonateFormProps) {
           className={classes.ValueInput}
           type="number"
           required
-          sx={{ flex: { xs: '1 0 calc(50% - 16px)', md: '1 0 calc(33% - 16px)' } }}
+          sx={{
+            flex: { xs: '1 0 calc(50% - 16px)', md: '1 0 calc(33% - 16px)' }
+          }}
         />
         <TextField
           label="Cod numeric personal / Număr de identificare fiscală"
           name="cnp"
           value={companyData.cnp}
-          onChange={handleCompanyDataChange}
+          onChange={handleCompanyCnpChange}
           className={classes.ValueInput}
           type="number"
           required
-          sx={{ flex: { xs: '1 0 calc(100% - 16px)', md: '1 0 calc(75% - 16px)' } }}
+          sx={{
+            flex: { xs: '1 0 calc(100% - 16px)', md: '1 0 calc(75% - 16px)' }
+          }}
         />
         <TextField
           label="Fax"
@@ -186,7 +215,9 @@ function DonateForm (props: DonateFormProps) {
           onChange={handleCompanyDataChange}
           className={classes.ValueInput}
           type="number"
-          sx={{ flex: { xs: '1 0 calc(25% - 16px)', md: '1 0 calc(25% - 16px)' } }}
+          sx={{
+            flex: { xs: '1 0 calc(25% - 16px)', md: '1 0 calc(25% - 16px)' }
+          }}
         />
         <TextField
           label="E-mail"
@@ -209,7 +240,23 @@ function DonateForm (props: DonateFormProps) {
           sx={{ flex: '1 0 calc(100% - 16px)' }}
         />
       </Box>
-      <Box className={classes.FormFooter}></Box>
+      <Box className={classes.FormFooterCompany}>
+          <Typography variant="subtitle1" sx={{ flex: 9 }}>
+            Descarca cererea privind destinatia sumei reprezentand pana la 3,5% din impozitul anual datorat în format PDF
+          </Typography>
+        <Button
+          type="submit"
+          id="downloadButton"
+          variant="contained"
+          disableRipple
+          disableFocusRipple
+          disableTouchRipple
+          className={classes.DownloadButton}
+          onClick={handleSubmitButtonClick}
+        >
+      <GetAppIcon />
+        </Button>
+      </Box>
     </Box>
   )
 
@@ -247,10 +294,18 @@ function DonateForm (props: DonateFormProps) {
     }
   }
 
-  const onDonate = (e: any) => {
+  const onSubmit = (e: FormEvent<HTMLFormElement>) => {
     e.preventDefault()
+    if (submitter === 'downloadButton') {
+      void generatePDF()
+      return
+    }
     // Start paypal flow
     setShowPayPalButtons(true)
+  }
+
+  const handleSubmitButtonClick = (event: React.MouseEvent<HTMLButtonElement>) => {
+    setSubmitter(event.currentTarget.id)
   }
 
   const handleChangeCurrency = (event: SelectChangeEvent) => {
@@ -266,9 +321,53 @@ function DonateForm (props: DonateFormProps) {
     }))
   }
 
+  const handleCompanyCnpChange = (
+    e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>
+  ) => {
+    e.target.value = Math.max(0, parseInt(e.target.value)).toString().slice(0, 13)
+    setCompanyData((prevData) => ({
+      ...prevData,
+      [e.target.name]: e.target.value
+    }))
+  }
+
+  const generatePDF = async () => {
+    const formPdfBytes = await fetch(`${process.env.PUBLIC_URL}/CompanyPDF.pdf`).then(async res => await res.arrayBuffer())
+
+    const pdfDoc = await PDFDocument.load(formPdfBytes)
+    const form = pdfDoc.getForm()
+
+    form.getTextField('Textfield').setText(new Date().getFullYear().toString())
+    form.getTextField('Textfield0').setText(companyData.nume)
+    if (companyData.initialaTatalui) {
+      form.getTextField('Textfield1').setText(companyData.initialaTatalui)
+    }
+    form.getTextField('Textfield2').setText(companyData.cnp)
+    form.getTextField('Textfield3').setText(companyData.prenume)
+    form.getTextField('Textfield4').setText(companyData.email)
+    form.getTextField('Textfield5').setText(companyData.strada)
+    form.getTextField('Textfield6').setText(companyData.numar)
+    form.getTextField('Textfield7').setText(companyData.telefon)
+    if (companyData.bloc) { form.getTextField('Textfield8').setText(companyData.bloc) }
+    if (companyData.scara) { form.getTextField('Textfield9').setText(companyData.scara) }
+    if (companyData.etaj) { form.getTextField('Textfield10').setText(companyData.etaj) }
+    if (companyData.apartament) { form.getTextField('Textfield11').setText(companyData.apartament) }
+    form.getTextField('Textfield12').setText(companyData.judetSector)
+    form.getTextField('Textfield13').setText(companyData.localitate)
+    form.getTextField('Textfield14').setText(companyData.codPostal)
+    if (companyData.apartament) { form.getTextField('Textfield15').setText(companyData.fax) }
+
+    const pdfBytes = await pdfDoc.save()
+    // Create a blob from the PDF bytes
+    const pdfBlob = new Blob([pdfBytes], { type: 'application/pdf' })
+    // Open the PDF in a new tab
+    const pdfUrl = URL.createObjectURL(pdfBlob)
+    window.open(pdfUrl, '_blank')
+  }
+
   return (
     <Box className={cx(classes.Box, props.className)}>
-      <form onSubmit={onDonate}>
+      <form onSubmit={onSubmit}>
         <Box className={classes.Container}>
           <button
             className={
@@ -312,7 +411,9 @@ function DonateForm (props: DonateFormProps) {
               padding: { xs: '16px 8px 16px 16px', md: '8px 0px 8px 8px' }
             }}
           >
-            <Typography variant="subtitle1" style={{ paddingRight: 12 }}>{headerLabel}</Typography>
+            <Typography variant="subtitle1" style={{ paddingRight: 12 }}>
+              {headerLabel}
+            </Typography>
             <FormControl sx={{ m: 1, minWidth: 120 }} size="small">
               <InputLabel
                 className={classes.CurrencyLabel}
@@ -364,11 +465,13 @@ function DonateForm (props: DonateFormProps) {
             {!showPayPalButtons && (
               <Button
                 type="submit"
+                id="donateButton"
                 variant="contained"
                 disableRipple
                 disableFocusRipple
                 disableTouchRipple
                 className={classes.DonateButton}
+                onClick={handleSubmitButtonClick}
               >
                 <Typography variant="h6">
                   {'DONEAZĂ ' + donation.toString() + ' ' + currency}
