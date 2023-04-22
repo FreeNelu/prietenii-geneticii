@@ -24,6 +24,8 @@ function App () {
           <Route path="donate" element={<DonatePage />} />
           <Route path="*" element={<BadRoute />} />
         </Routes>
+        <a href="https://www.freepik.com">Freepik</a> <br/>
+        <a href="https://www.rawpixel.com">Rawpixel</a>
       </div>
       <ScrollToTop/>
     </>

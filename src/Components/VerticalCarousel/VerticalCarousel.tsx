@@ -10,11 +10,11 @@ import { type BlogItem } from 'Components/BlogPage/BlogItem'
 
 interface VerticalCarouselProps {
   className?: string
-  items: BlogItem[]
+  blogs: BlogItem[]
 }
 
 function VerticalCarousel (props: VerticalCarouselProps) {
-  const { className, items } = props
+  const { className, blogs } = props
   const { classes } = useStyles()
   const slider = useRef<Slider>(null)
 
@@ -35,8 +35,8 @@ function VerticalCarousel (props: VerticalCarouselProps) {
       sx={{ margin: { xs: '4px 10% 0% 10%', md: '4px 15% 0% 15%', lg: '4px 25% 0% 25%' } }}
     >
         <Slider ref={slider} {...settings}>
-              {items.map((item, index) => (
-                  <BlogLink key={index} item={item} />
+              {blogs.map((blog, index) => (
+                  <BlogLink key={index} blog={blog} />
               ))}
         </Slider>
         <ScrollArrow className={classes.Svg} onClick={onScroll}/>

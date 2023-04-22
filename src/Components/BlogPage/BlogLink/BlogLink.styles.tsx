@@ -42,6 +42,7 @@ export const useStyles = makeStyles()(
       display: 'flex',
       flexDirection: 'column',
       height: '100%',
+      width: '100%',
       alignContent: 'center',
       textAlign: 'left',
       padding: 24

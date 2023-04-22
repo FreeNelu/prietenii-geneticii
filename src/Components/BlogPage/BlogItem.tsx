@@ -1,18 +1,7 @@
 export interface BlogItem {
-  id: number
-  title: string
-  description: string
-  image: string
+  id: string
+  title?: string
+  image?: string
   text?: string
-  date: string
+  date?: string
 }
-
-export const BlogItems: BlogItem[] = [
-  { date: '01.01.2023', id: 1, title: 'Item 1', description: 'This blog is about lorem ipsum. This blog is about lorem ipsum. This blog is about lorem ipsum. This blog is about lorem ipsum.', text: 'This blog is about lorem ipsum. This blog is about lorem ipsum. This blog is about lorem ipsum. This blog is about lorem ipsum.This blog is about lorem ipsum. This blog is about lorem ipsum. This blog is about lorem ipsum. This blog is about lorem ipsum.This blog is about lorem ipsum. This blog is about lorem ipsum. This blog is about lorem ipsum. This blog is about lorem ipsum.This blog is about lorem ipsum. This blog is about lorem ipsum. This blog is about lorem ipsum. This blog is about lorem ipsum.This blog is about lorem ipsum. This blog is about lorem ipsum. This blog is about lorem ipsum. This blog is about lorem ipsum.This blog is about lorem ipsum. This blog is about lorem ipsum. This blog is about lorem ipsum. This blog is about lorem ipsum.This blog is about lorem ipsum. This blog is about lorem ipsum. This blog is about lorem ipsum. This blog is about lorem ipsum.This blog is about lorem ipsum. This blog is about lorem ipsum. This blog is about lorem ipsum. This blog is about lorem ipsum.This blog is about lorem ipsum. This blog is about lorem ipsum. This blog is about lorem ipsum. This blog is about lorem ipsum.This blog is about lorem ipsum. This blog is about lorem ipsum. This blog is about lorem ipsum. This blog is about lorem ipsum.This blog is about lorem ipsum. This blog is about lorem ipsum. This blog is about lorem ipsum. This blog is about lorem ipsum.This blog is about lorem ipsum. This blog is about lorem ipsum. This blog is about lorem ipsum. This blog is about lorem ipsum.', image: 'https://www.gardeningknowhow.com/wp-content/uploads/2020/11/landscape-books.jpg' },
-  { date: '01.01.2023', id: 2, title: 'Item 2', description: 'This blog is about lorem ipsum. This blog is about lorem ipsum. This blog is about lorem ipsum. This blog is about lorem ipsum.', image: 'https://www.gardeningknowhow.com/wp-content/uploads/2020/11/landscape-books.jpg' },
-  { date: '01.01.2023', id: 3, title: 'Item 3', description: 'This blog is about lorem ipsum. This blog is about lorem ipsum. This blog is about lorem ipsum. This blog is about lorem ipsum.', image: 'https://www.gardeningknowhow.com/wp-content/uploads/2020/11/landscape-books.jpg' },
-  { date: '01.01.2023', id: 4, title: 'Item 4', description: 'This blog is about lorem ipsum. This blog is about lorem ipsum. This blog is about lorem ipsum. This blog is about lorem ipsum.', image: 'https://www.gardeningknowhow.com/wp-content/uploads/2020/11/landscape-books.jpg' },
-  { date: '01.01.2023', id: 5, title: 'Item 5', description: 'This blog is about lorem ipsum. This blog is about lorem ipsum. This blog is about lorem ipsum. This blog is about lorem ipsum.', image: 'https://www.gardeningknowhow.com/wp-content/uploads/2020/11/landscape-books.jpg' },
-  { date: '01.01.2023', id: 6, title: 'Item 6', description: 'This blog is about lorem ipsum. This blog is about lorem ipsum. This blog is about lorem ipsum. This blog is about lorem ipsum.', image: 'https://www.gardeningknowhow.com/wp-content/uploads/2020/11/landscape-books.jpg' },
-  { date: '01.01.2023', id: 7, title: 'Item 7', description: 'This blog is about lorem ipsum. This blog is about lorem ipsum. This blog is about lorem ipsum. This blog is about lorem ipsum.', image: 'https://www.gardeningknowhow.com/wp-content/uploads/2020/11/landscape-books.jpg' }
-]
