@@ -1,4 +1,4 @@
-import { Box } from '@mui/material'
+import { Box, Typography } from '@mui/material'
 import BlogLink from 'Components/BlogPage/BlogLink/BlogLink'
 import ScrollArrow from 'Components/Icons/ScrollArrow'
 import React, { useRef } from 'react'
@@ -20,7 +20,7 @@ function VerticalCarousel (props: VerticalCarouselProps) {
 
   const settings = {
     accessibility: true,
-    infinite: false,
+    infinite: true,
     slidesToShow: 2,
     slidesToScroll: 2,
     vertical: true,
@@ -28,18 +28,39 @@ function VerticalCarousel (props: VerticalCarouselProps) {
     arrows: false
   }
 
-  const onScroll = () => { if (slider?.current) { slider.current.slickNext() } }
+  const onScroll = () => {
+    if (slider?.current) {
+      slider.current.slickNext()
+    }
+  }
+
+  const Blogs = () => {
+    if (blogs.length === 0) return <Typography variant='h6'>Blog-urile sunt în progres, revin-o în curând!</Typography>
+    return [blogs.map((blog, index) => <BlogLink key={index} blog={blog} />)]
+  }
 
   return (
     <Box
-      sx={{ margin: { xs: '4px 10% 0% 10%', md: '4px 15% 0% 15%', lg: '4px 25% 0% 25%' } }}
+      sx={{
+        margin: {
+          xs: '4px 10% 0% 10%',
+          md: '4px 15% 0% 15%',
+          lg: '4px 25% 0% 25%'
+        }
+      }}
     >
-        <Slider ref={slider} {...settings}>
-              {blogs.map((blog, index) => (
-                  <BlogLink key={index} blog={blog} />
-              ))}
-        </Slider>
-        <ScrollArrow className={classes.Svg} onClick={onScroll}/>
+      {blogs.length <= 2
+        ? (
+            Blogs()
+          )
+        : (
+        <>
+          <Slider ref={slider} {...settings}>
+            {Blogs()}
+          </Slider>
+          <ScrollArrow className={classes.Svg} onClick={onScroll} />
+        </>
+          )}
     </Box>
   )
 }
