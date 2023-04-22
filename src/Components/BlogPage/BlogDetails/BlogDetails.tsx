@@ -117,7 +117,7 @@ function BlogDetails () {
         />
       )}
 
-      {blog.image2 !== undefined && (
+      {blog.text2 && (
         <Card
           className={classes.Root}
           sx={{
