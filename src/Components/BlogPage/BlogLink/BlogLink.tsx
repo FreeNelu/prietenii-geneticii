@@ -54,7 +54,7 @@ function BlogLink (props: BlogLinkProps) {
       />
       <Box className={classes.TextBox}>
         <Typography variant='h4' gutterBottom>
-          {blog.title ?? 'New Blog'}
+          {blog.title ?? 'Blog ' + blog.id}
         </Typography>
         <Typography variant="body1" gutterBottom>
           {adjustBlogText(blog.text ?? '')}
@@ -72,7 +72,7 @@ function BlogLink (props: BlogLinkProps) {
     <CardContent className={cx(classes.Content, classes.MobileContent)}>
       <Box className={classes.TextBoxMobile}>
         <Typography variant='h4' gutterBottom>
-          {blog.title ?? 'New Blog'}
+          {blog.title ?? 'Blog ' + blog.id}
         </Typography>
         <Typography variant="body1" gutterBottom>
           {adjustBlogText(blog.text ?? '')}

@@ -21,8 +21,8 @@ function BlogDetails () {
   const fetchBlogs = async () => {
     if (id) {
       try {
-        const blogsCollectionRef = doc(db, 'blogs', id)
-        const docSnap = await getDoc(blogsCollectionRef)
+        const blogRef = doc(db, 'blogs', id)
+        const docSnap = await getDoc(blogRef)
         if (docSnap.exists()) {
           setBlog({ ...docSnap.data(), id })
         } else {
@@ -54,11 +54,17 @@ function BlogDetails () {
   }, [])
 
   useEffect(() => {
-    if (blog) { parseImage(blog.image ?? '') }
+    if (blog) {
+      parseImage(blog.image ?? '')
+    }
   }, [blog])
 
-  if (loading) { return <Loader/> }
-  if (!id || !blog) { return <BadRoute /> }
+  if (loading) {
+    return <Loader />
+  }
+  if (!id || !blog) {
+    return <BadRoute />
+  }
 
   return (
     <Box className={classes.Container}>
@@ -95,7 +101,38 @@ function BlogDetails () {
         </CardContent>
       </Card>
 
-      <FeedbackForm />
+      {blog.image2 && (
+        <Box
+          component="img"
+          className={classes.Media}
+          alt="Blog image 2"
+          src={blog.image2}
+          sx={{
+            width: { xs: '90%', md: '80%', lg: '60%' }
+          }}
+          onError={(e) => {
+            const target = e.target as HTMLImageElement
+            target.style.display = 'none'
+          }}
+        />
+      )}
+
+      {blog.image2 !== undefined && (
+        <Card
+          className={classes.Root}
+          sx={{
+            width: { xs: '90%', md: '80%', lg: '60%' }
+          }}
+        >
+          <CardContent className={classes.Content}>
+            <Typography className={classes.Description} variant="body1">
+              {blog.text2}
+            </Typography>
+          </CardContent>
+        </Card>
+      )}
+
+      <FeedbackForm blogId={id} />
     </Box>
   )
 }

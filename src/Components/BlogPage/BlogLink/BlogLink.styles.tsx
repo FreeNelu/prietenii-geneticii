@@ -13,6 +13,8 @@ export const useStyles = makeStyles()(
       marginBottom: 12
     },
     ImageBox: {
+      maxWidth: 300,
+      overflow: 'hidden',
       height: '100%',
       borderTopRighRadius: 20,
       borderBottomRightRadius: 20,

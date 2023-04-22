@@ -47,15 +47,16 @@ export const useStyles = makeStyles()(
           }
         },
         '& input[type=number]': {
-          '-moz-appearance': 'textfield'
-        },
-        '& input[type=number]::-webkit-outer-spin-button': {
-          '-webkit-appearance': 'none',
-          margin: 0
-        },
-        '& input[type=number]::-webkit-inner-spin-button': {
-          '-webkit-appearance': 'none',
-          margin: 0
+          MozAppearance: 'textfield',
+          WebkitAppearance: 'textfield',
+          '&::-webkit-outer-spin-button': {
+            WebkitAppearance: 'none',
+            margin: 0
+          },
+          '&::-webkit-inner-spin-button': {
+            WebkitAppearance: 'none',
+            margin: 0
+          }
         }
       }
     })
