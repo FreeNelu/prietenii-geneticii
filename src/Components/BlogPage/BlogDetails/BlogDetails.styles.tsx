@@ -6,7 +6,8 @@ export const useStyles = makeStyles()(
       display: 'flex',
       justifyContent: 'center',
       flexDirection: 'column',
-      alignItems: 'center'
+      alignItems: 'center',
+      position: 'relative'
     },
     Root: {
       margin: 'auto',
@@ -41,6 +42,18 @@ export const useStyles = makeStyles()(
     },
     TitleShadow: {
       textShadow: '-5px -2px' + theme.pink
+    },
+    BackButton: {
+      color: theme.pink,
+      position: 'absolute',
+      top: '3%',
+      left: '7%',
+      transform: 'scale(2)',
+      '&:hover': {
+        backgroundColor: theme.backgroundSecondary,
+        borderRadius: '100%',
+        boxShadow: theme.boxShadow
+      }
     }
   })
 )

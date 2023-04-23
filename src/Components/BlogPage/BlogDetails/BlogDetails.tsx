@@ -1,13 +1,21 @@
 import React, { useState, useEffect } from 'react'
 import { useStyles } from './BlogDetails.styles'
-import { Box, Card, CardContent, Typography } from '@mui/material'
-import { useParams } from 'react-router-dom'
+import {
+  Box,
+  Card,
+  CardContent,
+  Fab,
+  Typography,
+  useMediaQuery,
+  useTheme
+} from '@mui/material'
+import { Link, useParams } from 'react-router-dom'
 import BadRoute from 'App/BadRoute'
 import FeedbackForm from 'Components/FeedbackForm/FeedbackForm'
 import { type BlogItem } from '../BlogItem'
 import { db } from 'firebase-config'
 import { doc, getDoc } from 'firebase/firestore'
-
+import KeyboardArrowLeftIcon from '@mui/icons-material/KeyboardArrowLeft'
 import fallbackImage from 'Assets/fallbackImage.jpg'
 import Loader from '../Loader'
 
@@ -17,6 +25,9 @@ function BlogDetails () {
   const [blog, setBlog] = useState<BlogItem>()
   const [blogImage, setBlogImage] = useState<string>()
   const [loading, setLoading] = useState<boolean>(true)
+
+  const theme = useTheme()
+  const isMobile = useMediaQuery(theme.breakpoints.down('md'))
 
   const fetchBlogs = async () => {
     if (id) {
@@ -68,6 +79,15 @@ function BlogDetails () {
 
   return (
     <Box className={classes.Container}>
+      {!isMobile && (
+        <Link to={'/blog'} style={{ textDecoration: 'none' }}>
+          <KeyboardArrowLeftIcon
+            fontSize="large"
+            aria-label="Scroll back to top"
+            className={classes.BackButton}
+          />
+        </Link>
+      )}
       <Typography fontWeight={700} variant="h3" className={classes.Title}>
         <span className={classes.TitleShadow}>
           {blog.title ? blog.title[0] : 'N'}
@@ -125,9 +145,7 @@ function BlogDetails () {
           }}
         >
           <CardContent className={classes.Content}>
-            <Typography className={classes.Description} variant="body1">
-              {blog.text2}
-            </Typography>
+            <Typography variant="body1">{blog.text2}</Typography>
           </CardContent>
         </Card>
       )}

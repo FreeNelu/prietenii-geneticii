@@ -31,7 +31,7 @@ const ScrollToTop = () => {
     <Fab
       color="primary"
       size='large'
-      aria-label="scroll back to top"
+      aria-label="Scroll back to top"
       onClick={scrollToTop}
       sx={{ display: visible ? 'inline-flex' : 'none', right: { xs: '5%', md: '2.5%' }, bottom: { xs: '5%', md: '7.5%' } }}
       className={classes.IconButton}
