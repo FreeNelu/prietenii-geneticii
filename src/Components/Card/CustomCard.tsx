@@ -17,7 +17,6 @@ function CustomCard (props: CustomCardProps) {
         <Card className={cx(classes.Card, props.className)}>
             <CardMedia>
                 <Quotes className={classes.Quotes} />
-                {/* TODO: make avaatar img grayscale */}
                 <Avatar className={classes.Avatar} alt={props.name} src={props.imageUrl}/>
             </CardMedia>
             <CardContent className={classes.Content}>

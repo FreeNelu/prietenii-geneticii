@@ -8,6 +8,7 @@ import DonatePage from 'Components/DonatePage/DonatePage'
 import BlogPage from 'Components/BlogPage/BlogPage'
 import BlogDetails from 'Components/BlogPage/BlogDetails/BlogDetails'
 import ScrollToTop from 'Components/ScrollToTop/ScrollToTop'
+import Footer from 'Components/Footer/Footer'
 
 function App () {
   const { classes } = useStyles()
@@ -24,8 +25,7 @@ function App () {
           <Route path="donate" element={<DonatePage />} />
           <Route path="*" element={<BadRoute />} />
         </Routes>
-
-        Images by <a href="https://www.rawpixel.com">Rawpixel</a>
+        <Footer/>
       </div>
       <ScrollToTop/>
     </>

@@ -25,7 +25,7 @@ function Header (props: HeaderProps) {
 
   const { classes, cx } = useStyles()
 
-  const drawerData = [{ title: 'ASOCIAȚIA', link: 'about' }, { title: 'BLOG', link: 'blog' }, { title: 'PAGINA PRINCIPALĂ', link: '/' }]
+  const drawerData = [{ title: 'ASOCIAȚIA', link: 'about' }, { title: 'BLOG', link: 'blog' }, { title: 'ACASĂ', link: '/' }]
 
   const handleOpenNavMenu = (event: React.MouseEvent<HTMLElement>) => {
     setNavMenuOpen(true)
@@ -67,7 +67,7 @@ function Header (props: HeaderProps) {
                           onClick={handleCloseNavMenu}
                           className={cx(classes.PageButton)}
                         >
-                          <Typography variant='h6'>PAGINA PRINCIPALĂ</Typography>
+                          <Typography variant='h6'>ACASĂ</Typography>
                         </Button>
                       </Link>
                       <Link to={'/about'} className={classes.Link}>
