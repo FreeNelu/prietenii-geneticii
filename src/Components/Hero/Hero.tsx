@@ -11,15 +11,18 @@ function Hero () {
   const { classes } = useStyles()
 
   return (
-        <>
-            <MainPage/>
-              <Wave className={classes.Wave} />
-              <CustomCarousel className={classes.Carousel} containerClassName={classes.CarouselContainer}/>
-              <Box sx={{ position: 'relative' }}>
-                <ReversedWave className={classes.ReversedWave} />
-              </Box>
-            <GoalsSection/>
-        </>
+    <>
+      <MainPage />
+      <Wave className={classes.Wave} />
+      <CustomCarousel
+        className={classes.Carousel}
+        containerClassName={classes.CarouselContainer}
+      />
+      <Box sx={{ position: 'relative' }}>
+        <ReversedWave className={classes.ReversedWave} />
+      </Box>
+      <GoalsSection />
+    </>
   )
 }
 

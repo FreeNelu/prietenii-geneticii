@@ -9,6 +9,7 @@ import BlogPage from 'Components/BlogPage/BlogPage'
 import BlogDetails from 'Components/BlogPage/BlogDetails/BlogDetails'
 import ScrollToTop from 'Components/ScrollToTop/ScrollToTop'
 import Footer from 'Components/Footer/Footer'
+import AboutPage from 'Components/AboutPage/AboutPage'
 
 function App () {
   const { classes } = useStyles()
@@ -19,7 +20,7 @@ function App () {
         <Header/>
         <Routes>
           <Route path="/" element={<Hero />} />
-          <Route path="about" element={<BadRoute />} />
+          <Route path="about" element={<AboutPage />} />
           <Route path="blog" element={<BlogPage />} />
           <Route path="blog/:id" element={<BlogDetails />} />
           <Route path="donate" element={<DonatePage />} />
