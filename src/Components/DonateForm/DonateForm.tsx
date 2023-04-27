@@ -54,212 +54,6 @@ function DonateForm (props: DonateFormProps) {
     fax: ''
   })
 
-  const CompanyForm = () => (
-    <Box className={cx(classes.Container, classes.MainContainer)}>
-      <Box
-        className={classes.FormHeader}
-        sx={{ padding: { xs: '16px 8px 16px 16px', md: '8px 0px 8px 8px' } }}
-      >
-        <Typography variant="subtitle1">
-          Date de identificare a contribuabilului
-        </Typography>
-      </Box>
-      <Box className={classes.FormBody}>
-        <TextField
-          label="Nume"
-          name="nume"
-          value={companyData.nume}
-          onChange={handleCompanyDataChange}
-          className={classes.ValueInput}
-          required
-          sx={{
-            flex: { xs: '1 0 calc(100% - 16px)', md: '1 0 calc(33% - 16px)' }
-          }}
-        />
-        <TextField
-          label="Iniţiala tatălui"
-          name="initialaTatalui"
-          inputProps={{ maxLength: 1 }}
-          value={companyData.initialaTatalui}
-          onChange={handleCompanyDataChange}
-          className={classes.ValueInput}
-          sx={{
-            flex: { xs: '1 0 calc(100% - 16px)', md: '1 0 calc(33% - 16px)' }
-          }}
-        />
-        <TextField
-          label="Prenume"
-          name="prenume"
-          value={companyData.prenume}
-          onChange={handleCompanyDataChange}
-          className={classes.ValueInput}
-          required
-          sx={{
-            flex: { xs: '1 0 calc(100% - 16px)', md: '1 0 calc(33% - 16px)' }
-          }}
-        />
-        <TextField
-          label="Stradă"
-          name="strada"
-          value={companyData.strada}
-          onChange={handleCompanyDataChange}
-          className={classes.ValueInput}
-          required
-          sx={{
-            flex: { xs: '1 0 calc(50% - 16px)', md: '1 0 calc(50% - 16px)' }
-          }}
-        />
-        <TextField
-          label="Număr"
-          name="numar"
-          value={companyData.numar}
-          onChange={handleCompanyDataChange}
-          className={classes.ValueInput}
-          type="number"
-          required
-          sx={{
-            flex: { xs: '1 0 calc(50% - 16px)', md: '1 0 calc(50% - 16px)' }
-          }}
-        />
-        <TextField
-          label="Bloc"
-          name="bloc"
-          value={companyData.bloc}
-          onChange={handleCompanyDataChange}
-          className={classes.ValueInput}
-          sx={{
-            flex: { xs: '1 0 calc(50% - 16px)', md: '1 0 calc(25% - 16px)' }
-          }}
-        />
-        <TextField
-          label="Scară"
-          name="scara"
-          value={companyData.scara}
-          onChange={handleCompanyDataChange}
-          className={classes.ValueInput}
-          sx={{
-            flex: { xs: '1 0 calc(50% - 16px)', md: '1 0 calc(25% - 16px)' }
-          }}
-        />
-        <TextField
-          label="Etaj"
-          name="etaj"
-          value={companyData.etaj}
-          onChange={handleCompanyDataChange}
-          className={classes.ValueInput}
-          type="number"
-          sx={{
-            flex: { xs: '1 0 calc(50% - 16px)', md: '1 0 calc(25% - 16px)' }
-          }}
-        />
-        <TextField
-          label="Apartament"
-          name="apartament"
-          value={companyData.apartament}
-          onChange={handleCompanyDataChange}
-          className={classes.ValueInput}
-          sx={{
-            flex: { xs: '1 0 calc(50% - 16px)', md: '1 0 calc(25% - 16px)' }
-          }}
-        />
-        <TextField
-          label="Judeţ/Sector"
-          name="judetSector"
-          value={companyData.judetSector}
-          onChange={handleCompanyDataChange}
-          className={classes.ValueInput}
-          required
-          sx={{
-            flex: { xs: '1 0 calc(100% - 16px)', md: '1 0 calc(33% - 16px)' }
-          }}
-        />
-        <TextField
-          label="Localitate"
-          name="localitate"
-          value={companyData.localitate}
-          onChange={handleCompanyDataChange}
-          className={classes.ValueInput}
-          required
-          sx={{
-            flex: { xs: '1 0 calc(50% - 16px)', md: '1 0 calc(33% - 16px)' }
-          }}
-        />
-        <TextField
-          label="Cod poştal"
-          name="codPostal"
-          value={companyData.codPostal}
-          onChange={handleCompanyDataChange}
-          className={classes.ValueInput}
-          type="number"
-          required
-          sx={{
-            flex: { xs: '1 0 calc(50% - 16px)', md: '1 0 calc(33% - 16px)' }
-          }}
-        />
-        <TextField
-          label="Cod numeric personal / Număr de identificare fiscală"
-          name="cnp"
-          value={companyData.cnp}
-          onChange={handleCompanyCnpChange}
-          className={classes.ValueInput}
-          type="number"
-          required
-          sx={{
-            flex: { xs: '1 0 calc(100% - 16px)', md: '1 0 calc(75% - 16px)' }
-          }}
-        />
-        <TextField
-          label="Fax"
-          name="fax"
-          value={companyData.fax}
-          onChange={handleCompanyDataChange}
-          className={classes.ValueInput}
-          type="number"
-          sx={{
-            flex: { xs: '1 0 calc(25% - 16px)', md: '1 0 calc(25% - 16px)' }
-          }}
-        />
-        <TextField
-          label="E-mail"
-          name="email"
-          value={companyData.email}
-          onChange={handleCompanyDataChange}
-          className={classes.ValueInput}
-          type="email"
-          required
-          sx={{ flex: '1 0 calc(75% - 16px)' }}
-        />
-        <TextField
-          label="Telefon"
-          name="telefon"
-          value={companyData.telefon}
-          onChange={handleCompanyDataChange}
-          className={classes.ValueInput}
-          type="number"
-          required
-          sx={{ flex: '1 0 calc(100% - 16px)' }}
-        />
-      </Box>
-      <Box className={classes.FormFooterCompany}>
-          <Typography variant="subtitle1" sx={{ flex: 9 }}>
-            Descarcă în format PDF cererea privind destinația sumei reprezentând până la 3,5% din impozitul anual datorat.
-          </Typography>
-        <Button
-          type="submit"
-          id="downloadButton"
-          variant="contained"
-          disableRipple
-          disableFocusRipple
-          disableTouchRipple
-          className={classes.DownloadButton}
-          onClick={handleSubmitButtonClick}
-        >
-      <GetAppIcon />
-        </Button>
-      </Box>
-    </Box>
-  )
-
   const SuggestedDonation = (props: { value: number }) => {
     return (
       <Box
@@ -304,7 +98,9 @@ function DonateForm (props: DonateFormProps) {
     setShowPayPalButtons(true)
   }
 
-  const handleSubmitButtonClick = (event: React.MouseEvent<HTMLButtonElement>) => {
+  const handleSubmitButtonClick = (
+    event: React.MouseEvent<HTMLButtonElement>
+  ) => {
     setSubmitter(event.currentTarget.id)
   }
 
@@ -324,7 +120,9 @@ function DonateForm (props: DonateFormProps) {
   const handleCompanyCnpChange = (
     e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>
   ) => {
-    e.target.value = Math.max(0, parseInt(e.target.value)).toString().slice(0, 13)
+    e.target.value = Math.max(0, parseInt(e.target.value))
+      .toString()
+      .slice(0, 13)
     setCompanyData((prevData) => ({
       ...prevData,
       [e.target.name]: e.target.value
@@ -332,7 +130,9 @@ function DonateForm (props: DonateFormProps) {
   }
 
   const generatePDF = async () => {
-    const formPdfBytes = await fetch(`${process.env.PUBLIC_URL}/CompanyPDF.pdf`).then(async res => await res.arrayBuffer())
+    const formPdfBytes = await fetch(
+      `${process.env.PUBLIC_URL}/CompanyPDF.pdf`
+    ).then(async (res) => await res.arrayBuffer())
 
     const pdfDoc = await PDFDocument.load(formPdfBytes)
     const form = pdfDoc.getForm()
@@ -348,14 +148,24 @@ function DonateForm (props: DonateFormProps) {
     form.getTextField('Textfield5').setText(companyData.strada)
     form.getTextField('Textfield6').setText(companyData.numar)
     form.getTextField('Textfield7').setText(companyData.telefon)
-    if (companyData.bloc) { form.getTextField('Textfield8').setText(companyData.bloc) }
-    if (companyData.scara) { form.getTextField('Textfield9').setText(companyData.scara) }
-    if (companyData.etaj) { form.getTextField('Textfield10').setText(companyData.etaj) }
-    if (companyData.apartament) { form.getTextField('Textfield11').setText(companyData.apartament) }
+    if (companyData.bloc) {
+      form.getTextField('Textfield8').setText(companyData.bloc)
+    }
+    if (companyData.scara) {
+      form.getTextField('Textfield9').setText(companyData.scara)
+    }
+    if (companyData.etaj) {
+      form.getTextField('Textfield10').setText(companyData.etaj)
+    }
+    if (companyData.apartament) {
+      form.getTextField('Textfield11').setText(companyData.apartament)
+    }
     form.getTextField('Textfield12').setText(companyData.judetSector)
     form.getTextField('Textfield13').setText(companyData.localitate)
     form.getTextField('Textfield14').setText(companyData.codPostal)
-    if (companyData.apartament) { form.getTextField('Textfield15').setText(companyData.fax) }
+    if (companyData.apartament) {
+      form.getTextField('Textfield15').setText(companyData.fax)
+    }
 
     const pdfBytes = await pdfDoc.save()
     // Create a blob from the PDF bytes
@@ -402,7 +212,256 @@ function DonateForm (props: DonateFormProps) {
           </button>
         </Box>
 
-        {isCompany && <CompanyForm />}
+        {isCompany && (
+          <Box className={cx(classes.Container, classes.MainContainer)}>
+            <Box
+              className={classes.FormHeader}
+              sx={{
+                padding: { xs: '16px 8px 16px 16px', md: '8px 0px 8px 8px' }
+              }}
+            >
+              <Typography variant="subtitle1">
+                Date de identificare a contribuabilului
+              </Typography>
+            </Box>
+            <Box className={classes.FormBody}>
+              <TextField
+                label="Nume"
+                name="nume"
+                value={companyData.nume}
+                onChange={handleCompanyDataChange}
+                className={classes.ValueInput}
+                required
+                sx={{
+                  flex: {
+                    xs: '1 0 calc(100% - 16px)',
+                    md: '1 0 calc(33% - 16px)'
+                  }
+                }}
+              />
+              <TextField
+                label="Iniţiala tatălui"
+                name="initialaTatalui"
+                inputProps={{ maxLength: 1 }}
+                value={companyData.initialaTatalui}
+                onChange={handleCompanyDataChange}
+                className={classes.ValueInput}
+                sx={{
+                  flex: {
+                    xs: '1 0 calc(100% - 16px)',
+                    md: '1 0 calc(33% - 16px)'
+                  }
+                }}
+              />
+              <TextField
+                label="Prenume"
+                name="prenume"
+                value={companyData.prenume}
+                onChange={handleCompanyDataChange}
+                className={classes.ValueInput}
+                required
+                sx={{
+                  flex: {
+                    xs: '1 0 calc(100% - 16px)',
+                    md: '1 0 calc(33% - 16px)'
+                  }
+                }}
+              />
+              <TextField
+                label="Stradă"
+                name="strada"
+                value={companyData.strada}
+                onChange={handleCompanyDataChange}
+                className={classes.ValueInput}
+                required
+                sx={{
+                  flex: {
+                    xs: '1 0 calc(50% - 16px)',
+                    md: '1 0 calc(50% - 16px)'
+                  }
+                }}
+              />
+              <TextField
+                label="Număr"
+                name="numar"
+                value={companyData.numar}
+                onChange={handleCompanyDataChange}
+                className={classes.ValueInput}
+                type="number"
+                required
+                sx={{
+                  flex: {
+                    xs: '1 0 calc(50% - 16px)',
+                    md: '1 0 calc(50% - 16px)'
+                  }
+                }}
+              />
+              <TextField
+                label="Bloc"
+                name="bloc"
+                value={companyData.bloc}
+                onChange={handleCompanyDataChange}
+                className={classes.ValueInput}
+                sx={{
+                  flex: {
+                    xs: '1 0 calc(50% - 16px)',
+                    md: '1 0 calc(25% - 16px)'
+                  }
+                }}
+              />
+              <TextField
+                label="Scară"
+                name="scara"
+                value={companyData.scara}
+                onChange={handleCompanyDataChange}
+                className={classes.ValueInput}
+                sx={{
+                  flex: {
+                    xs: '1 0 calc(50% - 16px)',
+                    md: '1 0 calc(25% - 16px)'
+                  }
+                }}
+              />
+              <TextField
+                label="Etaj"
+                name="etaj"
+                value={companyData.etaj}
+                onChange={handleCompanyDataChange}
+                className={classes.ValueInput}
+                type="number"
+                sx={{
+                  flex: {
+                    xs: '1 0 calc(50% - 16px)',
+                    md: '1 0 calc(25% - 16px)'
+                  }
+                }}
+              />
+              <TextField
+                label="Apartament"
+                name="apartament"
+                value={companyData.apartament}
+                onChange={handleCompanyDataChange}
+                className={classes.ValueInput}
+                sx={{
+                  flex: {
+                    xs: '1 0 calc(50% - 16px)',
+                    md: '1 0 calc(25% - 16px)'
+                  }
+                }}
+              />
+              <TextField
+                label="Judeţ/Sector"
+                name="judetSector"
+                value={companyData.judetSector}
+                onChange={handleCompanyDataChange}
+                className={classes.ValueInput}
+                required
+                sx={{
+                  flex: {
+                    xs: '1 0 calc(100% - 16px)',
+                    md: '1 0 calc(33% - 16px)'
+                  }
+                }}
+              />
+              <TextField
+                label="Localitate"
+                name="localitate"
+                value={companyData.localitate}
+                onChange={handleCompanyDataChange}
+                className={classes.ValueInput}
+                required
+                sx={{
+                  flex: {
+                    xs: '1 0 calc(50% - 16px)',
+                    md: '1 0 calc(33% - 16px)'
+                  }
+                }}
+              />
+              <TextField
+                label="Cod poştal"
+                name="codPostal"
+                value={companyData.codPostal}
+                onChange={handleCompanyDataChange}
+                className={classes.ValueInput}
+                type="number"
+                required
+                sx={{
+                  flex: {
+                    xs: '1 0 calc(50% - 16px)',
+                    md: '1 0 calc(33% - 16px)'
+                  }
+                }}
+              />
+              <TextField
+                label="Cod numeric personal / Număr de identificare fiscală"
+                name="cnp"
+                value={companyData.cnp}
+                onChange={handleCompanyCnpChange}
+                className={classes.ValueInput}
+                type="number"
+                required
+                sx={{
+                  flex: {
+                    xs: '1 0 calc(100% - 16px)',
+                    md: '1 0 calc(75% - 16px)'
+                  }
+                }}
+              />
+              <TextField
+                label="Fax"
+                name="fax"
+                value={companyData.fax}
+                onChange={handleCompanyDataChange}
+                className={classes.ValueInput}
+                type="number"
+                sx={{
+                  flex: {
+                    xs: '1 0 calc(25% - 16px)',
+                    md: '1 0 calc(25% - 16px)'
+                  }
+                }}
+              />
+              <TextField
+                label="E-mail"
+                name="email"
+                value={companyData.email}
+                onChange={handleCompanyDataChange}
+                className={classes.ValueInput}
+                type="email"
+                required
+                sx={{ flex: '1 0 calc(75% - 16px)' }}
+              />
+              <TextField
+                label="Telefon"
+                name="telefon"
+                value={companyData.telefon}
+                onChange={handleCompanyDataChange}
+                className={classes.ValueInput}
+                type="number"
+                required
+                sx={{ flex: '1 0 calc(100% - 16px)' }}
+              />
+            </Box>
+            <Box className={classes.FormFooterCompany}>
+              <Typography variant="subtitle1" sx={{ flex: 9 }}>
+                Descarcă în format PDF cererea privind destinația sumei
+                reprezentând până la 3,5% din impozitul anual datorat.
+              </Typography>
+              <Button
+                type="submit"
+                id="downloadButton"
+                variant="contained"
+                disableRipple
+                disableFocusRipple
+                disableTouchRipple
+                className={classes.DownloadButton}
+                onClick={handleSubmitButtonClick}
+              >
+                <GetAppIcon />
+              </Button>
+            </Box>
+          </Box>
+        )}
 
         <Box className={cx(classes.Container, classes.MainContainer)}>
           <Box
