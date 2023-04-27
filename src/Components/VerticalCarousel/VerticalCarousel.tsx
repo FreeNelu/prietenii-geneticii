@@ -17,6 +17,7 @@ function VerticalCarousel (props: VerticalCarouselProps) {
   const { className, blogs } = props
   const { classes } = useStyles()
   const slider = useRef<Slider>(null)
+  const containerRef = useRef<HTMLDivElement>(null)
 
   const settings = {
     accessibility: true,
@@ -27,6 +28,24 @@ function VerticalCarousel (props: VerticalCarouselProps) {
     verticalSwiping: true,
     arrows: false
   }
+
+  const handleTouchMove = (e: TouchEvent) => {
+    e.preventDefault()
+  }
+
+  React.useEffect(() => {
+    const container = containerRef.current
+
+    if (container) {
+      container.addEventListener('touchmove', handleTouchMove, { passive: false })
+    }
+
+    return () => {
+      if (container) {
+        container.removeEventListener('touchmove', handleTouchMove)
+      }
+    }
+  }, [])
 
   const onScroll = () => {
     if (slider?.current) {
@@ -48,6 +67,7 @@ function VerticalCarousel (props: VerticalCarouselProps) {
           lg: '4px 25% 0% 25%'
         }
       }}
+      ref={containerRef}
     >
       {blogs.length <= 2
         ? (
