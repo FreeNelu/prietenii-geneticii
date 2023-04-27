@@ -55,7 +55,7 @@ function AboutPage () {
     <Box className={classes.Container}>
       <Box className={classes.Description}>
         <Typography gutterBottom fontWeight={700} variant="h3">
-          <span className={classes.GreenShadow}>D</span>espre Noi
+          <span className={classes.GreenShadow}>D</span>espre noi
         </Typography>
         <Typography
           variant="body1"
