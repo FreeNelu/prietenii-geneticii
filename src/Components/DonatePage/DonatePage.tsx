@@ -25,12 +25,10 @@ function DonatePage () {
           <br /> pentru susținere<span className={classes.PinkShadow}>!</span>
         </Typography>
         <Typography gutterBottom variant="body1">
-          Donațiile tale ne ajută să distribuim medicamente și să oferim sprijin
-          celor afectați de boli genetice.
+          Prin donațiile tale, poți să faci diferența în viețile celor afectați de boli genetice, oferindu-le sprijinul de care au nevoie.
         </Typography>
         <Typography variant="body2">
-          Fii alături de noi în lupta împotriva acestora prin a alege o donație
-          lunară sau una unică.
+          Alătură-te nouă astăzi și ajută-ne să continuăm lupta pentru a îmbunătăți calitatea vieții acestor persoane vulnerabile și a familiilor lor.
         </Typography>
       </div>
       <Box className={classes.DonateBox}>
