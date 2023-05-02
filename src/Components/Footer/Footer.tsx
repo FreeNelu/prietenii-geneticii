@@ -28,8 +28,10 @@ function Footer () {
   const theme = useTheme()
   const isMobile = useMediaQuery(theme.breakpoints.down('md'))
 
+  const email = 'prieteniigeneticii2020@gmail.com'
+
   const LogoWithText = (
-    <Link className={classes.Logo} to={'/'}>
+    <Box sx={{ display: 'flex' }}>
       <LogoIcon
         height={!isMobile ? LOGO_SIZE.LARGE : LOGO_SIZE.REGULAR}
         className={classes.LogoIcon}
@@ -44,8 +46,17 @@ function Footer () {
         <br />
         <span className={classes.LogoText}>GENETICII</span>
       </div>
-    </Link>
+    </Box>
   )
+
+  const handleMapClick = () => {
+    const locationName = encodeURIComponent('Str. Martir Ovidiu Munteanu, 9, Timisoara')
+    window.open(`https://www.google.com/maps/search/?api=1&query=${locationName}`, '_blank')
+  }
+
+  const handleEmailClick = () => {
+    window.location.href = `mailto:${email}?`
+  }
 
   return (
     <>
@@ -104,11 +115,11 @@ function Footer () {
               alignItems: 'center'
             }}
           >
-            <IconButton className={classes.IconButton}>
+            <IconButton className={classes.IconButton} onClick={handleMapClick}>
               <PlaceIcon fontSize="large" />
             </IconButton>
             <Typography variant="body1">
-              Piaţa Eftimie Murgu Nr. 2, 300041
+              Str. Martir Ovidiu Munteanu, 9, Timisoara
             </Typography>
           </Box>
           <Box
@@ -121,7 +132,7 @@ function Footer () {
             <IconButton className={classes.Icon} disableRipple>
               <CallIcon fontSize="large" />
             </IconButton>
-            <Typography variant="body1">+40743838771</Typography>
+            <Typography variant="body1">+40 745 138 917 </Typography>
           </Box>
           <Box
             sx={{
@@ -130,11 +141,11 @@ function Footer () {
               alignItems: 'center'
             }}
           >
-            <IconButton className={classes.Icon} disableRipple>
+            <IconButton className={classes.IconButton} onClick={handleEmailClick}>
               <EmailIcon fontSize="large" />
             </IconButton>
             <Typography variant="body1">
-              prieteniigeneticiicontact@gmail.com
+              {email}
             </Typography>
           </Box>
         </Box>
