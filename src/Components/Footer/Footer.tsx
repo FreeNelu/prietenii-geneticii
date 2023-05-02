@@ -112,7 +112,8 @@ function Footer () {
             sx={{
               display: 'flex',
               flexDirection: 'column',
-              alignItems: 'center'
+              alignItems: 'center',
+              textAlign: 'center'
             }}
           >
             <IconButton className={classes.IconButton} onClick={handleMapClick}>
@@ -126,7 +127,8 @@ function Footer () {
             sx={{
               display: 'flex',
               flexDirection: 'column',
-              alignItems: 'center'
+              alignItems: 'center',
+              textAlign: 'center'
             }}
           >
             <IconButton className={classes.Icon} disableRipple>
@@ -138,7 +140,8 @@ function Footer () {
             sx={{
               display: 'flex',
               flexDirection: 'column',
-              alignItems: 'center'
+              alignItems: 'center',
+              textAlign: 'center'
             }}
           >
             <IconButton className={classes.IconButton} onClick={handleEmailClick}>
