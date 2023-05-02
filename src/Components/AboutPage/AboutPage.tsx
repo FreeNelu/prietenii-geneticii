@@ -101,7 +101,7 @@ function AboutPage () {
       {ImageAndText(
         asociatia1,
         'Educare',
-        'Lucrăm neobosit pentru a educa și sprijini copiii afectați de aceste boli prin diferite programe speciailizate pe care le răspândim în școli. Ne concentram pe a oferi informații utile, educație și suport emoțional pentru familiile care se confruntă cu aceste afecțiuni.'
+        'Lucrăm neobosit pentru a educa și sprijini copiii afectați de aceste boli prin diferite programe specializate pe care le răspândim în școli. Ne concentram pe a oferi informații utile, educație și suport emoțional pentru familiile care se confruntă cu aceste afecțiuni.'
       )}
       {ImageAndText(
         asociatia2,
