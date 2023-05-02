@@ -22,7 +22,8 @@ export const useStyles = makeStyles()(
       borderRadius: '25px',
       marginTop: 32,
       marginBottom: 32,
-      boxShadow: theme.boxShadow
+      boxShadow: theme.boxShadow,
+      width: '100%'
     },
     ImageTextContainer: {
       margin: 'auto',
