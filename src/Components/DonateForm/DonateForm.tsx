@@ -306,7 +306,7 @@ function DonateForm (props: DonateFormProps) {
         </Box>
       </form>
 
-      {isCompany &&
+      {!isCompany &&
         (donationFinished
           ? (
           <form onSubmit={onSubmitPDF}>
@@ -343,6 +343,7 @@ function DonateForm (props: DonateFormProps) {
                   value={companyData.initialaTatalui}
                   onChange={handleCompanyDataChange}
                   className={classes.ValueInput}
+                  required
                   sx={{
                     flex: {
                       xs: '1 0 calc(100% - 16px)',
