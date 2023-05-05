@@ -60,16 +60,12 @@ const PayPalButtonsWrapper = ({
               }
             ]
           })
-          .then((orderId) => {
-            // after creating the donation
-            onDonationSuccess()
-            return orderId
-          })
       }}
       onApprove={async (data, actions) => {
         await actions?.order?.capture().then((details) => {
           const name = details?.payer?.name?.given_name
           alert(`Transaction completed by ${name ?? ''}`)
+          onDonationSuccess()
         })
       }}
     />
