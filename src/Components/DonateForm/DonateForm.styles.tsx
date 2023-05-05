@@ -102,6 +102,19 @@ export const useStyles = makeStyles()(
         }
       }
     }),
+    HintBox: {
+      marginTop: 24,
+      boxSizing: 'border-box',
+      display: 'flex',
+      justifyContent: 'center',
+      alignItems: 'center',
+      backgroundColor: theme.backgroundSecondary,
+      width: '100%',
+      minHeight: 100,
+      borderRadius: 8,
+      boxShadow: theme.boxShadow,
+      textAlign: 'center'
+    },
     FormHeader: {
       boxSizing: 'border-box',
       display: 'flex',

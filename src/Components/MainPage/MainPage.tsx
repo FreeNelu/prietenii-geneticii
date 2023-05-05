@@ -27,7 +27,7 @@ function MainPage () {
         }}
       >
         <Typography gutterBottom fontWeight={700} variant="h3">
-          Împreună,
+          Împreună
           <br />
           vindecăm genetica.
         </Typography>

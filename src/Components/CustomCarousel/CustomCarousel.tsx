@@ -36,7 +36,7 @@ function CustomCarousel (props: CustomCarouselProps) {
         }
       }}>
         <Typography variant={isMobile ? 'h3' : 'h2'} gutterBottom fontWeight={700}>
-          Împreună,<br/>schimbăm vieți.
+          Împreună<br/>schimbăm vieți.
         </Typography>
         <Typography variant={isMobile ? 'h5' : 'h4'} className={classes.Caption}>
           Află cum sprijinul tău face o diferență reală pentru persoanele afectate de boli genetice.

@@ -120,7 +120,7 @@ function Footer () {
               <PlaceIcon fontSize="large" />
             </IconButton>
             <Typography variant="body1">
-              Str. Martir Ovidiu Munteanu, 9, Timisoara
+              Str. Martir Ovidiu Munteanu nr. 9 RO-300360 Timișoara, TM
             </Typography>
           </Box>
           <Box

@@ -94,7 +94,7 @@ function AboutPage () {
       {ImageAndText(
         universityImage,
         'Colaborare',
-        'Organizația Prietenii Geneticii, condusă de Dr. Maria Puiu, colaborează strâns cu Universitatea de Medicină și Farmacie Victor Babeș Timișoara pentru a îmbunătăți viețile copiilor cu boli genetice rare. Împreună,  organizăm evenimente pentru a crește gradul de conștientizare cu privire la bolile rare și pentru a promova educația în acest domeniu important.',
+        'Organizația Prietenii Geneticii, condusă de Dr. Maria Puiu, colaborează strâns cu Universitatea de Medicină și Farmacie Victor Babeș Timișoara pentru a îmbunătăți viețile copiilor cu boli genetice rare. Împreună organizăm evenimente pentru a crește gradul de conștientizare cu privire la bolile rare și pentru a promova educația în acest domeniu important.',
         asociatia5,
         'De asemenea, organizația colaborează cu ANBRaRo (Alianța Națională pentru Boli Rare România), care are ca misiune dezvoltarea și promovarea de activități de lobby și advocacy pentru îmbunătățirea calității vieții pacienților cu boli rare din România. Obiectivul general este de a crește responsabilitatea comunității față de pacienții cu boli rare prin implicarea pacienților, familiilor, specialiștilor și a autorităților cu scopul final de a îmbunătăți calitatea vieții acestor persoane.'
       )}
