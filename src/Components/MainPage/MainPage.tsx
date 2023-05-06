@@ -36,7 +36,7 @@ function MainPage () {
           vindecăm boli genetice prin donația ta.
         </Typography>
         <Typography variant="caption">
-          “No one has ever become poor from giving.” – Anne Frank
+          “No one has ever become poor from giving.” – Anne FRANK
         </Typography>
       </Box>
       <Box

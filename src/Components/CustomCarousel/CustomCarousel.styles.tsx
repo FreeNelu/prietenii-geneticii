@@ -16,6 +16,10 @@ export const useStyles = makeStyles()(
     },
     Caption: {
       color: theme.background
+    },
+    IconButton: {
+      color: theme.background,
+      margin: 4
     }
   })
 )
