@@ -29,7 +29,7 @@ function MainPage () {
         <Typography gutterBottom fontWeight={700} variant="h3">
           Împreună
           <br />
-          vindecăm genetica.
+          alături de bolile rare.
         </Typography>
         <Typography variant="subtitle1">
           Alatura-te misiunii noastre și ajuta-ne să cercetăm, să prevenim și să
