@@ -9,31 +9,15 @@ import {
 import Loader from 'Components/BlogPage/Loader'
 import { useStyles } from './VirtualAssistantPage.styles'
 import nurseMale from 'Assets/nurseMale.png'
+import { HfInferenceEndpoint } from '@huggingface/inference'
 
-interface QueryInput {
-  inputs: string
+interface Token {
+  special: boolean
+  text: string
 }
 
-interface QueryResponse {
-  0: {
-    generated_text: string
-  }
-}
-
-async function query (data: QueryInput): Promise<QueryResponse> {
-  const response = await fetch(
-    'https://hd9byeh17dqqd22u.us-east-1.aws.endpoints.huggingface.cloud',
-    {
-      headers: {
-        Authorization: 'Bearer xxKFwxatKWuovWZTKtNKXfAsrdOBqstnVihhNyKpXmOfLMtYgIrDaFJwCmtFdlMrRrRsgnEisENoiVeClaVHTfcRCUVQbASxCYcMprKhWwwCJNRgCYsxmoOiVJhoZzJs',
-        'Content-Type': 'application/json'
-      },
-      method: 'POST',
-      body: JSON.stringify(data)
-    }
-  )
-  const result: QueryResponse = await response.json()
-  return result
+interface Response {
+  token: Token
 }
 
 const VirtualAssistantPage = () => {
@@ -42,19 +26,36 @@ const VirtualAssistantPage = () => {
   const [isLoading, setIsLoading] = useState(false)
   const { classes } = useStyles()
 
-  const handleQuery = () => {
-    void (async () => {
-      setIsLoading(true)
-      setResponse('')
-      const data = { inputs: userInput }
-      const result = await query(data)
-      console.log(result)
+  const hf = new HfInferenceEndpoint('https://qgury1g624ssnc7a.eu-west-1.aws.endpoints.huggingface.cloud', 'QgqIRNCfOzDBcaEeMUPfAzaJVvdCCdyuaVFdLYenZnJDuehHIEZmGIARfZpLtfcNzEjTGTETGhWRgXXxmdRPkHSWCKOZJHRZCfjOLVZYWeFhsbFPVDDdhQaDBesCwEOc')
+
+  // eslint-disable-next-line @typescript-eslint/naming-convention
+  const gen_kwargs = {
+    max_new_tokens: 150,
+    top_k: 30,
+    top_p: 0.9,
+    temperature: 0.1,
+    repetition_penalty: 1.1,
+    stop_sequences: ['.', '</s>']
+  }
+
+  const handleGenerateText = async () => {
+    const prompt = userInput
+    setIsLoading(true)
+    setResponse('')
+    setUserInput('')
+    const stream = hf.textGenerationStream({ inputs: prompt, parameters: gen_kwargs })
+
+    for await (const r of stream) {
       setIsLoading(false)
-      setResponse(
-        result[0].generated_text ??
-        'Scuze, am întâmpinat o problema. Mai încearcă.'
-      )
-    })()
+      if (r.token.special) {
+        continue
+      }
+      if (gen_kwargs.stop_sequences.includes(r.token.text)) {
+        setResponse(prevText => prevText + '.')
+        break
+      }
+      setResponse(prevText => prevText + r.token.text)
+    }
   }
 
   return (
@@ -76,7 +77,8 @@ const VirtualAssistantPage = () => {
             justifyContent: 'space-between',
             border: '0px solid transparent',
             borderBottom: '0px',
-            borderRadius: '4px'
+            borderRadius: '4px',
+            marginBottom: '8px'
           }}
         >
           <Box
@@ -122,7 +124,7 @@ const VirtualAssistantPage = () => {
               className={classes.QueryButton}
               onClick={() => {
                 setUserInput(
-                  'Poți să-mi spui mai multe despre bolile genetice rare?'
+                  'Ce sunt bolile genetice rare?'
                 )
               }}
             >
@@ -133,7 +135,7 @@ const VirtualAssistantPage = () => {
               className={classes.QueryButton}
               onClick={() => {
                 setUserInput(
-                  "Povestește-mi despre organizația 'Prietenii Geneticii'."
+                  "Ce este organizația 'Prietenii Geneticii'?"
                 )
               }}
             >
@@ -143,7 +145,8 @@ const VirtualAssistantPage = () => {
           <Button
             variant="contained"
             color="primary"
-            onClick={handleQuery}
+            // eslint-disable-next-line @typescript-eslint/no-misused-promises
+            onClick={handleGenerateText}
             className={classes.PromptButton}
             disabled={!userInput}
           >
