@@ -24,9 +24,7 @@ export const useStyles = makeStyles()(
     },
     Loader: {
       transform: 'scale(0.75), translate(-50%, -50%)',
-      position: 'absolute',
-      top: '50%',
-      left: '50%'
+      padding: 0
     },
     TextArea: {
       alignSelf: 'flex-start',
