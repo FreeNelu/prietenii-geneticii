@@ -40,6 +40,10 @@ export const useStyles = makeStyles()(
         borderBottom: '8px solid ' + theme.blue,
         pointerEvents: 'none'
       },
+      '&.DisabledPurple': {
+        borderBottom: '8px solid ' + theme.purple,
+        pointerEvents: 'none'
+      },
       '&:hover': {
         backgroundColor: theme.backgroundSecondary
       }

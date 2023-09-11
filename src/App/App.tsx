@@ -10,6 +10,7 @@ import BlogDetails from 'Components/BlogPage/BlogDetails/BlogDetails'
 import ScrollToTop from 'Components/ScrollToTop/ScrollToTop'
 import Footer from 'Components/Footer/Footer'
 import AboutPage from 'Components/AboutPage/AboutPage'
+import VirtualAssistantPage from 'Components/VirtualAssistantPage/VirtualAssistantPage'
 
 function App () {
   const { classes } = useStyles()
@@ -23,6 +24,7 @@ function App () {
           <Route path="about" element={<AboutPage />} />
           <Route path="blog" element={<BlogPage />} />
           <Route path="blog/:id" element={<BlogDetails />} />
+          <Route path="assistant" element={<VirtualAssistantPage />} />
           <Route path="donate" element={<DonatePage />} />
           <Route path="*" element={<BadRoute />} />
         </Routes>

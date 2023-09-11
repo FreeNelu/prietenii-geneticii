@@ -13,6 +13,7 @@ function useTheme () {
     darkpink: '#C23C7D',
     lightpink: '#FC4EA3',
     purple: '#642578',
+    darkPurple: '#4B0082',
     boxShadow: 'rgba(149, 157, 165, 0.2) 0px 8px 24px'
   }
 }

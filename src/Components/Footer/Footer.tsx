@@ -90,12 +90,20 @@ function Footer () {
               <Typography variant="h5">BLOG</Typography>
             </Button>
           </Link>
+          <Link to={'/blog'} className={classes.Link}>
+            <Button
+              className={classes.PageButton}
+              disabled={location.pathname === '/assistant'}
+            >
+              <Typography variant="h5">ASISTENT</Typography>
+            </Button>
+          </Link>
           <Link to={'/donate'} className={classes.Link}>
             <Button
               className={classes.PageButton}
               disabled={location.pathname === '/donate'}
             >
-              <Typography variant="h5">DONATE</Typography>
+              <Typography variant="h5">DONEAZĂ</Typography>
             </Button>
           </Link>
         </Box>

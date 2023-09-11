@@ -86,6 +86,14 @@ function Header (props: HeaderProps) {
                           <Typography variant='h6'>BLOG</Typography>
                         </Button>
                       </Link>
+                      <Link to={'/assistant'} className={classes.Link}>
+                        <Button
+                          onClick={handleCloseNavMenu}
+                          className={cx(classes.PageButton, location.pathname === '/assistant' ? 'DisabledPurple' : '')}
+                        >
+                          <Typography variant='h6'>ASISTENT</Typography>
+                        </Button>
+                      </Link>
                       <Link to={'/donate'} className={classes.Link}>
                         <DonateButton onClick={handleCloseNavMenu} selected={isRouteDonation}/>
                       </Link>
