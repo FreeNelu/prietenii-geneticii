@@ -26,7 +26,16 @@ const VirtualAssistantPage = () => {
   const [isLoading, setIsLoading] = useState(false)
   const { classes } = useStyles()
 
-  const hf = new HfInferenceEndpoint('https://qgury1g624ssnc7a.eu-west-1.aws.endpoints.huggingface.cloud', 'QgqIRNCfOzDBcaEeMUPfAzaJVvdCCdyuaVFdLYenZnJDuehHIEZmGIARfZpLtfcNzEjTGTETGhWRgXXxmdRPkHSWCKOZJHRZCfjOLVZYWeFhsbFPVDDdhQaDBesCwEOc')
+  const withContext = (question: string) => {
+    const context =
+      "I am a chatbot in the webstite for 'Prietenii Geneticii', a charity non-profit organization for patients suffering from rare genetic diseases. This is my answer to the question '"
+    return context + question + "':"
+  }
+
+  const hf = new HfInferenceEndpoint(
+    'https://zy3lugrb02mdwblp.us-east-1.aws.endpoints.huggingface.cloud',
+    'QgqIRNCfOzDBcaEeMUPfAzaJVvdCCdyuaVFdLYenZnJDuehHIEZmGIARfZpLtfcNzEjTGTETGhWRgXXxmdRPkHSWCKOZJHRZCfjOLVZYWeFhsbFPVDDdhQaDBesCwEOc'
+  )
 
   // eslint-disable-next-line @typescript-eslint/naming-convention
   const gen_kwargs = {
@@ -39,11 +48,14 @@ const VirtualAssistantPage = () => {
   }
 
   const handleGenerateText = async () => {
-    const prompt = userInput
+    const prompt = withContext(userInput)
     setIsLoading(true)
     setResponse('')
     setUserInput('')
-    const stream = hf.textGenerationStream({ inputs: prompt, parameters: gen_kwargs })
+    const stream = hf.textGenerationStream({
+      inputs: prompt,
+      parameters: gen_kwargs
+    })
 
     for await (const r of stream) {
       setIsLoading(false)
@@ -51,10 +63,10 @@ const VirtualAssistantPage = () => {
         continue
       }
       if (gen_kwargs.stop_sequences.includes(r.token.text)) {
-        setResponse(prevText => prevText + '.')
+        setResponse((prevText) => prevText + '.')
         break
       }
-      setResponse(prevText => prevText + r.token.text)
+      setResponse((prevText) => prevText + r.token.text)
     }
   }
 
@@ -66,7 +78,7 @@ const VirtualAssistantPage = () => {
           width: { xs: '80%', md: '70%', lg: '60%' }
         }}
       >
-        <Typography fontWeight={700} variant='h3' className={classes.Text}>
+        <Typography fontWeight={700} variant="h3" className={classes.Text}>
           <span className={classes.PurpleShadow}>A</span>sistent Virtual
         </Typography>
         {isLoading && <Loader className={classes.Loader} />}
@@ -113,34 +125,47 @@ const VirtualAssistantPage = () => {
             display: 'flex',
             width: '100%',
             justifyContent: 'space-between',
-            marginTop: '8px'
+            marginTop: '8px',
+            flexDirection: { xs: 'column', md: 'row' },
+            marginBottom: '8px'
           }}
         >
           <Box
-            sx={{ display: 'flex', textAlign: 'center', alignItems: 'center' }}
+            sx={{ display: 'flex', textAlign: 'center', alignItems: 'center', marginBottom: '8px' }}
           >
             <Typography>Sugestii: </Typography>
-            <Button
-              className={classes.QueryButton}
-              onClick={() => {
-                setUserInput(
-                  'Ce sunt bolile genetice rare?'
-                )
+            <Box
+              sx={{
+                display: 'flex',
+                textAlign: 'center',
+                alignItems: 'center'
               }}
             >
-              Bolile genetice rare
-            </Button>
-
-            <Button
-              className={classes.QueryButton}
-              onClick={() => {
-                setUserInput(
-                  "Ce este organizația 'Prietenii Geneticii'?"
-                )
-              }}
-            >
-              Organizația Prietenii Geneticii
-            </Button>
+              <Button
+                className={classes.QueryButton}
+                onClick={() => {
+                  setUserInput('Who is affected by rare genetic diseases?')
+                }}
+              >
+                Genetic diseases
+              </Button>
+              <Button
+                className={classes.QueryButton}
+                onClick={() => {
+                  setUserInput("What is Down's syndrome?")
+                }}
+              >
+                {"Down's syndrome"}
+              </Button>
+              <Button
+                className={classes.QueryButton}
+                onClick={() => {
+                  setUserInput("What does the 'Prietenii Geneticii' organization do?")
+                }}
+              >
+                Prietenii Geneticii
+              </Button>
+            </Box>
           </Box>
           <Button
             variant="contained"

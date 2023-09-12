@@ -68,7 +68,6 @@ export const useStyles = makeStyles<{ open: boolean }>()(
     },
     Link: {
       textDecoration: 'none',
-      width: '65%',
       display: 'flex',
       justifyContent: 'center',
       borderRadius: '24px 12px',

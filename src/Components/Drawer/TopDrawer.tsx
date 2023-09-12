@@ -43,9 +43,11 @@ function TopDrawer (props: TopDrawerProps) {
     <div onClick={onClose} className={classes.Links}>
       <div className={classes.DefaultLinks}>
         {drawerData.map(({ title, link }, index) => (
-          <Link key={index} to={link} className={classes.Link}>
-            <Typography align='center' fontWeight={700} variant='h6'>{title}</Typography>
-          </Link>
+          <Box key={index} sx={{ width: { xs: '45%', sm: '65%' } }}>
+            <Link to={link} className={classes.Link}>
+              <Typography sx={{ fontSize: { xs: '16px', sm: '20px' } }} align='center' fontWeight={700} variant='h6'>{title}</Typography>
+            </Link>
+          </Box>
         ))}
       </div>
       <Link to="/donate" className={classes.DonateLink}>

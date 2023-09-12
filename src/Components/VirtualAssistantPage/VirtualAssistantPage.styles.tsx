@@ -58,7 +58,7 @@ export const useStyles = makeStyles()(
       }
     },
     Text: {
-      marginBottom: 12
+      textAlign: 'center'
     },
     PurpleShadow: {
       textShadow: '-5px -2px' + theme.purple

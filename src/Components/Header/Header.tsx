@@ -25,7 +25,7 @@ function Header (props: HeaderProps) {
 
   const { classes, cx } = useStyles()
 
-  const drawerData = [{ title: 'ASOCIAȚIA', link: 'about' }, { title: 'BLOG', link: 'blog' }, { title: 'ACASĂ', link: '/' }]
+  const drawerData = [{ title: 'ASOCIAȚIA', link: 'about' }, { title: 'BLOG', link: 'blog' }, { title: 'ASISTENT', link: 'assistant' }, { title: 'ACASĂ', link: '/' }]
 
   const handleOpenNavMenu = (event: React.MouseEvent<HTMLElement>) => {
     setNavMenuOpen(true)

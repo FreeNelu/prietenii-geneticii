@@ -90,7 +90,7 @@ function Footer () {
               <Typography variant="h5">BLOG</Typography>
             </Button>
           </Link>
-          <Link to={'/blog'} className={classes.Link}>
+          <Link to={'/assistant'} className={classes.Link}>
             <Button
               className={classes.PageButton}
               disabled={location.pathname === '/assistant'}
