@@ -52,12 +52,11 @@ export const useStyles = makeStyles<{ open: boolean }>()(
     },
     DefaultLinks: {
       display: 'flex',
-      flexDirection: 'column',
       width: '80%',
       justifyContent: 'center',
       alignItems: 'center',
+      alignContent: 'center',
       paddingBottom: '40%',
-      gap: 12,
       marginTop: 12
     },
     DonateLink: {
