@@ -23,7 +23,6 @@ export const useStyles = makeStyles()(
       color: theme.textPrimary
     },
     Loader: {
-      transform: 'scale(0.75), translate(-50%, -50%)',
       padding: 0
     },
     TextArea: {

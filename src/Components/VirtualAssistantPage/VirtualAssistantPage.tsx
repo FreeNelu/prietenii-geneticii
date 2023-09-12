@@ -44,7 +44,31 @@ const VirtualAssistantPage = () => {
     top_p: 0.9,
     temperature: 0.1,
     repetition_penalty: 1.1,
-    stop_sequences: ['.', '</s>']
+    stop_sequences: ['</s>']
+  }
+
+  const truncateUnwantedContent = (response: string) => {
+    const patterns = [
+      /I am a chatbot/i,
+      /I'm a chatbot/i
+    ]
+
+    for (const pattern of patterns) {
+      const firstMatchIndex = response.search(pattern)
+
+      if (firstMatchIndex !== -1) {
+        const remainingText = response.substring(firstMatchIndex + 1) // +1 to skip past the first character of the first match
+        const secondMatchIndex = remainingText.search(pattern)
+
+        if (secondMatchIndex !== -1) { // If there's a second occurrence
+          return response.substring(0, firstMatchIndex + 1 + secondMatchIndex).trim()
+        } else if (firstMatchIndex !== 0) { // If the first occurrence is not at the start
+          return response.substring(0, firstMatchIndex).trim()
+        }
+      }
+    }
+
+    return response
   }
 
   const handleGenerateText = async () => {
@@ -52,21 +76,42 @@ const VirtualAssistantPage = () => {
     setIsLoading(true)
     setResponse('')
     setUserInput('')
+
+    let fullResponse = ''
     const stream = hf.textGenerationStream({
       inputs: prompt,
       parameters: gen_kwargs
     })
 
+    // Collect all tokens
     for await (const r of stream) {
-      setIsLoading(false)
-      if (r.token.special) {
-        continue
+      if (!r.token.special) {
+        fullResponse += r.token.text
       }
-      if (gen_kwargs.stop_sequences.includes(r.token.text)) {
-        setResponse((prevText) => prevText + '.')
-        break
+    }
+
+    // Post-process the response
+    if (!fullResponse.endsWith('.')) {
+      const lastPeriodIndex = fullResponse.lastIndexOf('.')
+      if (lastPeriodIndex !== -1) {
+        fullResponse = fullResponse.substring(0, lastPeriodIndex + 1)
+      } else {
+        fullResponse += '.' // If no period is found, append one
       }
-      setResponse((prevText) => prevText + r.token.text)
+    }
+
+    // Ensure the response starts with a letter from any alphabet
+    const validStartRegex = /^[^\p{L}]*/u
+    fullResponse = fullResponse.replace(validStartRegex, '')
+    console.log(fullResponse)
+    fullResponse = truncateUnwantedContent(fullResponse)
+    console.log(fullResponse)
+    setIsLoading(false)
+
+    // Display the full response character-by-character
+    for (const char of fullResponse) {
+      setResponse((prevText) => prevText + char)
+      await new Promise((resolve) => setTimeout(resolve, 10)) // Adjust delay as needed
     }
   }
 
@@ -131,7 +176,12 @@ const VirtualAssistantPage = () => {
           }}
         >
           <Box
-            sx={{ display: 'flex', textAlign: 'center', alignItems: 'center', marginBottom: '8px' }}
+            sx={{
+              display: 'flex',
+              textAlign: 'center',
+              alignItems: 'center',
+              marginBottom: '8px'
+            }}
           >
             <Typography>Sugestii: </Typography>
             <Box
@@ -160,7 +210,9 @@ const VirtualAssistantPage = () => {
               <Button
                 className={classes.QueryButton}
                 onClick={() => {
-                  setUserInput("What does the 'Prietenii Geneticii' organization do?")
+                  setUserInput(
+                    "What does the 'Prietenii Geneticii' organization do?"
+                  )
                 }}
               >
                 Prietenii Geneticii
