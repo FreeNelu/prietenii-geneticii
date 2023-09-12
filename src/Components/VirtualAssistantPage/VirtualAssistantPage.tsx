@@ -103,9 +103,7 @@ const VirtualAssistantPage = () => {
     // Ensure the response starts with a letter from any alphabet
     const validStartRegex = /^[^\p{L}]*/u
     fullResponse = fullResponse.replace(validStartRegex, '')
-    console.log(fullResponse)
     fullResponse = truncateUnwantedContent(fullResponse)
-    console.log(fullResponse)
     setIsLoading(false)
 
     // Display the full response character-by-character
